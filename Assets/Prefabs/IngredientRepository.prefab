@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7783675664118885333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5130665528892169065}
+  - component: {fileID: 3741318569531942593}
+  m_Layer: 0
+  m_Name: IngredientRepository
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5130665528892169065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7783675664118885333}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1461.6401, y: 382.96707, z: -241.17917}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3741318569531942593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7783675664118885333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c730249f3b6ac4f95cee843874c976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredients:
+  - ingredientSprite: {fileID: 21300000, guid: c78cd74e3c356df4c9bc88741eb3f1ec, type: 3}
+    input: h
+    ID: 1
+    unlocked: 1
+  - ingredientSprite: {fileID: 21300000, guid: 7bcd68ae5cbb54e469a8e2d427aab484, type: 3}
+    input: j
+    ID: 2
+    unlocked: 1
+  - ingredientSprite: {fileID: 21300000, guid: c112efb63a590594091ec865b0f1e42f, type: 3}
+    input: k
+    ID: 3
+    unlocked: 0
+  - ingredientSprite: {fileID: 21300000, guid: 515d1fdb9ebf77546a6e4b9f734b951b, type: 3}
+    input: l
+    ID: 4
+    unlocked: 0
+  - ingredientSprite: {fileID: 21300000, guid: 11a5de71a7217ad43bdccb5d5dd2a55f, type: 3}
+    input: u
+    ID: 5
+    unlocked: 0
+  - ingredientSprite: {fileID: 21300000, guid: 01a6394037921e543852c7a9ba91a828, type: 3}
+    input: i
+    ID: 6
+    unlocked: 0

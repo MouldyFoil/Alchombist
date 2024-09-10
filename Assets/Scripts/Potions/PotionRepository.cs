@@ -1,0 +1,57 @@
+using System.Collections;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PotionRepository : MonoBehaviour
+{
+    [SerializeField] Potion[] potions;
+    //[SerializeField] Potion[] potions;
+    public Potion ReturnPotion(int index)
+    {
+        return potions[index];
+    }
+    public int ReturnPotionsArrayLength()
+    {
+        return potions.Length;
+    }
+    public Potion[] ReturnPotions()
+    {
+        return potions;
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+    
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
+
+
+[Serializable]
+public class Potion
+{
+public enum potionTypeEnum { spawn_on_player = 0, spawn_on_aim = 1, spawn_as_child = 2}
+
+
+    //Name of potion in recipe book
+    public string name;
+    //Descriptions of Potions
+    public string description;
+    //The gameobject/potion an input sequence instantiates
+    public GameObject prefab;
+    //The sprite used in the recipe book
+    public Sprite spriteInBook;
+    //The inputs required for a specific potion in index format
+    public int ingredientCombo;
+    //Type 0 = spawn on player, type 1 = spawn on aim, type 2 = spawn as child
+    //public int potionType;
+    public potionTypeEnum spawnType;
+    //Determines if potion appears in book
+    public bool discovered;
+}
