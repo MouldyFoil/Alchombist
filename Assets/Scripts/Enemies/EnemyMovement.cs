@@ -1,3 +1,4 @@
+using Pathfinding;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] Transform aimTransform;
     Rigidbody2D rb;
+    AIPath path;
     Vector3 target;
     Vector3 aimDirection;
     bool aimToggle = true;
@@ -14,6 +16,7 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        path = GetComponent<AIPath>();
     }
     // Update is called once per frame
     void Update()
@@ -30,6 +33,33 @@ public class EnemyMovement : MonoBehaviour
                 AimAtTarget();
             }
         }
+    }
+    public bool ReturnIsBlocked()
+    {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(aimTransform.position, aimTransform.right);
+        foreach(RaycastHit2D hit in hits)
+        {
+            if(hit.collider.gameObject.layer == 9)
+            {
+                return true;
+            }
+            if(hit.collider.tag == "Player")
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    public void NavigateToPlayer(float speed)
+    {
+        TogglePathfinding(true);
+        path.maxSpeed = speed;
+        path.destination = target;
+    }
+    public void TogglePathfinding(bool toggle)
+    {
+        path.enabled = toggle;
+        GetComponent<Seeker>().enabled = toggle;
     }
     public void ToggleAim(bool aiming)
     {

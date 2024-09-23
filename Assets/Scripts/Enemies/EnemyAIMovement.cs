@@ -1,7 +1,9 @@
+using Pathfinding;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyAIMovement : MonoBehaviour
 {
@@ -31,17 +33,23 @@ public class EnemyAIMovement : MonoBehaviour
     void Update()
     {
         CalculateDistance();
-        if (playerRemembered == false && distanceFromPlayer < detectDistance)
+        if (playerRemembered == false && distanceFromPlayer < detectDistance && movement.ReturnIsBlocked() == false)
         {
             playerRemembered = true;
         }
-        else if(playerRemembered == true && distanceFromPlayer < chaseDistance)
+        else if(playerRemembered == true && distanceFromPlayer < chaseDistance && movement.ReturnIsBlocked() == false)
         {
             PlayerChaseBehavior();
+            movement.TogglePathfinding(false);
+        }
+        else if (playerRemembered == true && distanceFromPlayer < chaseDistance && movement.ReturnIsBlocked() == true)
+        {
+            movement.NavigateToPlayer(speed);
         }
         else
         {
             movement.ResetVelocity();
+            playerRemembered = false;
         }
     }
     public bool ReturnIsSwitching() { return isSwitchingDirection; }
