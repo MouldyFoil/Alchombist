@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyAIMovement : MonoBehaviour
 {
     [SerializeField] float detectDistance = 10;
+    [SerializeField] float chaseDistance = 20;
     [SerializeField] float stopZoneMin = 3;
     [SerializeField] float stopZoneMax = 5;
     [SerializeField] float speed = 20f;
@@ -13,6 +14,8 @@ public class EnemyAIMovement : MonoBehaviour
     [SerializeField] float minTimeToSwitchDirection = 1;
     [SerializeField] float maxTimeToSwitchDirection = 4;
     [SerializeField] bool circleInStopZone;
+    [SerializeField] bool agressiveEnemy = false;
+    bool playerRemembered = false;
     bool isSwitchingDirection = false;
     float distanceFromPlayer = Mathf.Infinity;
     bool circleClockwise = true;
@@ -28,9 +31,13 @@ public class EnemyAIMovement : MonoBehaviour
     void Update()
     {
         CalculateDistance();
-        if (distanceFromPlayer < detectDistance)
+        if (playerRemembered == false && distanceFromPlayer < detectDistance)
         {
-            PlayerDetectedBehavior();
+            playerRemembered = true;
+        }
+        else if(playerRemembered == true && distanceFromPlayer < chaseDistance)
+        {
+            PlayerChaseBehavior();
         }
         else
         {
@@ -42,13 +49,13 @@ public class EnemyAIMovement : MonoBehaviour
     {
         distanceFromPlayer = Vector3.Distance(movement.ReturnTarget(), transform.position);
     }
-    private void PlayerDetectedBehavior()
+    private void PlayerChaseBehavior()
     {
         if (distanceFromPlayer > stopZoneMax)
         {
             movement.MoveTowardsOrBack(speed);
         }
-        if (ReturnIsInStopZone())
+        if (distanceFromPlayer > stopZoneMin && distanceFromPlayer < stopZoneMax)
         {
             if(circleInStopZone == true)
             {
@@ -125,5 +132,9 @@ public class EnemyAIMovement : MonoBehaviour
     //    }
     //    return closestEnemy;
     //}
-    public bool ReturnIsInStopZone() { return distanceFromPlayer > stopZoneMin && distanceFromPlayer < stopZoneMax; }
+    public bool ReturnIsInAttackRange() 
+    { 
+        if (agressiveEnemy) { return distanceFromPlayer < stopZoneMax; }
+        else {return distanceFromPlayer > stopZoneMin && distanceFromPlayer < stopZoneMax;}
+    }
 }

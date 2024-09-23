@@ -10,31 +10,38 @@ public class HealthPotion : MonoBehaviour
     [SerializeField] float cooldownOrDuration = 40;
     [SerializeField] int healthPotionType;
     [SerializeField] int additionalMaxHealth;
+    [SerializeField] string depletedTag = "DepletedHealthPot";
     Health playerHealth;
     // Start is called before the first frame update
     void Start()
     {
-        if(canceledBySameIDPotions == true)
+        playerHealth = FindObjectOfType<PlayerMovement>().GetComponent<Health>();
+        if (canceledBySameIDPotions == true)
         {
             DestroySelfIfSamePotionExists();
         }
-        playerHealth = FindObjectOfType<PlayerMovement>().GetComponent<Health>();
-        StartCoroutine(Heal());
+        else
+        {
+            StartCoroutine(Heal());
+        }
     }
 
     private void DestroySelfIfSamePotionExists()
     {
-        foreach (HealthPotion potion in FindObjectsOfType<HealthPotion>())
+        GameObject usedHealthPot = GameObject.FindWithTag(depletedTag);
+        if (usedHealthPot && usedHealthPot.GetComponent<HealthPotion>().ReturnID() == healthPotionType)
         {
-            if (potion.gameObject.GetInstanceID() != gameObject.GetInstanceID() && potion.ReturnID() == healthPotionType)
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
+        }
+        else
+        {
+            StartCoroutine(Heal());
         }
     }
 
     private IEnumerator Heal()
     {
+        gameObject.tag = depletedTag;
         if (tempHeal == true)
         {
             playerHealth.AddTempMaxHealth(additionalMaxHealth);

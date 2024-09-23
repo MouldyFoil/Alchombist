@@ -19,6 +19,7 @@ public class PotionBook : MonoBehaviour
     [SerializeField] string closeBook = "r";
     PotionRepository potionRepository;
     IngredientRepository ingredientRepository;
+    Potion potionData;
     Image[] ingredientSlots;
     int potionNumber;
     int pageNumber = 1;
@@ -37,7 +38,7 @@ public class PotionBook : MonoBehaviour
         if (Input.GetKeyDown(nextPage))
         {
             pageNumber++;
-            if (pageNumber > potionRepository.ReturnPotionsArrayLength())
+            if (pageNumber > potionRepository.ReturnPotionsDiscovered())
             {
                 pageNumber = 1;
             }
@@ -48,7 +49,7 @@ public class PotionBook : MonoBehaviour
             pageNumber--;
             if (pageNumber <= 0)
             {
-                pageNumber = potionRepository.ReturnPotionsArrayLength();
+                pageNumber = potionRepository.ReturnPotionsDiscovered();
             }
             UpdateBookDisplay();
         }
@@ -60,30 +61,31 @@ public class PotionBook : MonoBehaviour
     }
     private void UpdateBookDisplay()
     {
-        int potionsLeftTillRightPotion = pageNumber;
-        potionNumber = 0;
+        int potionNum = 0;
+        int renameInt = 0;
         foreach(Potion potion in potionRepository.ReturnPotions())
         {
-            potionNumber++;
-            if(potion.discovered == true)
+            potionNum++;
+            if (potion.discovered)
             {
-                potionsLeftTillRightPotion--;
-                if(potionsLeftTillRightPotion == 0)
+                renameInt++;
+                if(renameInt == pageNumber)
                 {
+                    potionData = potion;
                     break;
                 }
             }
         }
-        potionImage.sprite = potionRepository.ReturnPotion(potionNumber - 1).spriteInBook;
-        nameText.text = potionRepository.ReturnPotion(potionNumber - 1).name;
-        descriptionText.text = potionRepository.ReturnPotion(potionNumber - 1).description;
-        potionNumberText.text = potionNumber.ToString();
+        potionImage.sprite = potionData.spriteInBook;
+        nameText.text = potionData.name;
+        descriptionText.text = potionData.description;
+        potionNumberText.text = "potion #" + potionNum;
         pageText.text = "Pg. " + pageNumber;
         UpdateIngredientDisplay();
     }
     private void UpdateIngredientDisplay()
     {
-        char[] charArray = potionRepository.ReturnPotion(potionNumber - 1).ingredientCombo.ToString().ToCharArray();
+        char[] charArray = potionData.ingredientCombo.ToString().ToCharArray();
         List<int> intList = new List<int>();
         int slotsLeft = ingredientSlots.Length;
         int intToAdd;

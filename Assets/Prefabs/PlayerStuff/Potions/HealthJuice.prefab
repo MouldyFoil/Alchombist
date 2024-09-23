@@ -47,7 +47,7 @@ MonoBehaviour:
   tempHeal: 0
   canceledBySameIDPotions: 1
   healAmount: 1
-  cooldownOrDuration: 20
+  cooldownOrDuration: 5
   healthPotionType: 0
   additionalMaxHealth: 0
 --- !u!1 &5003874157975987769

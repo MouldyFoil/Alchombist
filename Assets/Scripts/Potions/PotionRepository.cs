@@ -19,6 +19,15 @@ public class PotionRepository : MonoBehaviour
     {
         return potions;
     }
+    public int ReturnPotionsDiscovered()
+    {
+        int potionsDiscovered = 0;
+        foreach (Potion potion in ReturnPotions())
+        {
+            potionsDiscovered++;
+        }
+        return potionsDiscovered;
+    }
     // Start is called before the first frame update
     void Start()
     {

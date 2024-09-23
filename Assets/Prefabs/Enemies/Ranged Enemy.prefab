@@ -5173,13 +5173,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d8187ebf9e77347aafbdef567ac74e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectDistance: 30
+  detectDistance: 20
+  chaseDistance: 30
   stopZoneMin: 5
-  stopZoneMax: 6
-  speed: 5
+  stopZoneMax: 7
+  speed: 7
   minTimeToSwitchDirection: 0.5
   maxTimeToSwitchDirection: 2
   circleInStopZone: 1
+  agressiveEnemy: 0
 --- !u!114 &1657985283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5209,5 +5211,5 @@ MonoBehaviour:
   projectileSpawn: {fileID: 6696659338502401776}
   minAttackCooldown: 2
   maxAttackCooldown: 7
-  recoil: 5
+  recoil: 3
   stunTimeAfterAttacking: 2

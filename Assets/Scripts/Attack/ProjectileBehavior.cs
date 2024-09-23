@@ -29,7 +29,7 @@ public class ProjectileBehavior : MonoBehaviour
     void Update()
     {
         rb.velocity = transform.up * speed;
-        if(isHoming == true)
+        if(isHoming == true && target != null)
         {
             UpdateTarget();
             HomeIn();

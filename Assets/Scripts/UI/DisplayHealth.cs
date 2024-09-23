@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DisplayHealth : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class DisplayHealth : MonoBehaviour
     [SerializeField] Sprite emptyHeart;
     [SerializeField] Sprite fullBonusHeart;
     [SerializeField] Sprite emptyBonusHeart;
+    [SerializeField] TextMeshProUGUI healthPastHeartsText;
     Image[] hearts;
     Health playerHealth;
     // Start is called before the first frame update
@@ -53,6 +55,15 @@ public class DisplayHealth : MonoBehaviour
             {
                 hearts[i].enabled = false;
             }
+        }
+        if(playerHealth.ReturnHealth() + playerHealth.ReturnTempHealth() > hearts.Length)
+        {
+            int healthPastHearts = playerHealth.ReturnHealth() + playerHealth.ReturnTempHealth() - hearts.Length;
+            healthPastHeartsText.text = "+ " + healthPastHearts;
+        }
+        else
+        {
+            healthPastHeartsText.text = "";
         }
     }
 }

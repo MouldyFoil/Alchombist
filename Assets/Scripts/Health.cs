@@ -92,5 +92,9 @@ public class Health : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        else
+        {
+            Debug.Log("you die");
+        }
     }
 }

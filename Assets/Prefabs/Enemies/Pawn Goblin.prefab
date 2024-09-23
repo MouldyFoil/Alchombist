@@ -5215,12 +5215,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectDistance: 20
+  chaseDistance: 30
   stopZoneMin: 4
   stopZoneMax: 5
-  speed: 5
+  speed: 7
   minTimeToSwitchDirection: 0.5
   maxTimeToSwitchDirection: 2
   circleInStopZone: 1
+  agressiveEnemy: 1
 --- !u!114 &1657985283
 MonoBehaviour:
   m_ObjectHideFlags: 0
