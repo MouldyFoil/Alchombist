@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAutoAim : MonoBehaviour
@@ -58,7 +59,7 @@ public class PlayerAutoAim : MonoBehaviour
     private void AimAtTarget()
     {
         target.z = transform.position.z;
-        aimDirection = (target - transform.position).normalized;
+        aimDirection = target - transform.position;
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         aimTransform.eulerAngles = new Vector3(0, 0, angle);
     }
@@ -70,13 +71,30 @@ public class PlayerAutoAim : MonoBehaviour
         foreach (Transform enemy in enemies)
         {
             float dist = Vector3.Distance(enemy.position, currentPos);
-            if (dist < minDist)
+            if (dist < minDist /*&& EnemyBlockedCheck(enemy) == false*/)
             {
                 transformMin = enemy;
                 minDist = dist;
             }
         }
         return transformMin;
+    }
+    private bool EnemyBlockedCheck(Transform enemy)
+    {
+        
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, transform.position - enemy.position);
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.collider.gameObject.tag != "TargetableByPlayer" && hit.collider.gameObject.tag != "Player")
+            {
+                return true;
+            }
+            if (hit.collider.tag == "TargetableByPlayer")
+            {
+                return false;
+            }
+        }
+        return true;
     }
     public bool ReturnCanTarget() { return canTarget; }
     public Vector3 ReturnTargetLocation() { return target; }

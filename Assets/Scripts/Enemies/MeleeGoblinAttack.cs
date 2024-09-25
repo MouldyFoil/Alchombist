@@ -26,7 +26,7 @@ public class MeleeGoblinAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(AI == true && canAttack == true && AI.ReturnIsInAttackRange() == true)
+        if(AI == true && canAttack == true && AI.ReturnIsInAttackRange() == true && movement.ReturnIsBlocked() == false)
         {
             AttackBehavior();
         }
@@ -40,6 +40,7 @@ public class MeleeGoblinAttack : MonoBehaviour
     {
         canAttack = false;
         AI.enabled = false;
+        movement.TogglePathfinding(false);
         StartCoroutine(HandleChargeUp());
     }
 

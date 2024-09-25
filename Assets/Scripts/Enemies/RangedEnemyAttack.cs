@@ -23,7 +23,7 @@ public class RangedEnemyAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (AI == true && canAttack == true && AI.ReturnIsInAttackRange() == true)
+        if (AI == true && canAttack == true && AI.ReturnIsInAttackRange() == true && movement.ReturnIsBlocked() == false)
         {
             AttackBehavior();
         }

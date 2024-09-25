@@ -2,6 +2,7 @@ using Pathfinding;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -37,6 +38,7 @@ public class EnemyMovement : MonoBehaviour
     public bool ReturnIsBlocked()
     {
         RaycastHit2D[] hits = Physics2D.RaycastAll(aimTransform.position, aimTransform.right);
+        hits.Concat(Physics2D.CircleCastAll(aimTransform.position, transform.localScale.y, aimTransform.right));
         foreach(RaycastHit2D hit in hits)
         {
             if(hit.collider.gameObject.layer == 9)

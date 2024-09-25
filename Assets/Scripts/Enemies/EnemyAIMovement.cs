@@ -9,6 +9,7 @@ public class EnemyAIMovement : MonoBehaviour
 {
     [SerializeField] float detectDistance = 10;
     [SerializeField] float chaseDistance = 20;
+    [SerializeField] float minPathDistance = 6;
     [SerializeField] float stopZoneMin = 3;
     [SerializeField] float stopZoneMax = 5;
     [SerializeField] float speed = 20f;
@@ -37,12 +38,12 @@ public class EnemyAIMovement : MonoBehaviour
         {
             playerRemembered = true;
         }
-        else if(playerRemembered == true && distanceFromPlayer < chaseDistance && movement.ReturnIsBlocked() == false)
+        else if(distanceFromPlayer < minPathDistance && movement.ReturnIsBlocked() == false)
         {
-            PlayerChaseBehavior();
+            HandleCombatMovement();
             movement.TogglePathfinding(false);
         }
-        else if (playerRemembered == true && distanceFromPlayer < chaseDistance && movement.ReturnIsBlocked() == true)
+        else if (playerRemembered == true && distanceFromPlayer < chaseDistance)
         {
             movement.NavigateToPlayer(speed);
         }
@@ -57,7 +58,7 @@ public class EnemyAIMovement : MonoBehaviour
     {
         distanceFromPlayer = Vector3.Distance(movement.ReturnTarget(), transform.position);
     }
-    private void PlayerChaseBehavior()
+    private void HandleCombatMovement()
     {
         if (distanceFromPlayer > stopZoneMax)
         {
