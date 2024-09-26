@@ -5072,7 +5072,7 @@ GameObject:
   - component: {fileID: 990770655}
   m_Layer: 3
   m_Name: PhysicalHitbox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19940,7 +19940,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aimTransform: {fileID: 1556429032}
   marker: {fileID: 381525089}
-  enemyDetectRadius: 20
+  enemyDetectRadius: 15
+  ignoreTags:
+  - Player
+  - Enemy
 --- !u!114 &2286084510725180714
 MonoBehaviour:
   m_ObjectHideFlags: 0

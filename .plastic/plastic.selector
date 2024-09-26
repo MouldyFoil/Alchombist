@@ -1,4 +1,0 @@
-repository "Alchombist@videogamezack@cloud"
-  path "/"
-    br "/main"
-    co "/main"

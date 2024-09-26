@@ -19,7 +19,7 @@ public class ProjectileBehavior : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        if(infiniteDuration != false)
+        if(infiniteDuration == false)
         {
             StartCoroutine(LifeSpan());
         }

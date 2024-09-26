@@ -5212,7 +5212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70f73559332e8f2408418b299a62e98e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aimTransform: {fileID: 1617886831}
+  aimGameObject: {fileID: 1617886830}
 --- !u!114 &103576421
 MonoBehaviour:
   m_ObjectHideFlags: 0

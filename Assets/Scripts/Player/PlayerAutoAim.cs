@@ -10,6 +10,7 @@ public class PlayerAutoAim : MonoBehaviour
     [SerializeField] Transform aimTransform;
     [SerializeField] Transform marker;
     [SerializeField] float enemyDetectRadius = 20;
+    [SerializeField] string[] ignoreTags;
     bool canTarget;
     Vector3 target;
     Vector3 aimDirection;
@@ -30,31 +31,76 @@ public class PlayerAutoAim : MonoBehaviour
         MoveMarker();
     }
 
-    private void MoveMarker()
-    {
-        if(canTarget == true)
-        {
-            marker.GetComponent<SpriteRenderer>().enabled = true;
-            marker.position = new Vector3(target.x, target.y, transform.position.z);
-        }
-        else
-        {
-            marker.GetComponent<SpriteRenderer>().enabled = false;
-        }
-    }
-
     private void UpdateTarget()
     {
-        Transform[] enemies = GameObject.FindGameObjectsWithTag("TargetableByPlayer").Select(player => player.transform).ToArray();
-        if (enemies.Length > 0)
+        List<GameObject> enemiesGameObject = GameObject.FindGameObjectsWithTag("TargetableByPlayer").ToList();
+        List<Transform> enemies = new List<Transform>();
+        foreach(GameObject enemy in enemiesGameObject)
+        {
+            enemies.Add(enemy.transform);
+        }
+        enemies = CleanBlockedEnemies(enemies);
+        if (enemies != null && enemies.Count > 0)
         {
             target = GetClosestEnemy(enemies).position;
         }
-        if(enemies.Length == 0)
+        if(enemies == null || enemies.Count == 0)
         {
             target = new Vector3(Mathf.Infinity, Mathf.Infinity, Mathf.Infinity);
         }
         canTarget = Vector3.Distance(target, transform.position) < enemyDetectRadius;
+    }
+    private List<Transform> CleanBlockedEnemies(List<Transform> enemies)
+    {
+        List<Transform> cleanedEnemies = new List<Transform>();
+        foreach(Transform enemy in enemies)
+        {
+            if (EnemyBlockedCheck(enemy) == false)
+            {
+                cleanedEnemies.Add(enemy);
+            }
+        }
+        return cleanedEnemies;
+    }
+    private bool EnemyBlockedCheck(Transform enemy)
+    {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, enemy.position - transform.position);
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.collider.CompareTag("TargetableByPlayer"))
+            {
+                return false;
+            }
+            /*foreach (string tag in ignoreTags)
+            {
+                Debug.Log(tag);
+                if (!hit.collider.gameObject.CompareTag(tag))
+                {
+                    return true;
+                }
+            }*/
+            if (!hit.collider.gameObject.CompareTag("TargetableByPlayer") && !hit.collider.gameObject.CompareTag(ignoreTags[0]) &&!hit.collider.gameObject.CompareTag(ignoreTags[1]))
+            {
+                return true;
+            }
+        }
+        return true;
+    }
+    Transform GetClosestEnemy(List<Transform> enemies)
+    {
+        Transform transformMin = null;
+        float minDist = Mathf.Infinity;
+        Vector3 currentPos = transform.position;
+        foreach (Transform enemy in enemies)
+        {
+            float dist = Vector3.Distance(enemy.position, currentPos);
+            if (dist < minDist)
+            {
+                transformMin = enemy;
+                minDist = dist;
+            }
+        }
+        return transformMin;
     }
     private void AimAtTarget()
     {
@@ -63,38 +109,17 @@ public class PlayerAutoAim : MonoBehaviour
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         aimTransform.eulerAngles = new Vector3(0, 0, angle);
     }
-    Transform GetClosestEnemy(Transform[] enemies)
+    private void MoveMarker()
     {
-        Transform transformMin = null;
-        float minDist = Mathf.Infinity;
-        Vector3 currentPos = transform.position;
-        foreach (Transform enemy in enemies)
+        if (canTarget == true)
         {
-            float dist = Vector3.Distance(enemy.position, currentPos);
-            if (dist < minDist /*&& EnemyBlockedCheck(enemy) == false*/)
-            {
-                transformMin = enemy;
-                minDist = dist;
-            }
+            marker.GetComponent<SpriteRenderer>().enabled = true;
+            marker.position = new Vector3(target.x, target.y, transform.position.z);
         }
-        return transformMin;
-    }
-    private bool EnemyBlockedCheck(Transform enemy)
-    {
-        
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, transform.position - enemy.position);
-        foreach (RaycastHit2D hit in hits)
+        else
         {
-            if (hit.collider.gameObject.tag != "TargetableByPlayer" && hit.collider.gameObject.tag != "Player")
-            {
-                return true;
-            }
-            if (hit.collider.tag == "TargetableByPlayer")
-            {
-                return false;
-            }
+            marker.GetComponent<SpriteRenderer>().enabled = false;
         }
-        return true;
     }
     public bool ReturnCanTarget() { return canTarget; }
     public Vector3 ReturnTargetLocation() { return target; }

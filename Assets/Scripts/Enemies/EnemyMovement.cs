@@ -7,17 +7,21 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] Transform aimTransform;
+    [SerializeField] GameObject aimGameObject;
+    Transform aimTransform;
     Rigidbody2D rb;
     AIPath path;
     Vector3 target;
     Vector3 aimDirection;
     bool aimToggle = true;
+    SpriteRenderer aimSprite;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         path = GetComponent<AIPath>();
+        aimTransform = aimGameObject.transform;
+        aimSprite = aimGameObject.GetComponentInChildren<SpriteRenderer>();
     }
     // Update is called once per frame
     void Update()
@@ -37,8 +41,7 @@ public class EnemyMovement : MonoBehaviour
     }
     public bool ReturnIsBlocked()
     {
-        RaycastHit2D[] hits = Physics2D.RaycastAll(aimTransform.position, aimTransform.right);
-        hits.Concat(Physics2D.CircleCastAll(aimTransform.position, transform.localScale.y, aimTransform.right));
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, target - transform.position);
         foreach(RaycastHit2D hit in hits)
         {
             if(hit.collider.gameObject.layer == 9)
@@ -96,5 +99,12 @@ public class EnemyMovement : MonoBehaviour
     public void MoveTowardsOrBack(float customSpeed)
     {
         rb.velocity = aimTransform.right * customSpeed;
+    }
+    public void PutAwayWeapon(bool weaponOut)
+    {
+        if (aimSprite)
+        {
+            aimSprite.enabled = weaponOut;
+        }
     }
 }

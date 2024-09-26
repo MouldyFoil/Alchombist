@@ -280,6 +280,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 158004858}
     m_Modifications:
+    - target: {fileID: 981941463, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6248280323844338216, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
       propertyPath: m_Name
       value: Ranged Enemy
@@ -290,11 +294,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6248280323844338218, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.15
+      value: -14.96
       objectReference: {fileID: 0}
     - target: {fileID: 6248280323844338218, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26.3
+      value: 7.9
       objectReference: {fileID: 0}
     - target: {fileID: 6248280323844338218, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
       propertyPath: m_LocalPosition.z
@@ -72317,6 +72321,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 990770655, guid: d64ff964ae8a4214db057923a8338581, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1543212
+      objectReference: {fileID: 0}
+    - target: {fileID: 990770655, guid: d64ff964ae8a4214db057923a8338581, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.47476366
+      objectReference: {fileID: 0}
     - target: {fileID: 1364846491788290615, guid: d64ff964ae8a4214db057923a8338581, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -72488,6 +72500,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 158004858}
     m_Modifications:
+    - target: {fileID: 981941463, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6248280323844338216, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
       propertyPath: m_Name
       value: Pawn Goblin

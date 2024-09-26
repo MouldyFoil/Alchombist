@@ -34,6 +34,14 @@ public class EnemyAIMovement : MonoBehaviour
     void Update()
     {
         CalculateDistance();
+        if(playerRemembered == false || movement.ReturnIsBlocked() == true)
+        {
+            movement.PutAwayWeapon(false);
+        }
+        else
+        {
+            movement.PutAwayWeapon(true);
+        }
         if (playerRemembered == false && distanceFromPlayer < detectDistance && movement.ReturnIsBlocked() == false)
         {
             playerRemembered = true;
