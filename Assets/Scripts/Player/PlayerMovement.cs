@@ -10,11 +10,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] string downInput;
     [SerializeField] string rightInput;
     [SerializeField] string leftInput;
+    BuffDisplay buffDisplay;
+    float speedBeforeBuffs;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
+        speedBeforeBuffs = speed;
         rb = GetComponent<Rigidbody2D>();
+        buffDisplay = FindObjectOfType<BuffDisplay>();
     }
 
     // Update is called once per frame
@@ -70,9 +74,9 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-
     public void AddMovementSpeed(float speedAddition)
     {
         speed += speedAddition;
+        buffDisplay.UpdateSpeedUI(speed - speedBeforeBuffs);
     }
 }

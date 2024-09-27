@@ -5150,9 +5150,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectDistance: 15
-  chaseDistance: 20
+  chaseDistance: 25
   minPathDistance: 8
-  stopZoneMin: 5
+  stopZoneMin: 2
   stopZoneMax: 7
   speed: 7
   minTimeToSwitchDirection: 0.5
@@ -5203,7 +5203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 5
-  radius: 1.5
+  radius: 1.1
   height: 2
   canMove: 1
   maxSpeed: 0

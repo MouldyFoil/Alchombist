@@ -48,7 +48,7 @@ MonoBehaviour:
   changeAttack: 0
   attackChange: 0
   movementChange: 10
-  duration: 4
+  duration: 2
 --- !u!1 &8581150414335505652
 GameObject:
   m_ObjectHideFlags: 0

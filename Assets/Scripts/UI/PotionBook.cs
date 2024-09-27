@@ -62,14 +62,14 @@ public class PotionBook : MonoBehaviour
     private void UpdateBookDisplay()
     {
         int potionNum = 0;
-        int renameInt = 0;
+        int discoveredNum = 0;
         foreach(Potion potion in potionRepository.ReturnPotions())
         {
             potionNum++;
             if (potion.discovered)
             {
-                renameInt++;
-                if(renameInt == pageNumber)
+                discoveredNum++;
+                if(discoveredNum == pageNumber)
                 {
                     potionData = potion;
                     break;

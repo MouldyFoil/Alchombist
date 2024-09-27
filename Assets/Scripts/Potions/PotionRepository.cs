@@ -24,7 +24,10 @@ public class PotionRepository : MonoBehaviour
         int potionsDiscovered = 0;
         foreach (Potion potion in ReturnPotions())
         {
-            potionsDiscovered++;
+            if(potion.discovered == true)
+            {
+                potionsDiscovered++;
+            }
         }
         return potionsDiscovered;
     }

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   potions:
   - name: Potion Of Swiftness
-    description: +10 speed. Lasts 4 seconds.
+    description: +10 speed. Lasts 2 seconds.
     prefab: {fileID: 6997668198376117514, guid: 9ad3f66f26503a449b7dc9aa7796f0d1, type: 3}
     spriteInBook: {fileID: 21300000, guid: 23951392db6d4e44b94dbf0df9bbcf21, type: 3}
     ingredientCombo: 121
@@ -73,7 +73,7 @@ MonoBehaviour:
     spawnType: 2
     discovered: 1
   - name: Potion Of Strength
-    description: +2 damage to all attacks. Lasts 4 seconds.
+    description: +2 damage to all attacks. Lasts 6 seconds.
     prefab: {fileID: 6997668198376117514, guid: ba5d09edb6579114ebeb4c3e8d8fd7c3, type: 3}
     spriteInBook: {fileID: 21300000, guid: 3603cac2893a85943b8a74103bbd7718, type: 3}
     ingredientCombo: 212

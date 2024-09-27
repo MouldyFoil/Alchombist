@@ -5060,63 +5060,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
---- !u!1 &990770653
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 990770654}
-  - component: {fileID: 990770655}
-  m_Layer: 3
-  m_Name: PhysicalHitbox
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &990770654
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 990770653}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1364846491788290615}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &990770655
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 990770653}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.61692834}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.1333334, y: 2.1333334}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.8699917}
-  m_EdgeRadius: 0
 --- !u!1 &1128164250
 GameObject:
   m_ObjectHideFlags: 0
@@ -19791,7 +19734,7 @@ GameObject:
   - component: {fileID: 1364846491788290614}
   - component: {fileID: 1211771687}
   - component: {fileID: 2286084510725180714}
-  - component: {fileID: 181673733}
+  - component: {fileID: 273798204}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -19815,7 +19758,6 @@ Transform:
   - {fileID: 7536925130566535073}
   - {fileID: 381525089}
   - {fileID: 1961450975}
-  - {fileID: 990770654}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19940,7 +19882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aimTransform: {fileID: 1556429032}
   marker: {fileID: 381525089}
-  enemyDetectRadius: 15
+  enemyDetectRadius: 20
   ignoreTags:
   - Player
   - Enemy
@@ -19957,9 +19899,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageParticles: {fileID: 147849367848251450}
-  maxHealth: 3
---- !u!61 &181673733
-BoxCollider2D:
+  maxHealth: 4
+--- !u!70 &273798204
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -19968,22 +19910,12 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.017449021, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.1333334, y: 2.1333334}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.0863862, y: 2.1333334}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0, y: -0.054523945}
+  m_Size: {x: 1, y: 2.1333337}
+  m_Direction: 0
 --- !u!1 &1511902316142510537
 GameObject:
   m_ObjectHideFlags: 0

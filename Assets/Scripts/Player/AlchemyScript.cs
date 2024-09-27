@@ -24,9 +24,11 @@ public class AlchemyScript : MonoBehaviour
     int intVersionOfIngredients = 0;
     int currentSlot = 0;
     ActiveIngredientUI activeIngredientUI;
+    BuffDisplay buffDisplay;
     void Start()
     {
         activeIngredientUI = FindObjectOfType<ActiveIngredientUI>();
+        buffDisplay = FindObjectOfType<BuffDisplay>();
         potionRepository = FindObjectOfType<PotionRepository>();
         ingredientRepository = FindObjectOfType<IngredientRepository>();
         ingredientParticles = ingredientParticlesParent.GetComponentsInChildren<ParticleSystem>();
@@ -116,7 +118,7 @@ public class AlchemyScript : MonoBehaviour
     {
         if(potionRepository.ReturnPotion(potionIndex).spawnType == Potion.potionTypeEnum.spawn_on_player)
         {
-            Instantiate(potionRepository.ReturnPotion(potionIndex).prefab, gameObject.transform.position, gameObject.transform.rotation);
+            Instantiate(potionRepository.ReturnPotion(potionIndex).prefab, gameObject.transform.position - new Vector3(0, 0, transform.position.z), gameObject.transform.rotation);
         }
         if(potionRepository.ReturnPotion(potionIndex).spawnType == Potion.potionTypeEnum.spawn_on_aim)
         {
@@ -152,5 +154,6 @@ public class AlchemyScript : MonoBehaviour
     public void AddBuffDamage(int additionalDamage)
     {
         buffDamage += additionalDamage;
+        buffDisplay.UpdateDamageUI(buffDamage);
     }
 }

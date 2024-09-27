@@ -148,4 +148,4 @@ MonoBehaviour:
   changeAttack: 1
   attackChange: 1
   movementChange: 0
-  duration: 4
+  duration: 6
