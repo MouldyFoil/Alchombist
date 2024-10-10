@@ -7,7 +7,6 @@ using TMPro;
 public class Health : MonoBehaviour
 {
     [SerializeField] ParticleSystem damageParticles;
-    [SerializeField] TextMeshProUGUI deathText;
     [SerializeField] int maxHealth = 3;
     DisplayHealth playerHealthDisplay;
     int tempMaxHealth;
@@ -17,10 +16,6 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(deathText != null)
-        {
-            deathText.enabled = false;
-        }
         player = GetComponent<PlayerMovement>() != null;
         health = maxHealth;
         damageParticles = GetComponentInChildren<ParticleSystem>();
@@ -101,8 +96,9 @@ public class Health : MonoBehaviour
         }
         else
         {
-            Debug.Log("you die");
-            deathText.enabled = true;
+            MenuHandler menuHandler = FindObjectOfType<MenuHandler>();
+            menuHandler.SwitchMenu("Death");
+            menuHandler.PauseGame();
         }
     }
 }

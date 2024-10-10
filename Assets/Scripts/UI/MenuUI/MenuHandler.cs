@@ -19,6 +19,19 @@ public class MenuHandler : MonoBehaviour
     }
     public void SwitchMenu(string menuName)
     {
+        bool menuInArrayCheck = false;
+        foreach(GameObject menu in menus)
+        {
+            if(menu.name == menuName)
+            {
+                menuInArrayCheck = true;
+            }
+        }
+        if(menuInArrayCheck == false)
+        {
+            Debug.Log("Menu either doesnt exist or isnt in array");
+            return;
+        }
         foreach(GameObject menu in menus)
         {
             if(menu.name == menuName)
@@ -50,5 +63,9 @@ public class MenuHandler : MonoBehaviour
                 menu.SetActive(false);
             }
         }
+    }
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
     }
 }

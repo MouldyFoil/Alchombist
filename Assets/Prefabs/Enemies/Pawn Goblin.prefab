@@ -5231,7 +5231,7 @@ MonoBehaviour:
   maxAttackCooldown: 7
   chargeUpTime: 1
   backAwaySpeed: 1
-  chargeSpeed: 15
+  chargeSpeed: 20
   stunTimeAfterAttacking: 2
 --- !u!114 &824399979
 MonoBehaviour:

@@ -18,6 +18,17 @@ public class ObjectPotion : MonoBehaviour
             DestroyOldestPotionIfMaxReached();
         }
     }
+    void Update()
+    {
+        if(infiniteDuration == false)
+        {
+            duration -= Time.deltaTime;
+            if(duration <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
     private void DestroyOldestPotionIfMaxReached()
     {
         if (infiniteAmount == false)
@@ -40,12 +51,10 @@ public class ObjectPotion : MonoBehaviour
     {
         potionNumber++;
     }
+    public void DecreasePotionNum()
+    {
+        potionNumber--;
+    }
     public string ReturnObjectName() { return objectName; }
     public int ReturnPotionNumber() { return potionNumber; }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
