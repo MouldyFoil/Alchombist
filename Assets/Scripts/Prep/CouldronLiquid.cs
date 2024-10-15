@@ -15,19 +15,34 @@ public class CouldronLiquid : MonoBehaviour
     {
         if(collision.GetComponent<PhysicsIngredient>() != null)
         {
-            Color color = collision.GetComponent<PhysicsIngredient>().ReturnColor();
-            float influence = collision.GetComponent<PhysicsIngredient>().ReturnColorInfluence();
-            MoveColor(color, influence);
+            //Color color = collision.GetComponent<PhysicsIngredient>().ReturnColor();
+            //float influence = collision.GetComponent<PhysicsIngredient>().ReturnColorInfluence();
+            //MoveColor(color, influence);
         }
     }
-    private void MoveColor(Color color, float influence)
-    {
-        float hueHome, satHome, valHome;
-        float hueAdd, satAdd, valAdd;
-        Color.RGBToHSV(sprite.color, out hueHome, out satHome, out valHome);
-        Color.RGBToHSV(color, out hueAdd, out satAdd, out valAdd);
-        Debug.Log("current colors: " + "hue: " + hueHome + "sat: " + satHome + "val: " + valHome);
-        Debug.Log("Added colors: " + "hue: " + hueAdd + "sat: " + satAdd + "val: " + valAdd);
-        sprite.color += (Color.HSVToRGB(hueAdd, satHome, valHome) * influence);
-    }
+    //private void MoveColor(Color color, float influence)
+    //{
+    //    float hueHome, satHome, valHome;
+    //    float hueGoal, satGoal, valGoal;
+    //    Color.RGBToHSV(sprite.color, out hueHome, out satHome, out valHome);
+    //    Color.RGBToHSV(color, out hueGoal, out satGoal, out valGoal);
+    //    Debug.Log("current colors: " + "hue: " + hueHome + "sat: " + satHome + "val: " + valHome);
+    //    Debug.Log("Added colors: " + "hue: " + hueGoal);
+    //    if(hueHome <= hueGoal)
+    //    {
+    //        sprite.color += (Color.HSVToRGB(hueGoal, 0, 0));
+    //        if (hueHome > hueGoal)
+    //        {
+    //            sprite.color = (Color.HSVToRGB(hueGoal, satGoal, valGoal));
+    //        }
+    //    }
+    //    if(hueHome >= hueGoal)
+    //    {
+    //        sprite.color -= (Color.HSVToRGB(hueGoal * influence, 0, 0));
+    //        if(hueHome < hueGoal)
+    //        {
+    //            sprite.color = (Color.HSVToRGB(hueGoal, satGoal, valGoal));
+    //        }
+    //    }
+    //}
 }

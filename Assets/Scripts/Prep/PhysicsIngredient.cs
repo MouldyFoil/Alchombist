@@ -7,8 +7,9 @@ using static UnityEngine.GraphicsBuffer;
 public class PhysicsIngredient : MonoBehaviour
 {
     [SerializeField] float dragSpeed;
-    [SerializeField] Color ingredientColor;
     [SerializeField] float liquidColorInfluence = 50;
+    [SerializeField] float buffAmount = 5;
+    [SerializeField] Color ingredientColor;
     bool beingDragged = false;
     Rigidbody2D rb;
     // Start is called before the first frame update
