@@ -19865,8 +19865,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientParticlesParent: {fileID: 1961450974}
-  clearInput: n
-  enterInput: y
+  clearInput: left ctrl
+  enterInput: left shift
   throwSpawn: {fileID: 105128094}
 --- !u!114 &1211771687
 MonoBehaviour:

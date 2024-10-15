@@ -16,6 +16,7 @@ public class PhysicsIngredient : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        beingDragged = true;
     }
 
     // Update is called once per frame
