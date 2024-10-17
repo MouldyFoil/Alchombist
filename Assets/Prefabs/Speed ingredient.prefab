@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2736170767960652987}
   - component: {fileID: 2736170767960652991}
   m_Layer: 0
-  m_Name: Test ingredient
+  m_Name: Speed ingredient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d73460b169514040ab3cf8ada03b69c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragSpeed: 5
-  ingredientColor: {r: 0.37254903, g: 0.7568628, b: 0.18431373, a: 1}
+  dragSpeed: 3
+  statBuffedName: Speed
+  buffAmount: 2
   liquidColorInfluence: 0.1
+  ingredientColor: {r: 0.37254903, g: 0.7568628, b: 0.18431373, a: 1}

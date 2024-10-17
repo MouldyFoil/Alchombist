@@ -7,8 +7,11 @@ using static UnityEngine.GraphicsBuffer;
 public class PhysicsIngredient : MonoBehaviour
 {
     [SerializeField] float dragSpeed;
-    [SerializeField] float liquidColorInfluence = 50;
+
+    [SerializeField] string statBuffedName = "Speed";
     [SerializeField] float buffAmount = 5;
+
+    [SerializeField] float liquidColorInfluence = 50;
     [SerializeField] Color ingredientColor;
     bool beingDragged = false;
     Rigidbody2D rb;
@@ -43,6 +46,8 @@ public class PhysicsIngredient : MonoBehaviour
     {
         beingDragged = true;
     }
+    public string ReturnBuffName() { return statBuffedName; }
+    public float ReturnBuffAmount() { return buffAmount; }
     public Color ReturnColor() { return ingredientColor; }
     public float ReturnColorInfluence() { return liquidColorInfluence; }
 }
