@@ -47,24 +47,24 @@ MonoBehaviour:
   - ingredientSprite: {fileID: 21300000, guid: c78cd74e3c356df4c9bc88741eb3f1ec, type: 3}
     input: h
     ID: 1
-    unlocked: 1
+    unlocked: 0
   - ingredientSprite: {fileID: 21300000, guid: 7bcd68ae5cbb54e469a8e2d427aab484, type: 3}
     input: j
     ID: 2
-    unlocked: 1
+    unlocked: 0
   - ingredientSprite: {fileID: 21300000, guid: c112efb63a590594091ec865b0f1e42f, type: 3}
     input: k
     ID: 3
     unlocked: 0
   - ingredientSprite: {fileID: 21300000, guid: 515d1fdb9ebf77546a6e4b9f734b951b, type: 3}
-    input: l
+    input: u
     ID: 4
     unlocked: 0
   - ingredientSprite: {fileID: 21300000, guid: 11a5de71a7217ad43bdccb5d5dd2a55f, type: 3}
-    input: u
+    input: i
     ID: 5
     unlocked: 0
   - ingredientSprite: {fileID: 21300000, guid: 01a6394037921e543852c7a9ba91a828, type: 3}
-    input: i
+    input: l
     ID: 6
     unlocked: 0

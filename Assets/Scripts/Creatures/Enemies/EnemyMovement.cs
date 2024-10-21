@@ -15,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
     Vector3 aimDirection;
     bool aimToggle = true;
     SpriteRenderer aimSprite;
+    [SerializeField] LayerMask dontCircleWhenBetween;
 
     private void Start()
     {
@@ -52,6 +53,16 @@ public class EnemyMovement : MonoBehaviour
             {
                 return false;
             }
+        }
+        return true;
+    }
+    public bool ReturnCanCircleInSpace(float distanceToNotCircleIn)
+    {
+        RaycastHit2D hitUp = Physics2D.Raycast(transform.position, aimTransform.up, distanceToNotCircleIn, dontCircleWhenBetween);
+        RaycastHit2D hitDown = Physics2D.Raycast(transform.position, -aimTransform.up, distanceToNotCircleIn, dontCircleWhenBetween);
+        if (hitUp.collider && hitDown.collider)
+        {
+            return false;
         }
         return true;
     }

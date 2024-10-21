@@ -14,6 +14,7 @@ public class EnemyAIMovement : MonoBehaviour
     [SerializeField] float stopZoneMax = 5;
     [SerializeField] float speed = 20f;
     //[SerializeField] float avoidOtherEnemyDistance = 2;
+    [SerializeField] float distanceOfCanCircleCheck = 2; //find a better name for this
     [SerializeField] float minTimeToSwitchDirection = 1;
     [SerializeField] float maxTimeToSwitchDirection = 4;
     [SerializeField] bool circleInStopZone;
@@ -57,7 +58,7 @@ public class EnemyAIMovement : MonoBehaviour
         }
         else
         {
-            movement.ResetVelocity();
+            //movement.ResetVelocity();
             playerRemembered = false;
         }
     }
@@ -74,7 +75,7 @@ public class EnemyAIMovement : MonoBehaviour
         }
         if (distanceFromPlayer > stopZoneMin && distanceFromPlayer < stopZoneMax)
         {
-            if(circleInStopZone == true)
+            if(circleInStopZone == true && movement.ReturnCanCircleInSpace(distanceOfCanCircleCheck))
             {
                 HandleCircling();
             }
@@ -90,7 +91,6 @@ public class EnemyAIMovement : MonoBehaviour
     }
     private void HandleCircling()
     {
-        AvoidOtherEnemiesCircling();
         if(circleClockwise == true)
         {
             movement.Circle(speed);
@@ -104,7 +104,6 @@ public class EnemyAIMovement : MonoBehaviour
             StartCoroutine(HandleRandomSwitching());
         }
     }
-
     private IEnumerator HandleRandomSwitching()
     {
         isSwitchingDirection = true;
@@ -117,38 +116,6 @@ public class EnemyAIMovement : MonoBehaviour
     {
         circleClockwise = !circleClockwise;
     }
-    private void AvoidOtherEnemiesCircling()
-    {
-        //if(otherEnemies != null)
-        //{
-        //    float currentDistance = Vector3.Distance(GetClosestEnemy().transform.position, transform.position);
-        //    if (GetClosestEnemy().ReturnIsSwitching() == false)
-        //    {
-        //        isSwitchingDirection = true;
-        //        if (currentDistance < avoidOtherEnemyDistance)
-        //        {
-        //            circleClockwise = !circleClockwise;
-        //        }
-        //        isSwitchingDirection = false;
-        //    }
-        //}
-    }
-    //EnemyAIMovement GetClosestEnemy()
-    //{
-    //    float minDist = Mathf.Infinity;
-    //    EnemyAIMovement closestEnemy = null;
-    //    Vector3 currentPos = transform.position;
-    //    foreach (EnemyAIMovement enemy in otherEnemies)
-    //    {
-    //        float dist = Vector3.Distance(enemy.transform.position, currentPos);
-    //        if (dist < minDist)
-    //        {
-    //            closestEnemy = enemy;
-    //            minDist = dist;
-    //        }
-    //    }
-    //    return closestEnemy;
-    //}
     public bool ReturnIsInAttackRange() 
     { 
         if (agressiveEnemy) { return distanceFromPlayer < stopZoneMax; }

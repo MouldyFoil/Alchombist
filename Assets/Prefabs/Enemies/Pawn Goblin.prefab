@@ -5156,8 +5156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageParticles: {fileID: 7817549900335086630}
-  deathText: {fileID: 0}
-  maxHealth: 6
+  maxHealth: 8
 --- !u!50 &1657985284
 Rigidbody2D:
   serializedVersion: 4
@@ -5197,6 +5196,7 @@ MonoBehaviour:
   stopZoneMin: 4
   stopZoneMax: 5
   speed: 7
+  distanceOfCanCircleCheck: 2
   minTimeToSwitchDirection: 0.5
   maxTimeToSwitchDirection: 2
   circleInStopZone: 1
@@ -5214,6 +5214,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimGameObject: {fileID: 1617886830}
+  dontCircleWhenBetween:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &103576421
 MonoBehaviour:
   m_ObjectHideFlags: 0

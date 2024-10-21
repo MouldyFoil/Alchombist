@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [SerializeField] float baseSpeed;
     [SerializeField] float angularSpeedMultiplier;
     [SerializeField] string upInput;
     [SerializeField] string downInput;
     [SerializeField] string rightInput;
     [SerializeField] string leftInput;
     BuffDisplay buffDisplay;
-    float speedBeforeBuffs;
+    float speed;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
-        speedBeforeBuffs = speed;
+        speed = baseSpeed;
         rb = GetComponent<Rigidbody2D>();
         buffDisplay = FindObjectOfType<BuffDisplay>();
     }
@@ -77,6 +77,6 @@ public class PlayerMovement : MonoBehaviour
     public void AddMovementSpeed(float speedAddition)
     {
         speed += speedAddition;
-        buffDisplay.UpdateSpeedUI(speed - speedBeforeBuffs);
+        buffDisplay.UpdateSpeedUI(speed - baseSpeed);
     }
 }

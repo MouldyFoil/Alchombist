@@ -31,6 +31,10 @@ public class PotionRepository : MonoBehaviour
         }
         return potionsDiscovered;
     }
+    public void DiscoverPotion(int potionIndex)
+    {
+        potions[potionIndex].discovered = true;
+    }
     // Start is called before the first frame update
     void Start()
     {

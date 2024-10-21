@@ -57,39 +57,39 @@ MonoBehaviour:
     spriteInBook: {fileID: 21300000, guid: e21db19c516893a48995bd792910fcd4, type: 3}
     ingredientCombo: 21
     spawnType: 1
-    discovered: 1
+    discovered: 0
   - name: BoxPotion
     description: Place down a potion cube. Max 3 potion cubes.
     prefab: {fileID: 5783700280062619292, guid: 389711b21eeb6ed40ba7507221f875a1, type: 3}
     spriteInBook: {fileID: 21300000, guid: 2002acfeb52377b47932f519a2a965a8, type: 3}
     ingredientCombo: 1212
     spawnType: 0
-    discovered: 1
+    discovered: 0
   - name: Potion Of Healing
     description: Heals 1 heart.
     prefab: {fileID: 2444130679358146220, guid: 7ae6d08771c274c4a9cd8013834dbf92, type: 3}
     spriteInBook: {fileID: 21300000, guid: ce0bac66ae33b4841b5c47c2a8ea8128, type: 3}
     ingredientCombo: 122121
     spawnType: 2
-    discovered: 1
+    discovered: 0
   - name: Potion Of Strength
-    description: +2 damage to all attacks. Lasts 6 seconds.
+    description: +1 damage to all attacks. Lasts 6 seconds.
     prefab: {fileID: 6997668198376117514, guid: ba5d09edb6579114ebeb4c3e8d8fd7c3, type: 3}
     spriteInBook: {fileID: 21300000, guid: 3603cac2893a85943b8a74103bbd7718, type: 3}
-    ingredientCombo: 212
+    ingredientCombo: 2121
     spawnType: 0
-    discovered: 1
+    discovered: 0
   - name: Potion Of Homing
     description: Deals 1 damage on impact. Homes in on enemies.
     prefab: {fileID: 8159140217954514304, guid: 562d1e9e629a71f468dc86bd18618059, type: 3}
     spriteInBook: {fileID: 5081175238802344075, guid: 11bf883dbbc542d4991f49a0b9004832, type: 3}
     ingredientCombo: 12
     spawnType: 1
-    discovered: 1
+    discovered: 0
   - name: Potion Of Fake Health
     description: Adds +1 fake heart and heart container. Lasts 10 seconds.
     prefab: {fileID: 2444130679358146220, guid: 82bb3c5992bb68b499585bdf97698268, type: 3}
     spriteInBook: {fileID: 21300000, guid: 048827d14f5617046991bba748f77164, type: 3}
     ingredientCombo: 211
     spawnType: 0
-    discovered: 1
+    discovered: 0

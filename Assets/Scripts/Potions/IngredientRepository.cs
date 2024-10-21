@@ -13,6 +13,10 @@ public class IngredientRepository : MonoBehaviour
     }
     public Ingredient ReturnIngredient(int index) { return ingredients[index]; }
     public Ingredient[] ReturnIngredients() { return ingredients; }
+    public void UnlockIngredient(int ingredientIndex)
+    {
+        ingredients[ingredientIndex].unlocked = true;
+    }
     // Update is called once per frame
     void Update()
     {
