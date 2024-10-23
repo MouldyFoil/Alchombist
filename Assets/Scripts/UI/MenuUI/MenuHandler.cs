@@ -68,4 +68,8 @@ public class MenuHandler : MonoBehaviour
     {
         Time.timeScale = 0;
     }
+    public void UnpauseGame()
+    {
+        Time.timeScale = 1;
+    }
 }

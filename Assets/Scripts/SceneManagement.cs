@@ -24,6 +24,14 @@ public class SceneManagement : MonoBehaviour
     {
         SceneManager.LoadScene(sceneIndex);
     }
+    public void LoadSavedScene()
+    {
+        SceneManager.LoadScene(FindObjectOfType<SaveNextScene>().sceneName);
+    }
+    public void SetSavedScene(string name)
+    {
+        FindObjectOfType<SaveNextScene>().sceneName = name;
+    }
     public void ReloadScene()
     {
         Scene scene = SceneManager.GetActiveScene();
