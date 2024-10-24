@@ -34,59 +34,74 @@ public class Health : MonoBehaviour
     public int ReturnTempHealth() { return tempHealth; }
     public int ReturnTrueMaxHealth() { return maxHealth; }
     public int ReturnMaxHealth() { return maxHealth + tempMaxHealth; }
-    public void AddOrRemoveHealth(int addition)
+    public void AddOrRemoveGeneralHealth(int interger)
     {
-        if (addition <= 0)
+        if (interger < 0) //interger is negative
         {
-            int damageMinusTempHealth = addition + tempHealth;
-            if(damageMinusTempHealth >= 0)
+            int damageMinusTempHealth = interger + tempHealth;
+            if(damageMinusTempHealth > 0)
             {
                 damageMinusTempHealth = 0;
             }
-            if (tempHealth + addition >= 0)
+            AddOrRemoveTempHealth(interger);
+            if (health < 0)
             {
-                tempHealth += addition;
+                health = 0;
             }
             health += damageMinusTempHealth;
-        }
-        else
-        {
-            health += addition;
-        }
-        if(health + tempHealth <= 0)
-        {
-            Die();
-        }
-        if (addition <= 0)
-        {
             damageParticles.Play();
+            if (health + tempHealth <= 0)
+            {
+                Die();
+            }
+        }
+        else //interger is positive or 0
+        {
+            AddOrRemoveTempHealth(interger + health - maxHealth);
+            health += interger;
+            if(health > maxHealth)
+            {
+                health = maxHealth;
+            }
         }
         if (player == true)
         {
             playerHealthDisplay.UpdateHearts();
         }
     }
-    public void AddTempMaxHealth(int addition)
+    public void AddOrRemoveTempMaxHealth(int interger)
     {
-        tempMaxHealth += addition;
-        if (health >= maxHealth + tempMaxHealth)
+        if (tempMaxHealth + interger < 0)
         {
-            health = maxHealth + tempMaxHealth;
+            tempMaxHealth = 0;
         }
-        playerHealthDisplay.UpdateHearts();
+        else
+        {
+            tempMaxHealth += interger;
+        }
+        if(player == true)
+        {
+            playerHealthDisplay.UpdateHearts();
+        }
     }
-    public void AddTempHealth(int amount)
+    public void AddOrRemoveTempHealth(int interger)
     {
-        tempHealth += amount;
-        if (health + tempHealth > maxHealth + tempMaxHealth)
-        {
-            tempHealth--;
-        }
-        if(tempHealth <= 0 && tempMaxHealth >= 0)
+        if (tempHealth + interger <= 0)
         {
             tempHealth = 0;
         }
-        playerHealthDisplay.UpdateHearts();
+        else if (tempHealth > tempMaxHealth)
+        {
+            tempHealth = tempMaxHealth;
+        }
+        else
+        {
+            tempHealth += interger;
+        }
+        if(player == true)
+        {
+            playerHealthDisplay.UpdateHearts();
+        }
     }
     public void Die()
     {

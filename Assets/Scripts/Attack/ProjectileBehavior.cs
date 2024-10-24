@@ -56,7 +56,7 @@ public class ProjectileBehavior : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-            collision.GetComponent<Health>().AddOrRemoveHealth(-damage);
+            collision.GetComponent<Health>().AddOrRemoveGeneralHealth(-damage);
         }
         else
         {

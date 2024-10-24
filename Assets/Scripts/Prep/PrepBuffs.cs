@@ -9,8 +9,8 @@ public class PrepBuffs : MonoBehaviour
     [SerializeField] TextMeshProUGUI buffText;
     [SerializeField] TextMeshProUGUI statOverviewText;
     [SerializeField] float speed;
-    [SerializeField] float damage;
-    [SerializeField] int bonusHealth;
+    [SerializeField] int damage;
+    [SerializeField] int health;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,17 +30,24 @@ public class PrepBuffs : MonoBehaviour
                 speed += amount;
                 break;
             case "Damage":
-                damage += amount;
+                damage += (int)amount;
                 break;
             case "Health":
-                bonusHealth += (int)amount;
+                health += (int)amount;
                 break;
         }
         UpdateStatUI();
     }
+    public void SaveBuffs()
+    {
+        SavePrepBuffs saves = FindObjectOfType<SavePrepBuffs>();
+        saves.speedBuff = speed;
+        saves.damageBuff = damage;
+        saves.healthBuff = health;
+    }
     private void UpdateStatUI()
     {
-        buffText.text = "Buffs: " + "Speed: +" + speed + " Damage +" + damage + " Health: +" + bonusHealth;
-        statOverviewText.text = "Your potion gives you an extra: " + speed + " Speed, " + damage + " Damage, " + " and " + bonusHealth + " Health";
+        buffText.text = "Buffs: " + "Speed: +" + speed + " Damage +" + damage + " Health: +" + health;
+        statOverviewText.text = "Your potion gives you an extra: " + speed + " Speed, " + damage + " Damage, " + " and " + health + " Health";
     }
 }

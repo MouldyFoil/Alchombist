@@ -9,7 +9,7 @@ public class DealDamage : MonoBehaviour
     {
         if(collision.GetComponent<Health>() != null)
         {
-            collision.GetComponent<Health>().AddOrRemoveHealth(-damage);
+            collision.GetComponent<Health>().AddOrRemoveGeneralHealth(-damage);
         }
     }
 }

@@ -47,9 +47,10 @@ MonoBehaviour:
   tempHeal: 0
   canceledBySameIDPotions: 1
   healAmount: 1
-  cooldownOrDuration: 5
-  healthPotionType: 0
+  cooldownOrDuration: 10
+  healthPotionID: 0
   additionalMaxHealth: 0
+  depletedTag: DepletedHealthPot
 --- !u!1 &5003874157975987769
 GameObject:
   m_ObjectHideFlags: 0

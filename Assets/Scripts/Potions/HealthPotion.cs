@@ -8,7 +8,7 @@ public class HealthPotion : MonoBehaviour
     [SerializeField] bool canceledBySameIDPotions = true;
     [SerializeField] int healAmount = 1;
     [SerializeField] float cooldownOrDuration = 40;
-    [SerializeField] int healthPotionType;
+    [SerializeField] int healthPotionID;
     [SerializeField] int additionalMaxHealth;
     [SerializeField] string depletedTag = "DepletedHealthPot";
     Health playerHealth;
@@ -29,7 +29,7 @@ public class HealthPotion : MonoBehaviour
     private void DestroySelfIfSamePotionExists()
     {
         GameObject usedHealthPot = GameObject.FindWithTag(depletedTag);
-        if (usedHealthPot && usedHealthPot.GetComponent<HealthPotion>().ReturnID() == healthPotionType)
+        if (usedHealthPot && usedHealthPot.GetComponent<HealthPotion>().ReturnID() == healthPotionID)
         {
             Destroy(gameObject);
         }
@@ -37,29 +37,29 @@ public class HealthPotion : MonoBehaviour
         {
             StartCoroutine(Heal());
         }
+        gameObject.tag = depletedTag;
     }
 
     private IEnumerator Heal()
     {
-        gameObject.tag = depletedTag;
         if (tempHeal == true)
         {
-            playerHealth.AddTempMaxHealth(additionalMaxHealth);
-            playerHealth.AddTempHealth(healAmount);
+            playerHealth.AddOrRemoveTempMaxHealth(additionalMaxHealth);
+            playerHealth.AddOrRemoveTempHealth(healAmount);
         }
         else
         {
-            playerHealth.AddOrRemoveHealth(healAmount);
+            playerHealth.AddOrRemoveGeneralHealth(healAmount);
         }
         yield return new WaitForSeconds(cooldownOrDuration);
         if (tempHeal == true)
         {
-            playerHealth.AddTempHealth(-healAmount);
-            playerHealth.AddTempMaxHealth(-additionalMaxHealth);
+            playerHealth.AddOrRemoveTempHealth(-healAmount);
+            playerHealth.AddOrRemoveTempMaxHealth(-additionalMaxHealth);
         }
         Destroy(gameObject);
     }
-    public int ReturnID() { return healthPotionType; }
+    public int ReturnID() { return healthPotionID; }
     // Update is called once per frame
     void Update()
     {
