@@ -7,6 +7,7 @@ public class SavePrepBuffs : MonoBehaviour
     public float speedBuff;
     public int damageBuff;
     public int healthBuff;
+    public bool buffPlayer = false;
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -18,14 +19,14 @@ public class SavePrepBuffs : MonoBehaviour
     }
     private void Update()
     {
-        if (FindObjectOfType<PlayerMovement>())
+        if (FindObjectOfType<PlayerMovement>() && buffPlayer == true)
         {
             GameObject player = FindObjectOfType<PlayerMovement>().gameObject;
             player.GetComponent<PlayerMovement>().AddMovementSpeed(speedBuff);
             player.GetComponent<AlchemyScript>().AddBuffDamage(damageBuff);
             player.GetComponent<Health>().AddOrRemoveTempMaxHealth(healthBuff);
             player.GetComponent<Health>().AddOrRemoveTempHealth(healthBuff);
-            Destroy(gameObject);
+            buffPlayer = false;
         }
     }
 }

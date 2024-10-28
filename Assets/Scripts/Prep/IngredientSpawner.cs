@@ -13,6 +13,10 @@ public class IngredientSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(FindObjectOfType<SaveData>().ingredientAmounts != null)
+        {
+            ingredientAmounts = FindObjectOfType<SaveData>().ingredientAmounts;
+        }
         UpdateIngredientInfo();
     }
 
@@ -31,6 +35,7 @@ public class IngredientSpawner : MonoBehaviour
         }
         UpdateIngredientInfo();
     }
+    public int[] ReturnIngredientAmounts()  {  return ingredientAmounts;  }
     private void UpdateIngredientInfo()
     {
         int i = 0;
