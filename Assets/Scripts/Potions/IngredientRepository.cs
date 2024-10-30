@@ -2,6 +2,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class IngredientRepository : MonoBehaviour
 {
@@ -9,7 +10,17 @@ public class IngredientRepository : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        LoadSaveData();
+    }
+    private void LoadSaveData()
+    {
+        List<bool> unlockedSaves = FindObjectOfType<SaveData>().ingredientsUnlocked;
+        int index = 0;
+        foreach (Ingredient ingredient in ingredients)
+        {
+            ingredient.unlocked = unlockedSaves[index];
+            index++;
+        }
     }
     public Ingredient ReturnIngredient(int index) { return ingredients[index]; }
     public Ingredient[] ReturnIngredients() { return ingredients; }

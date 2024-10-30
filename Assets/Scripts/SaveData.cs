@@ -4,14 +4,61 @@ using UnityEngine;
 
 public class SaveData : MonoBehaviour
 {
-    public int[] ingredientAmounts;
-    public bool[] ingredientsUnlocked;
-    public bool[] potionsDiscovered;
-    private void Start()
+    [SerializeField] List<int> defaultIngredientAmounts;
+    public List<int> ingredientAmounts;
+    public List<bool> ingredientsUnlocked;
+    public List<bool> potionsDiscovered;
+    private void Awake()
     {
+        DontDestroyOnLoad(this);
+        if (FindObjectsOfType<SaveData>().Length > 1)
+        {
+            FindObjectOfType<SaveData>().PopulateEmptyLists();
+            Destroy(gameObject);
+        }
         LoadIngredientAmountsFromJson();
+        PopulateEmptyLists();
     }
-    public void SaveIngredientAmountsToJsonButton()
+    public void PopulateEmptyLists()
+    {
+        if(FindObjectOfType<IngredientRepository>() && ingredientsUnlocked.Count <= 0)
+        {
+            PopulateIngredientsUnlocked();
+        }
+        if (FindObjectOfType<PotionRepository>() && potionsDiscovered.Count <= 0)
+        {
+            PopulatePotionsDiscovered();
+        }
+    }
+    private void PopulateIngredientsUnlocked()
+    {
+        while(ingredientsUnlocked.Count < FindObjectOfType<IngredientRepository>().ReturnIngredients().Length)
+        {
+            if (ingredientsUnlocked.Count > 1)
+            {
+                ingredientsUnlocked.Add(false);
+            }
+            else
+            {
+                ingredientsUnlocked.Add(true);
+            }
+        }
+    }
+    private void PopulatePotionsDiscovered()
+    {
+        while (potionsDiscovered.Count < FindObjectOfType<PotionRepository>().ReturnPotions().Length)
+        {
+            if(potionsDiscovered.Count > 0)
+            {
+                potionsDiscovered.Add(false);
+            }
+            else
+            {
+                potionsDiscovered.Add(true);
+            }
+        }
+    }
+    public void SaveIngredientAmountsToJson()
     {
         if (FindObjectOfType<IngredientSpawner>())
         {
@@ -21,6 +68,7 @@ public class SaveData : MonoBehaviour
         string filePath = Application.persistentDataPath + "/PrepIngredientData.json";
         Debug.Log(filePath);
         System.IO.File.WriteAllText(filePath, prepIngredientData);
+        Debug.Log(System.IO.File.ReadAllText(filePath));
         Debug.Log("save updated");
     }
     public void AddToIngredients(int index, int amount)
@@ -32,16 +80,20 @@ public class SaveData : MonoBehaviour
         string filePath = Application.persistentDataPath + "/PrepIngredientData.json";
         string prepIngredientData = System.IO.File.ReadAllText(filePath);
 
-        ingredientAmounts = JsonUtility.FromJson<int[]>(prepIngredientData);
+        ingredientAmounts = JsonUtility.FromJson<List<int>>(prepIngredientData);
+        if(ingredientAmounts.Count <= 0)
+        {
+            ingredientAmounts = defaultIngredientAmounts;
+        }
         Debug.Log("LOADED!");
     }
     public void ResetIngredientAmountsData()
     {
-        int[] emptyIntArray = null;
-        string prepIngredientData = JsonUtility.ToJson(emptyIntArray);
+        string prepIngredientData = JsonUtility.ToJson(defaultIngredientAmounts);
         string filePath = Application.persistentDataPath + "/PrepIngredientData.json";
         Debug.Log(filePath);
         System.IO.File.WriteAllText(filePath, prepIngredientData);
+        ingredientAmounts = defaultIngredientAmounts;
         Debug.Log("reset");
     }
 }

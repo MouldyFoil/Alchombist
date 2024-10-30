@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ccadd244e1c4f4d806ded28e499a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultIngredientAmounts: 050000000100000001000000
   ingredientAmounts: 050000000100000001000000
   ingredientsUnlocked: 
   potionsDiscovered: 

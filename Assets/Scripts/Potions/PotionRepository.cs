@@ -38,7 +38,17 @@ public class PotionRepository : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        LoadSaveData();
+    }
+    private void LoadSaveData()
+    {
+        List<bool> discoveredSaves = FindObjectOfType<SaveData>().potionsDiscovered;
+        int index = 0;
+        foreach(Potion potion in potions)
+        {
+            potion.discovered = discoveredSaves[index];
+            index++;
+        }
     }
     
     // Update is called once per frame
