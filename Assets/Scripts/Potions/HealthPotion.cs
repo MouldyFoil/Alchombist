@@ -59,10 +59,9 @@ public class HealthPotion : MonoBehaviour
         }
         Destroy(gameObject);
     }
-    public int ReturnID() { return healthPotionID; }
-    // Update is called once per frame
     void Update()
     {
-        
+
     }
+    public int ReturnID() { return healthPotionID; }
 }

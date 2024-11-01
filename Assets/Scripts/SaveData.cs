@@ -13,19 +13,19 @@ public class SaveData : MonoBehaviour
         DontDestroyOnLoad(this);
         if (FindObjectsOfType<SaveData>().Length > 1)
         {
-            FindObjectOfType<SaveData>().PopulateEmptyLists();
+            FindObjectOfType<SaveData>().PopulateEmptyBoolLists();
             Destroy(gameObject);
         }
         LoadIngredientAmountsFromJson();
-        PopulateEmptyLists();
+        PopulateEmptyBoolLists();
     }
-    public void PopulateEmptyLists()
+    public void PopulateEmptyBoolLists()
     {
-        if(FindObjectOfType<IngredientRepository>() && ingredientsUnlocked.Count <= 0)
+        if(FindObjectOfType<IngredientRepository>())
         {
             PopulateIngredientsUnlocked();
         }
-        if (FindObjectOfType<PotionRepository>() && potionsDiscovered.Count <= 0)
+        if (FindObjectOfType<PotionRepository>())
         {
             PopulatePotionsDiscovered();
         }
