@@ -89,10 +89,10 @@ MonoBehaviour:
   - name: Truesight potion
     description: See hidden things and (not added) 10% chance to do 2x damage
     prefab: {fileID: 4125257910823381349, guid: 44f196e0f280bac439a25fbc67c6027a, type: 3}
-    spriteInBook: {fileID: 21300000, guid: c112efb63a590594091ec865b0f1e42f, type: 3}
+    spriteInBook: {fileID: 21300000, guid: 3588d8a09f1bf66408eba2371f8cb153, type: 3}
     ingredientCombo: 212112
     spawnType: 2
-    discovered: 1
+    discovered: 0
   - name: Potion Of Fake Health
     description: Adds +1 fake heart and heart container. Lasts 10 seconds.
     prefab: {fileID: 2444130679358146220, guid: 82bb3c5992bb68b499585bdf97698268, type: 3}

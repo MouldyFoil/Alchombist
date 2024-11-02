@@ -34,7 +34,7 @@ public class RevealingPotion : MonoBehaviour
             {
                 if(potion.ReturnPotionName() == name)
                 {
-                    Destroy(potion);
+                    Destroy(potion.gameObject);
                 }
             }
         }

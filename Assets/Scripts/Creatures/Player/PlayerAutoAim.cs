@@ -17,7 +17,10 @@ public class PlayerAutoAim : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FindObjectOfType<SavePrepBuffs>().buffPlayer = true;
+        if (FindObjectOfType<SavePrepBuffs>())
+        {
+            FindObjectOfType<SavePrepBuffs>().buffPlayer = true;
+        }
     }
 
     // Update is called once per frame
