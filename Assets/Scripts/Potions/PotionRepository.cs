@@ -6,7 +6,6 @@ using UnityEngine;
 public class PotionRepository : MonoBehaviour
 {
     [SerializeField] Potion[] potions;
-    //[SerializeField] Potion[] potions;
     public Potion ReturnPotion(int index)
     {
         return potions[index];
@@ -35,6 +34,16 @@ public class PotionRepository : MonoBehaviour
     {
         potions[potionIndex].discovered = true;
     }
+    public void DiscoverPotionByName(string name)
+    {
+        foreach(Potion potion in potions)
+        {
+            if(potion.name == name)
+            {
+                potion.discovered = true;
+            }
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -50,9 +59,7 @@ public class PotionRepository : MonoBehaviour
             index++;
         }
     }
-    
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
         
     }

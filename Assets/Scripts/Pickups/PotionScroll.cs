@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PotionScroll : MonoBehaviour
 {
-    [SerializeField] int potionIndex = 0;
+    [SerializeField] string potionName;
     PotionRepository potionRepository;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class PotionScroll : MonoBehaviour
     {
         if (collision.GetComponent<PlayerMovement>())
         {
-            potionRepository.DiscoverPotion(potionIndex);
+            potionRepository.DiscoverPotionByName(potionName);
             Destroy(gameObject);
         }
     }

@@ -110,6 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 69464751045167021}
   - component: {fileID: 3159080385151310798}
+  - component: {fileID: 6777659984437835234}
   m_Layer: 0
   m_Name: AttackJuice
   m_TagString: Untagged
@@ -148,4 +149,21 @@ MonoBehaviour:
   changeAttack: 1
   attackChange: 1
   movementChange: 0
-  duration: 6
+--- !u!114 &6777659984437835234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6997668198376117514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af90a6755bd65d4cbde9503cca0d3ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cancelType: 0
+  noDuration: 0
+  durationOrCooldown: 2
+  potionName: 
+  conflictingPotionNames: []
+  maxAmount: 0

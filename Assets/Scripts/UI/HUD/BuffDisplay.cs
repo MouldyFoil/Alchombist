@@ -16,9 +16,13 @@ public class BuffDisplay : MonoBehaviour
     }
     public void UpdateSpeedUI(float amount)
     {
-        if(amount != 0)
+        if(amount > 0)
         {
             speedText.text = "Speed: +" + amount.ToString();
+        }
+        else if(amount < 0)
+        {
+            speedText.text = "Speed: " + amount.ToString();
         }
         else
         {
@@ -30,6 +34,10 @@ public class BuffDisplay : MonoBehaviour
         if(amount != 0)
         {
             damageText.text = "Damage: +" + amount.ToString();
+        }
+        else if (amount < 0)
+        {
+            damageText.text = "Damage: " + amount.ToString();
         }
         else
         {

@@ -8,7 +8,6 @@ public class StatChangePotion : MonoBehaviour
     [SerializeField] bool changeAttack;
     [SerializeField] int attackChange = 2;
     [SerializeField] float movementChange = 10;
-    [SerializeField] float duration = 3;
     PlayerMovement playerMovement;
     AlchemyScript playerAlchemy;
     // Start is called before the first frame update
@@ -16,10 +15,10 @@ public class StatChangePotion : MonoBehaviour
     {
         playerMovement = FindObjectOfType<PlayerMovement>();
         playerAlchemy = FindObjectOfType<AlchemyScript>();
-        StartCoroutine(DoEffects());
+        DoEffects();
     }
 
-    private IEnumerator DoEffects()
+    private void DoEffects()
     {
         if(changeMovement == true)
         {
@@ -29,15 +28,16 @@ public class StatChangePotion : MonoBehaviour
         {
             playerAlchemy.AddBuffDamage(attackChange);
         }
-        yield return new WaitForSeconds(duration);
-        if(changeMovement == true)
+    }
+    private void OnDestroy()
+    {
+        if (changeMovement == true)
         {
             playerMovement.AddMovementSpeed(-movementChange);
         }
-        if(changeAttack == true)
+        if (changeAttack == true)
         {
             playerAlchemy.AddBuffDamage(-attackChange);
         }
-        Destroy(gameObject);
     }
 }

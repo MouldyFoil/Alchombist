@@ -5,9 +5,6 @@ using UnityEngine;
 public class RevealingPotion : MonoBehaviour
 {
     [SerializeField] List<string> sightIDs;
-    [SerializeField] float duration;
-    [SerializeField] string potionName;
-    [SerializeField] List<string> namesOfPotionsToDestroy;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,28 +13,7 @@ public class RevealingPotion : MonoBehaviour
             Debug.Log("Sight IDs is empty");
             return;
         }
-        if (namesOfPotionsToDestroy.Count > 0)
-        {
-            DeletePotionsOfName();
-        }
         RevealObjects();
-    }
-    private void DeletePotionsOfName()
-    {
-        foreach(RevealingPotion potion in FindObjectsOfType<RevealingPotion>())
-        {
-            if(potion == this)
-            {
-                continue;
-            }
-            foreach(string name in namesOfPotionsToDestroy)
-            {
-                if(potion.ReturnPotionName() == name)
-                {
-                    Destroy(potion.gameObject);
-                }
-            }
-        }
     }
     private void RevealObjects()
     {
@@ -50,15 +26,6 @@ public class RevealingPotion : MonoBehaviour
                     revealObject.Reveal();
                 }
             }
-        }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        duration -= Time.deltaTime;
-        if(duration < 0)
-        {
-            Destroy(gameObject);
         }
     }
     private void OnDestroy()
@@ -74,6 +41,5 @@ public class RevealingPotion : MonoBehaviour
             }
         }
     }
-    public string ReturnPotionName() { return potionName; }
     public List<string> ReturnSightIDs() { return sightIDs; }
 }

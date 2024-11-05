@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2444130679358146222}
   - component: {fileID: 6857357479994164187}
+  - component: {fileID: -2781263474063965340}
   m_Layer: 0
   m_Name: ExtraHealthJuice
   m_TagString: Untagged
@@ -51,6 +52,22 @@ MonoBehaviour:
   healthPotionID: 0
   additionalMaxHealth: 1
   depletedTag: DepletedHealthPot
+--- !u!114 &-2781263474063965340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2444130679358146220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af90a6755bd65d4cbde9503cca0d3ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cancelsOthers: 0
+  durationOrCooldown: 10
+  potionName: 
+  conflictingPotionNames: []
 --- !u!1 &5003874157975987769
 GameObject:
   m_ObjectHideFlags: 0

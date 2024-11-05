@@ -293,6 +293,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8454058042846625653, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: potionName
+      value: Potion Of Healing
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454058042846625653, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
       propertyPath: potionIndex
       value: 3
       objectReference: {fileID: 0}
@@ -519,8 +523,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8454058042846625653, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: potionName
+      value: Potion Of Fake Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454058042846625653, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
       propertyPath: potionIndex
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8454058042846625655, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
       propertyPath: m_Name
@@ -896,7 +904,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &250574459
 GameObject:
@@ -991,7 +999,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8689072164778244788, guid: dade80ccc3706ff40983af78ef18eb4e, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8689072164778244788, guid: dade80ccc3706ff40983af78ef18eb4e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1256,7 +1264,7 @@ Transform:
   - {fileID: 107183619}
   - {fileID: 1870607347}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &396930343
 GameObject:
@@ -1369,6 +1377,10 @@ PrefabInstance:
     - target: {fileID: 8454058042846625652, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454058042846625653, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: potionName
+      value: BoxPotion
       objectReference: {fileID: 0}
     - target: {fileID: 8454058042846625653, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
       propertyPath: potionIndex
@@ -1786,6 +1798,80 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8454058042846625652, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
   m_PrefabInstance: {fileID: 8454058042998132142}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1012479533
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1870607347}
+    m_Modifications:
+    - target: {fileID: 8454058042846625650, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3588d8a09f1bf66408eba2371f8cb153, type: 3}
+    - target: {fileID: 8454058042846625652, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454058042846625652, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454058042846625652, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454058042846625652, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454058042846625652, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454058042846625652, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454058042846625652, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454058042846625652, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454058042846625652, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454058042846625652, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454058042846625652, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454058042846625653, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: potionName
+      value: Truesight Potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454058042846625653, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: potionIndex
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454058042846625655, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: m_Name
+      value: Potion scroll  (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+--- !u!4 &1012479534 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8454058042846625652, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+  m_PrefabInstance: {fileID: 1012479533}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1050805506
 PrefabInstance:
@@ -2277,6 +2363,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8454058042846625653, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: potionName
+      value: Potion Of Strength
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454058042846625653, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
       propertyPath: potionIndex
       value: 4
       objectReference: {fileID: 0}
@@ -2299,7 +2389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5248007676684453016, guid: b0924ebdc29d06743943887771cb1464, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5248007676684453016, guid: b0924ebdc29d06743943887771cb1464, type: 3}
       propertyPath: m_LocalPosition.x
@@ -74241,6 +74331,7 @@ Transform:
   - {fileID: 1096414886}
   - {fileID: 2125038444}
   - {fileID: 1204348683}
+  - {fileID: 1012479534}
   m_Father: {fileID: 376450292}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74303,6 +74394,10 @@ PrefabInstance:
     - target: {fileID: 8454058042846625652, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454058042846625653, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: potionName
+      value: Potion Of Homing
       objectReference: {fileID: 0}
     - target: {fileID: 8454058042846625653, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
       propertyPath: potionIndex
@@ -74890,6 +74985,10 @@ PrefabInstance:
     - target: {fileID: 8454058042846625652, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454058042846625653, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
+      propertyPath: potionName
+      value: Potion Of Spikes
       objectReference: {fileID: 0}
     - target: {fileID: 8454058042846625655, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
       propertyPath: m_Name
