@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 4085256753020932473}
   - component: {fileID: 832509116443254516}
   - component: {fileID: -7363260396322003628}
+  - component: {fileID: 6386573363982431709}
   m_Layer: 0
   m_Name: Truesight potion
   m_TagString: Untagged
@@ -231,14 +232,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af90a6755bd65d4cbde9503cca0d3ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cancelType: 2
+  restrictionsOnStart: 2
   noDuration: 0
-  durationOrCooldown: 5
+  durationOrCooldown: 10
   potionName: Truesight
   conflictingPotionNames:
   - Truesight
   maxAmount: 0
   timerText: {fileID: 3424115027765665089}
+--- !u!114 &6386573363982431709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4125257910823381349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c41068fbc460654c9103b11492ad0f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 2
+  minSucceed: 1
+  numberPool: 10
 --- !u!1 &6350602515202081523
 GameObject:
   m_ObjectHideFlags: 0

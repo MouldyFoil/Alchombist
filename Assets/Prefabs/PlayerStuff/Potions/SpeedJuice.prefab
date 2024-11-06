@@ -61,12 +61,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af90a6755bd65d4cbde9503cca0d3ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cancelType: 0
+  restrictions: 0
   noDuration: 0
   durationOrCooldown: 2
-  potionName: 
+  potionName: unnamed
   conflictingPotionNames: []
   maxAmount: 0
+  timerText: {fileID: 0}
 --- !u!1 &8581150414335505652
 GameObject:
   m_ObjectHideFlags: 0

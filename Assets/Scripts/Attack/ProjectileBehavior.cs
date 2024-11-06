@@ -11,8 +11,8 @@ public class ProjectileBehavior : MonoBehaviour
     [SerializeField] bool infiniteDuration = false;
     [SerializeField] bool isHoming = false;
     [SerializeField] bool persistThroughBeings = false;
+    [SerializeField] bool isPlayerProjectile = false;
     Rigidbody2D rb;
-    GameObject spawner;
     Vector3 target;
     Vector3 aimDirection;
     // Start is called before the first frame update
@@ -39,10 +39,6 @@ public class ProjectileBehavior : MonoBehaviour
     {
         damage += extraDamage;
     }
-    public void SetSpawner(GameObject spawn)
-    {
-        spawner = spawn;
-    }
     private IEnumerator LifeSpan()
     {
         yield return new WaitForSeconds(duration);
@@ -50,6 +46,15 @@ public class ProjectileBehavior : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isPlayerProjectile && FindObjectOfType<CriticalPotion>())
+        {
+            float damageMultiplied = damage;
+            foreach(CriticalPotion criticalPotion in FindObjectsOfType<CriticalPotion>())
+            {
+                damageMultiplied *= criticalPotion.RollForMultiplier();
+            }
+            damage = (int)damageMultiplied;
+        }
         if (collision.GetComponent<Health>())
         {
             if(persistThroughBeings == false)

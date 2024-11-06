@@ -72,6 +72,13 @@ MonoBehaviour:
     ingredientCombo: 122121
     spawnType: 2
     discovered: 0
+  - name: Truesight Potion
+    description: See hidden things and (not added) 10% chance to do 2x damage
+    prefab: {fileID: 4125257910823381349, guid: 44f196e0f280bac439a25fbc67c6027a, type: 3}
+    spriteInBook: {fileID: 21300000, guid: 3588d8a09f1bf66408eba2371f8cb153, type: 3}
+    ingredientCombo: 212112
+    spawnType: 2
+    discovered: 0
   - name: Potion Of Strength
     description: +1 damage to all attacks. Lasts 6 seconds.
     prefab: {fileID: 6997668198376117514, guid: ba5d09edb6579114ebeb4c3e8d8fd7c3, type: 3}
@@ -85,13 +92,6 @@ MonoBehaviour:
     spriteInBook: {fileID: 5081175238802344075, guid: 11bf883dbbc542d4991f49a0b9004832, type: 3}
     ingredientCombo: 12
     spawnType: 1
-    discovered: 0
-  - name: Truesight Potion
-    description: See hidden things and (not added) 10% chance to do 2x damage
-    prefab: {fileID: 4125257910823381349, guid: 44f196e0f280bac439a25fbc67c6027a, type: 3}
-    spriteInBook: {fileID: 21300000, guid: 3588d8a09f1bf66408eba2371f8cb153, type: 3}
-    ingredientCombo: 212112
-    spawnType: 2
     discovered: 0
   - name: Potion Of Fake Health
     description: Adds +1 fake heart and heart container. Lasts 10 seconds.

@@ -46,12 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tempHeal: 1
-  canceledBySameIDPotions: 0
   healAmount: 1
-  cooldownOrDuration: 10
   healthPotionID: 0
   additionalMaxHealth: 1
-  depletedTag: DepletedHealthPot
 --- !u!114 &-2781263474063965340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,10 +61,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af90a6755bd65d4cbde9503cca0d3ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cancelsOthers: 0
+  restrictions: 0
+  noDuration: 0
   durationOrCooldown: 10
-  potionName: 
+  potionName: unnamed
   conflictingPotionNames: []
+  maxAmount: 0
+  timerText: {fileID: 0}
 --- !u!1 &5003874157975987769
 GameObject:
   m_ObjectHideFlags: 0

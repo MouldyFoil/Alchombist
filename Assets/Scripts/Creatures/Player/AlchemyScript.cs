@@ -124,8 +124,7 @@ public class AlchemyScript : MonoBehaviour
         {
             if(FindObjectOfType<PlayerAutoAim>().ReturnCanTarget() == true)
             {
-                var thrownPotion = Instantiate(potionRepository.ReturnPotion(potionIndex).prefab, throwSpawn.position, throwSpawn.rotation * Quaternion.Euler(0, 0, -90));
-                thrownPotion.GetComponent<ProjectileBehavior>().AddExtraDamage(buffDamage);
+                SpawnAttackPotion(potionIndex);
             }
             else
             {
@@ -137,6 +136,13 @@ public class AlchemyScript : MonoBehaviour
             Instantiate(potionRepository.ReturnPotion(potionIndex).prefab, transform);
         }
     }
+
+    private void SpawnAttackPotion(int potionIndex)
+    {
+        var thrownPotion = Instantiate(potionRepository.ReturnPotion(potionIndex).prefab, throwSpawn.position, throwSpawn.rotation * Quaternion.Euler(0, 0, -90));
+        thrownPotion.GetComponent<ProjectileBehavior>().AddExtraDamage(buffDamage);
+    }
+
     private void ClearIngredients()
     {
         for (int i = 0; i < activeIngredients.Length; i++)

@@ -5,20 +5,15 @@ using UnityEngine;
 public class CriticalPotion : MonoBehaviour
 {
     [SerializeField] float multiplier = 2;
-    [SerializeField] int percentChance;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] int minSucceed = 1;
+    [SerializeField] int numberPool = 10;
+    public float RollForMultiplier()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void RollForMultiplier()
-    {
-
+        int numberRolled = Random.Range(1, numberPool);
+        if(numberRolled <= minSucceed)
+        {
+            return multiplier;
+        }
+        return 1;
     }
 }

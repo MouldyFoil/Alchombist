@@ -6,7 +6,6 @@ public class HealthPotion : MonoBehaviour
 {
     [SerializeField] bool tempHeal;
     [SerializeField] int healAmount = 1;
-    [SerializeField] int healthPotionID;
     [SerializeField] int additionalMaxHealth;
     Health playerHealth;
     // Start is called before the first frame update
@@ -36,5 +35,4 @@ public class HealthPotion : MonoBehaviour
             playerHealth.AddOrRemoveTempMaxHealth(-additionalMaxHealth);
         }
     }
-    public int ReturnID() { return healthPotionID; }
 }
