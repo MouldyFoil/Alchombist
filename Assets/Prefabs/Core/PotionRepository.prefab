@@ -73,7 +73,7 @@ MonoBehaviour:
     spawnType: 2
     discovered: 0
   - name: Truesight Potion
-    description: See hidden things and (not added) 10% chance to do 2x damage
+    description: Reveal things once hidden and gain a 10% chance to do 2x damage.
     prefab: {fileID: 4125257910823381349, guid: 44f196e0f280bac439a25fbc67c6027a, type: 3}
     spriteInBook: {fileID: 21300000, guid: 3588d8a09f1bf66408eba2371f8cb153, type: 3}
     ingredientCombo: 212112

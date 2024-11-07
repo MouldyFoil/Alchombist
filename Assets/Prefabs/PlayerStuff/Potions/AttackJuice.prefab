@@ -161,9 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af90a6755bd65d4cbde9503cca0d3ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restrictions: 0
+  restrictionsOnStart: 0
   noDuration: 0
-  durationOrCooldown: 2
+  durationOrCooldown: 3
   potionName: unnamed
   conflictingPotionNames: []
   maxAmount: 0

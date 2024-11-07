@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class GenericPotionProperties : MonoBehaviour
 {
     //this script handles duration and all the ways potions can delete or cancel eachother out (it also contains a potion name which could be used for other scripts)
-    public enum cancelTypeEnum { noAmountRestriction = 0, destroyedByOthersOnStart = 1, replaceOthersOnStart = 2, maxAmountDestroysOldest = 3, maxAmountDestroysSelf = 4 }
+    public enum cancelTypeEnum { noAmountRestriction = 0, cancelledByOthers = 1, replacesOthers = 2, maxAmountDestroysOldest = 3, maxAmountDestroysNewest = 4 }
     [SerializeField] cancelTypeEnum restrictionsOnStart;
     [SerializeField] bool noDuration;
     [SerializeField] float durationOrCooldown;
@@ -21,14 +21,14 @@ public class GenericPotionProperties : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        if(restrictionsOnStart == cancelTypeEnum.destroyedByOthersOnStart)
+        if(restrictionsOnStart == cancelTypeEnum.cancelledByOthers)
         {
             DestroySelfIfPotionConflict();
         }
     }
     void Start()
     {
-        if (restrictionsOnStart == cancelTypeEnum.replaceOthersOnStart)
+        if (restrictionsOnStart == cancelTypeEnum.replacesOthers)
         {
             Debug.Log("AAAA");
             if (conflictingPotionNames.Count > 0)
@@ -41,7 +41,7 @@ public class GenericPotionProperties : MonoBehaviour
         {
             DestroyOldestPotionIfMaxReached();
         }
-        else if (restrictionsOnStart == cancelTypeEnum.maxAmountDestroysSelf)
+        else if (restrictionsOnStart == cancelTypeEnum.maxAmountDestroysNewest)
         {
             DestroySelfIfMaxReached();
         }

@@ -234,7 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restrictionsOnStart: 2
   noDuration: 0
-  durationOrCooldown: 10
+  durationOrCooldown: 15
   potionName: Truesight
   conflictingPotionNames:
   - Truesight
