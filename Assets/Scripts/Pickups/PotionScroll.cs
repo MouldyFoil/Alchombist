@@ -10,6 +10,13 @@ public class PotionScroll : MonoBehaviour
     void Start()
     {
         potionRepository = FindObjectOfType<PotionRepository>();
+        foreach (Potion potion in potionRepository.ReturnPotions())
+        {
+            if (potion.name == potionName && potion.discovered == true)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     // Update is called once per frame

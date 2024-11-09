@@ -19,6 +19,7 @@ public class SaveData : MonoBehaviour
         LoadIngredientAmountsFromJson();
         PopulateEmptyBoolLists();
     }
+    //populate failsafes
     public void PopulateEmptyBoolLists()
     {
         if(FindObjectOfType<IngredientRepository>())
@@ -58,6 +59,45 @@ public class SaveData : MonoBehaviour
             }
         }
     }
+    // active ingredients below
+    public void SaveIngredientsUnlockedToJson(List<bool> unlockedList)
+    {
+        ingredientsUnlocked = unlockedList;
+        string prepIngredientData = JsonUtility.ToJson(ingredientsUnlocked);
+        string filePath = Application.persistentDataPath + "/ingredientsUnlockedData.json";
+        Debug.Log(filePath);
+        System.IO.File.WriteAllText(filePath, prepIngredientData);
+        Debug.Log(System.IO.File.ReadAllText(filePath));
+        Debug.Log("save updated");
+    }
+    public void LoadIngredientsUnlocked()
+    {
+        string filePath = Application.persistentDataPath + "/ingredientsUnlockedData.json";
+        string ingredientsUnlockedData = System.IO.File.ReadAllText(filePath);
+
+        ingredientsUnlocked = JsonUtility.FromJson<List<bool>>(ingredientsUnlockedData);
+        Debug.Log("LOADED!");
+    }
+    // potions below
+    public void SavePotionsDiscoveredToJson(List<bool> unlockedList)
+    {
+        potionsDiscovered = unlockedList;
+        string prepIngredientData = JsonUtility.ToJson(potionsDiscovered);
+        string filePath = Application.persistentDataPath + "/ingredientsUnlockedData.json";
+        Debug.Log(filePath);
+        System.IO.File.WriteAllText(filePath, prepIngredientData);
+        Debug.Log(System.IO.File.ReadAllText(filePath));
+        Debug.Log("save updated");
+    }
+    public void LoadPotionsDiscovered()
+    {
+        string filePath = Application.persistentDataPath + "/potionsDiscoveredData.json";
+        string ingredientsUnlockedData = System.IO.File.ReadAllText(filePath);
+
+        potionsDiscovered = JsonUtility.FromJson<List<bool>>(ingredientsUnlockedData);
+        Debug.Log("LOADED!");
+    }
+    // prep ingredients below
     public void SaveIngredientAmountsToJson()
     {
         if (FindObjectOfType<IngredientSpawner>())

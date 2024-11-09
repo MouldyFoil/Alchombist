@@ -6,6 +6,34 @@ using UnityEngine;
 public class PotionRepository : MonoBehaviour
 {
     [SerializeField] Potion[] potions;
+    SaveData saveData;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        saveData = FindObjectOfType<SaveData>();
+        saveData.PopulateEmptyBoolLists();
+        LoadSaveData();
+    }
+    private void LoadSaveData()
+    {
+        List<bool> discoveredSaves = saveData.potionsDiscovered;
+        int index = 0;
+        foreach (Potion potion in potions)
+        {
+            potion.discovered = discoveredSaves[index];
+            index++;
+        }
+    }
+    public void SavePotionsDiscovered()
+    {
+        List<bool> potionDiscoveredData = null;
+        foreach (Potion potion in potions)
+        {
+            potionDiscoveredData.Add(potion.discovered);
+        }
+        saveData.SavePotionsDiscoveredToJson(potionDiscoveredData);
+    }
     public Potion ReturnPotion(int index)
     {
         return potions[index];
@@ -44,21 +72,7 @@ public class PotionRepository : MonoBehaviour
             }
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        LoadSaveData();
-    }
-    private void LoadSaveData()
-    {
-        List<bool> discoveredSaves = FindObjectOfType<SaveData>().potionsDiscovered;
-        int index = 0;
-        foreach(Potion potion in potions)
-        {
-            potion.discovered = discoveredSaves[index];
-            index++;
-        }
-    }
+    
     private void OnDestroy()
     {
         

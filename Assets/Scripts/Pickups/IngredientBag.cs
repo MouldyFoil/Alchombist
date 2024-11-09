@@ -10,12 +10,16 @@ public class IngredientBag : MonoBehaviour
     void Start()
     {
         ingredientRepository = FindObjectOfType<IngredientRepository>();
+        ingredientRepository.ReturnIngredient(ingredientIndex);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (ingredientRepository.ReturnIngredient(ingredientIndex).unlocked == true)
+        {
+            Destroy(gameObject);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -7,20 +7,32 @@ using static UnityEditor.Progress;
 public class IngredientRepository : MonoBehaviour
 {
     [SerializeField] Ingredient[] ingredients;
+    SaveData saveData;
     // Start is called before the first frame update
     void Start()
     {
+        saveData = FindObjectOfType<SaveData>();
+        saveData.PopulateEmptyBoolLists();
         LoadSaveData();
     }
     private void LoadSaveData()
     {
-        List<bool> unlockedSaves = FindObjectOfType<SaveData>().ingredientsUnlocked;
+        List<bool> unlockedSaves = saveData.ingredientsUnlocked;
         int index = 0;
         foreach (Ingredient ingredient in ingredients)
         {
             ingredient.unlocked = unlockedSaves[index];
             index++;
         }
+    }
+    public void SaveIngredientsUnlocked()
+    {
+        List<bool> ingredientsUnlockedData = null;
+        foreach(Ingredient ingredient in ingredients)
+        {
+            ingredientsUnlockedData.Add(ingredient.unlocked);
+        }
+        saveData.SaveIngredientsUnlockedToJson(ingredientsUnlockedData);
     }
     public Ingredient ReturnIngredient(int index) { return ingredients[index]; }
     public Ingredient[] ReturnIngredients() { return ingredients; }
