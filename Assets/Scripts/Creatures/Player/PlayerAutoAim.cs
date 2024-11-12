@@ -74,15 +74,16 @@ public class PlayerAutoAim : MonoBehaviour
             {
                 return false;
             }
-            /*foreach (string tag in ignoreTags)
+            bool ignoreObject = false;
+            foreach(string tag in ignoreTags)
             {
-                Debug.Log(tag);
-                if (!hit.collider.gameObject.CompareTag(tag))
+                if(hit.collider.gameObject.tag == tag)
                 {
-                    return true;
+                    ignoreObject = true;
+                    break;
                 }
-            }*/
-            if (!hit.collider.gameObject.CompareTag("TargetableByPlayer") && !hit.collider.gameObject.CompareTag(ignoreTags[0]) &&!hit.collider.gameObject.CompareTag(ignoreTags[1]))
+            }
+            if(ignoreObject == false && !hit.collider.gameObject.CompareTag("TargetableByPlayer"))
             {
                 return true;
             }

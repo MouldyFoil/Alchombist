@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2266312089735903029}
   m_Layer: 7
   m_Name: Ingredient bag
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 3329592800693984596}
   m_Layer: 0
   m_Name: Bag sprite
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

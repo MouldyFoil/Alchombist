@@ -47,7 +47,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempHeal: 1
   healAmount: 1
-  healthPotionID: 0
   additionalMaxHealth: 1
 --- !u!114 &-2781263474063965340
 MonoBehaviour:
@@ -61,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af90a6755bd65d4cbde9503cca0d3ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restrictions: 0
+  restrictionsOnStart: 0
   noDuration: 0
   durationOrCooldown: 10
   potionName: unnamed

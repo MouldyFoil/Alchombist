@@ -18,6 +18,10 @@ public class AlchemyScript : MonoBehaviour
     PotionRepository potionRepository;
     IngredientRepository ingredientRepository;
 
+    //misc
+    SFXManager soundManager;
+    [SerializeField] AudioClip[] ingredientSFX;
+    [SerializeField] float volume;
 
     int buffDamage;
     int[] activeIngredients = new int[6];
@@ -32,6 +36,7 @@ public class AlchemyScript : MonoBehaviour
         potionRepository = FindObjectOfType<PotionRepository>();
         ingredientRepository = FindObjectOfType<IngredientRepository>();
         ingredientParticles = ingredientParticlesParent.GetComponentsInChildren<ParticleSystem>();
+        soundManager = FindObjectOfType<SFXManager>();
     }
     void Update()
     {
@@ -98,6 +103,7 @@ public class AlchemyScript : MonoBehaviour
         }
         activeIngredients[currentSlot] = ingredientRepository.ReturnIngredient(index).ID;
         currentSlot++;
+        soundManager.PlayAudioClip(ingredientSFX[index], transform, volume);
         activeIngredientUI.UpdateIngredientUI();
     }
     private void MakePotion()

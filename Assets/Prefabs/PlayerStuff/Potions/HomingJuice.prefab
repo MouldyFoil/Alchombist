@@ -151,3 +151,4 @@ MonoBehaviour:
   infiniteDuration: 0
   isHoming: 1
   persistThroughBeings: 0
+  isPlayerProjectile: 0
