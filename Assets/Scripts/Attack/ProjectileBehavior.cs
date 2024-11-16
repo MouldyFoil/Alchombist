@@ -12,6 +12,10 @@ public class ProjectileBehavior : MonoBehaviour
     [SerializeField] bool isHoming = false;
     [SerializeField] bool persistThroughBeings = false;
     [SerializeField] bool isPlayerProjectile = false;
+    [SerializeField] float volume = 1;
+    [SerializeField] AudioClip[] spawnSounds;
+    [SerializeField] AudioClip[] hitSounds;
+    SFXManager soundManager;
     Rigidbody2D rb;
     Vector3 target;
     Vector3 aimDirection;
@@ -19,9 +23,14 @@ public class ProjectileBehavior : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        soundManager = FindObjectOfType<SFXManager>();
         if(infiniteDuration == false)
         {
             StartCoroutine(LifeSpan());
+        }
+        if(spawnSounds != null && soundManager != null)
+        {
+            soundManager.PlayRandomAudioClip(spawnSounds, transform, volume);
         }
     }
 
@@ -66,6 +75,10 @@ public class ProjectileBehavior : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+        if (hitSounds != null && soundManager != null)
+        {
+            soundManager.PlayRandomAudioClip(hitSounds, transform, volume);
         }
     }
     private void UpdateTarget()

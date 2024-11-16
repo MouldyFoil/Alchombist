@@ -17,6 +17,9 @@ public class GenericPotionProperties : MonoBehaviour
     [SerializeField] List<string> conflictingPotionNames;
     [SerializeField] int maxAmount;
     [SerializeField] TextMeshPro timerText;
+    [SerializeField] AudioClip[] possibleStartSounds;
+    [SerializeField] float startSoundVolume = 1;
+    SFXManager soundManager;
     int potionNumber = 0;
     // Start is called before the first frame update
     private void Awake()
@@ -44,6 +47,11 @@ public class GenericPotionProperties : MonoBehaviour
         else if (restrictionsOnStart == cancelTypeEnum.maxAmountDestroysNewest)
         {
             DestroySelfIfMaxReached();
+        }
+        soundManager = FindObjectOfType<SFXManager>();
+        if (possibleStartSounds != null)
+        {
+            soundManager.PlayRandomAudioClip(possibleStartSounds, transform, startSoundVolume);
         }
     }
 

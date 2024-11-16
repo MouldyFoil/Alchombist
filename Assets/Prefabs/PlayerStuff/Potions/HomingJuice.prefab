@@ -152,3 +152,7 @@ MonoBehaviour:
   isHoming: 1
   persistThroughBeings: 0
   isPlayerProjectile: 0
+  volume: 1
+  spawnSounds:
+  - {fileID: 8300000, guid: aea70eddaee96cb43bee6f7712b2bba4, type: 3}
+  hitSounds: []

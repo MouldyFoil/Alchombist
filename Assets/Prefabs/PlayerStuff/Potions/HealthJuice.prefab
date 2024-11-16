@@ -68,6 +68,9 @@ MonoBehaviour:
   - HealthJuice
   maxAmount: 0
   timerText: {fileID: 5000967491454058124}
+  possibleStartSounds:
+  - {fileID: 8300000, guid: b9877d717e19e364294f90aa12057f89, type: 3}
+  startSoundVolume: 1
 --- !u!1 &5003874157975987769
 GameObject:
   m_ObjectHideFlags: 0

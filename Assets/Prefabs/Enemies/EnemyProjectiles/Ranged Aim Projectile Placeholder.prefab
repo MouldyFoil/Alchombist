@@ -105,6 +105,11 @@ MonoBehaviour:
   infiniteDuration: 0
   isHoming: 0
   persistThroughBeings: 0
+  isPlayerProjectile: 0
+  volume: 1
+  spawnSounds:
+  - {fileID: 8300000, guid: 96af2e23354954b44a6e716769618aff, type: 3}
+  hitSounds: []
 --- !u!50 &-5820390315208742911
 Rigidbody2D:
   serializedVersion: 4

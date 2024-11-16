@@ -68,6 +68,9 @@ MonoBehaviour:
   conflictingPotionNames: []
   maxAmount: 0
   timerText: {fileID: 0}
+  possibleStartSounds:
+  - {fileID: 8300000, guid: b9877d717e19e364294f90aa12057f89, type: 3}
+  startSoundVolume: 1
 --- !u!1 &8581150414335505652
 GameObject:
   m_ObjectHideFlags: 0

@@ -240,6 +240,9 @@ MonoBehaviour:
   - Truesight
   maxAmount: 0
   timerText: {fileID: 3424115027765665089}
+  possibleStartSounds:
+  - {fileID: 8300000, guid: b9877d717e19e364294f90aa12057f89, type: 3}
+  startSoundVolume: 1
 --- !u!114 &6386573363982431709
 MonoBehaviour:
   m_ObjectHideFlags: 0

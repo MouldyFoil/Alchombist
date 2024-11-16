@@ -19871,11 +19871,11 @@ MonoBehaviour:
   ingredientSFX:
   - {fileID: 8300000, guid: 2e963fc6bc571834e82f16309f1c07d2, type: 3}
   - {fileID: 8300000, guid: 11c9d8a035435b644ad00c6661021ec0, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  volume: 1
+  - {fileID: 8300000, guid: 9022af95bfc95dd47b198530a2b1dec4, type: 3}
+  - {fileID: 8300000, guid: a916617ee35840a48925d3ecbf583540, type: 3}
+  - {fileID: 8300000, guid: 933a6b70c38fb8744a368164cbc0da4f, type: 3}
+  - {fileID: 8300000, guid: e14923fa2046996479454dfcf8ae7127, type: 3}
+  volume: 0.1
 --- !u!114 &1211771687
 MonoBehaviour:
   m_ObjectHideFlags: 0
