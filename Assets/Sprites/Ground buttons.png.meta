@@ -1,34 +1,19 @@
 fileFormatVersion: 2
-guid: 8f2c64b4d3577724aa596ad7ae44a933
+guid: 358a86c7f4f73ef419564919cf81739c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2716784495706492898
-    second: Grass Tiles_0
+      213: 6587914540498128985
+    second: Ground buttons_0
   - first:
-      213: 4082783207600440990
-    second: Grass Tiles_1
+      213: 6612095827468747064
+    second: Ground buttons_1
   - first:
-      213: -2292735526786893114
-    second: Grass Tiles_2
+      213: 2161434853163271517
+    second: Ground buttons_2
   - first:
-      213: 8849870812370486154
-    second: Grass Tiles_3
-  - first:
-      213: -2110717173518823822
-    second: Grass Tiles_4
-  - first:
-      213: -986514915456838150
-    second: Grass Tiles_5
-  - first:
-      213: 8374865387410769714
-    second: Grass Tiles_6
-  - first:
-      213: 5830415976077847891
-    second: Grass Tiles_7
-  - first:
-      213: -6702534114413350175
-    second: Grass Tiles_8
+      213: 4042476164152574920
+    second: Ground buttons_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -118,70 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Grass Tiles_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e10302235ea0c4ad0800000000000000
-      internalID: -2716784495706492898
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grass Tiles_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e9644ff12b5f8a830800000000000000
-      internalID: 4082783207600440990
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grass Tiles_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6caf2f19f219e20e0800000000000000
-      internalID: -2292735526786893114
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grass Tiles_3
+      name: Ground buttons_0
       rect:
         serializedVersion: 2
         x: 0
@@ -195,14 +117,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a83c07f7d9e01da70800000000000000
-      internalID: 8849870812370486154
+      spriteID: 950950dce59fc6b50800000000000000
+      internalID: 6587914540498128985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Grass Tiles_4
+      name: Ground buttons_1
       rect:
         serializedVersion: 2
         x: 16
@@ -216,35 +138,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27e081be9e935b2e0800000000000000
-      internalID: -2110717173518823822
+      spriteID: 8310e196f12e2cb50800000000000000
+      internalID: 6612095827468747064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Grass Tiles_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: af5129249e13f42f0800000000000000
-      internalID: -986514915456838150
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grass Tiles_6
+      name: Ground buttons_2
       rect:
         serializedVersion: 2
         x: 0
@@ -258,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 237455aa2bf793470800000000000000
-      internalID: 8374865387410769714
+      spriteID: d5502f31c85fefd10800000000000000
+      internalID: 2161434853163271517
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Grass Tiles_7
+      name: Ground buttons_3
       rect:
         serializedVersion: 2
         x: 16
@@ -279,29 +180,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35de1ea707cc9e050800000000000000
-      internalID: 5830415976077847891
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Grass Tiles_8
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1e274770cb0dbf2a0800000000000000
-      internalID: -6702534114413350175
+      spriteID: 8c34c4147a2c91830800000000000000
+      internalID: 4042476164152574920
       vertices: []
       indices: 
       edges: []
