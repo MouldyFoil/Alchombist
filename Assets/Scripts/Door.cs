@@ -33,18 +33,21 @@ public class Door : MonoBehaviour
             {
                 buttonsPressed++;
             }
-            if(exactChange == false && buttonsPressed >= buttonsRequired)
+            if(GetComponent<Collider2D>().enabled == true)
             {
-                OpenDoor();
-                break;
-            }
-            if (exactChange == true && buttonsPressed == buttonsRequired)
-            {
-                OpenDoor();
-                break;
+                if (exactChange == false && buttonsPressed >= buttonsRequired)
+                {
+                    OpenDoor();
+                    break;
+                }
+                if (exactChange == true && buttonsPressed == buttonsRequired)
+                {
+                    OpenDoor();
+                    break;
+                }
             }
         }
-        if(buttonsPressed < buttonsRequired)
+        if(buttonsPressed < buttonsRequired && GetComponent<Collider2D>().enabled == false)
         {
             CloseDoor();
         }
@@ -53,10 +56,12 @@ public class Door : MonoBehaviour
     {
         spriteRenderer.sprite = openedSprite;
         GetComponent<Collider2D>().enabled = false;
+        AstarPath.active.Scan();
     }
     public void CloseDoor()
     {
         spriteRenderer.sprite = closedSprite;
         GetComponent<Collider2D>().enabled = true;
+        AstarPath.active.Scan();
     }
 }
