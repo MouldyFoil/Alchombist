@@ -12,14 +12,14 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - PlayerHitbox
   - Water
   - UI
   - Enemy
   - EnemyAttack
   - PlayerAttack
   - PathObstacle
-  - 
+  - PlayerPhysical
   - 
   - 
   - 
