@@ -8,37 +8,43 @@ public class IngredientRepository : MonoBehaviour
 {
     [SerializeField] Ingredient[] ingredients;
     SaveData saveData;
-    // Start is called before the first frame update
-    void Start()
+    public void LoadSaveData(SaveData saveDataIn)
     {
-        saveData = FindObjectOfType<SaveData>();
-        saveData.PopulateEmptyBoolLists();
-        LoadSaveData();
-    }
-    private void LoadSaveData()
-    {
-        List<bool> unlockedSaves = saveData.ingredientsUnlocked;
-        int index = 0;
-        foreach (Ingredient ingredient in ingredients)
+        saveData = saveDataIn;
+        if (saveData != null && saveData.ingredientsUnlocked.Count > 0)
         {
-            ingredient.unlocked = unlockedSaves[index];
-            index++;
+            List<bool> unlockedSaves = saveData.ingredientsUnlocked;
+            int index = 0;
+            foreach (Ingredient ingredient in ingredients)
+            {
+                Debug.Log(unlockedSaves[index]);
+                ingredient.unlocked = unlockedSaves[index];
+                index++;
+            }
         }
     }
     public void SaveIngredientsUnlocked()
     {
-        List<bool> ingredientsUnlockedData = null;
+        List<bool> ingredientsUnlockedData = new List<bool>();
         foreach(Ingredient ingredient in ingredients)
         {
             ingredientsUnlockedData.Add(ingredient.unlocked);
         }
-        saveData.SaveIngredientsUnlockedToJson(ingredientsUnlockedData);
+        if(saveData != null)
+        {
+            saveData.SaveIngredientsUnlockedToJson(ingredientsUnlockedData);
+        }
+        else
+        {
+            Debug.Log("SaveData is NULL!");
+        }
     }
     public Ingredient ReturnIngredient(int index) { return ingredients[index]; }
     public Ingredient[] ReturnIngredients() { return ingredients; }
     public void UnlockIngredient(int ingredientIndex)
     {
         ingredients[ingredientIndex].unlocked = true;
+        SaveIngredientsUnlocked();
     }
     // Update is called once per frame
     void Update()

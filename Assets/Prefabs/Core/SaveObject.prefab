@@ -47,3 +47,4 @@ MonoBehaviour:
   ingredientAmounts: 050000000100000001000000
   ingredientsUnlocked: 
   potionsDiscovered: 
+  startOfScene: 0

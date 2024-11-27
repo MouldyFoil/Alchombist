@@ -28,7 +28,7 @@ public class IngredientSpawner : MonoBehaviour
         {
             ingredientAmounts = FindObjectOfType<SaveData>().ingredientAmounts;
             UpdateIngredientInfo();
-            alreadySetIngredients =true;
+            alreadySetIngredients = true;
         }
     }
     public void SpawnIngredient(int ingredientIndex)

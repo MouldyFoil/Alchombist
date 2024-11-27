@@ -7,16 +7,9 @@ public class PotionRepository : MonoBehaviour
 {
     [SerializeField] Potion[] potions;
     SaveData saveData;
-
-    // Start is called before the first frame update
-    void Start()
+    public void LoadSaveData(SaveData saveDataIn)
     {
-        saveData = FindObjectOfType<SaveData>();
-        saveData.PopulateEmptyBoolLists();
-        LoadSaveData();
-    }
-    private void LoadSaveData()
-    {
+        saveData = saveDataIn;
         List<bool> discoveredSaves = saveData.potionsDiscovered;
         int index = 0;
         foreach (Potion potion in potions)
@@ -27,12 +20,13 @@ public class PotionRepository : MonoBehaviour
     }
     public void SavePotionsDiscovered()
     {
-        List<bool> potionDiscoveredData = null;
+        List<bool> potionDiscoveredData = new List<bool>();
         foreach (Potion potion in potions)
         {
             potionDiscoveredData.Add(potion.discovered);
         }
         saveData.SavePotionsDiscoveredToJson(potionDiscoveredData);
+        Debug.Log("AAAA");
     }
     public Potion ReturnPotion(int index)
     {
@@ -58,10 +52,6 @@ public class PotionRepository : MonoBehaviour
         }
         return potionsDiscovered;
     }
-    public void DiscoverPotion(int potionIndex)
-    {
-        potions[potionIndex].discovered = true;
-    }
     public void DiscoverPotionByName(string name)
     {
         foreach(Potion potion in potions)
@@ -70,6 +60,14 @@ public class PotionRepository : MonoBehaviour
             {
                 potion.discovered = true;
             }
+        }
+        if(saveData != null)
+        {
+            SavePotionsDiscovered();
+        }
+        else
+        {
+            Debug.Log("SaveData is NULL!");
         }
     }
     
