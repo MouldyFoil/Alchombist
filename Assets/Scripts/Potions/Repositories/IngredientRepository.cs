@@ -8,17 +8,30 @@ public class IngredientRepository : MonoBehaviour
 {
     [SerializeField] Ingredient[] ingredients;
     SaveData saveData;
-    public void LoadSaveData(SaveData saveDataIn)
+    bool alreadyLoaded = false;
+    private void Update()
     {
-        saveData = saveDataIn;
+        if(alreadyLoaded == false)
+        {
+            foreach (SaveData saveData1 in FindObjectsOfType<SaveData>())
+            {
+                if (saveData1.ingredientsUnlocked.Count == ingredients.Length)
+                {
+                    saveData = saveData1;
+                    LoadSaveData();
+                    alreadyLoaded = true;
+                }
+            }
+        }
+    }
+    public void LoadSaveData()
+    {
         if (saveData != null && saveData.ingredientsUnlocked.Count > 0)
         {
-            List<bool> unlockedSaves = saveData.ingredientsUnlocked;
             int index = 0;
             foreach (Ingredient ingredient in ingredients)
             {
-                Debug.Log(unlockedSaves[index]);
-                ingredient.unlocked = unlockedSaves[index];
+                ingredient.unlocked = saveData.ingredientsUnlocked[index];
                 index++;
             }
         }
@@ -45,11 +58,6 @@ public class IngredientRepository : MonoBehaviour
     {
         ingredients[ingredientIndex].unlocked = true;
         SaveIngredientsUnlocked();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
 [Serializable]

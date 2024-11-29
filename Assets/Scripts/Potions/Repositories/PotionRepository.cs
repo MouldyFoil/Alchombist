@@ -7,26 +7,27 @@ public class PotionRepository : MonoBehaviour
 {
     [SerializeField] Potion[] potions;
     SaveData saveData;
-    public void LoadSaveData(SaveData saveDataIn)
+    bool alreadyLoaded = false;
+    private void Update()
     {
-        saveData = saveDataIn;
-        List<bool> discoveredSaves = saveData.potionsDiscovered;
-        int index = 0;
-        foreach (Potion potion in potions)
+        foreach (SaveData saveData1 in FindObjectsOfType<SaveData>())
         {
-            potion.discovered = discoveredSaves[index];
-            index++;
+            if (saveData1.potionsDiscovered.Count == potions.Length && alreadyLoaded == false)
+            {
+                saveData = saveData1;
+                LoadPotions();
+                alreadyLoaded = true;
+            }
         }
     }
-    public void SavePotionsDiscovered()
+    private void LoadPotions()
     {
-        List<bool> potionDiscoveredData = new List<bool>();
-        foreach (Potion potion in potions)
+        int index = 0;
+        foreach(Potion potion in potions)
         {
-            potionDiscoveredData.Add(potion.discovered);
+            potion.discovered = saveData.potionsDiscovered[index];
+            index++;
         }
-        saveData.SavePotionsDiscoveredToJson(potionDiscoveredData);
-        Debug.Log("AAAA");
     }
     public Potion ReturnPotion(int index)
     {
@@ -40,7 +41,7 @@ public class PotionRepository : MonoBehaviour
     {
         return potions;
     }
-    public int ReturnPotionsDiscovered()
+    public int ReturnPotionsDiscoveredNum()
     {
         int potionsDiscovered = 0;
         foreach (Potion potion in ReturnPotions())
@@ -49,6 +50,15 @@ public class PotionRepository : MonoBehaviour
             {
                 potionsDiscovered++;
             }
+        }
+        return potionsDiscovered;
+    }
+    public List<bool> ReturnPotionsDiscoveredList()
+    {
+        List<bool> potionsDiscovered = new List<bool>();
+        foreach(Potion potion in ReturnPotions())
+        {
+            potionsDiscovered.Add(potion.discovered);
         }
         return potionsDiscovered;
     }
@@ -63,7 +73,7 @@ public class PotionRepository : MonoBehaviour
         }
         if(saveData != null)
         {
-            SavePotionsDiscovered();
+            saveData.SavePotionsDiscoveredToJson();
         }
         else
         {

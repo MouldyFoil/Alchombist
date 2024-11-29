@@ -38,7 +38,7 @@ public class PotionBook : MonoBehaviour
         if (Input.GetKeyDown(nextPage))
         {
             pageNumber++;
-            if (pageNumber > potionRepository.ReturnPotionsDiscovered())
+            if (pageNumber > potionRepository.ReturnPotionsDiscoveredNum())
             {
                 pageNumber = 1;
             }
@@ -49,7 +49,7 @@ public class PotionBook : MonoBehaviour
             pageNumber--;
             if (pageNumber <= 0)
             {
-                pageNumber = potionRepository.ReturnPotionsDiscovered();
+                pageNumber = potionRepository.ReturnPotionsDiscoveredNum();
             }
             UpdateBookDisplay();
         }
