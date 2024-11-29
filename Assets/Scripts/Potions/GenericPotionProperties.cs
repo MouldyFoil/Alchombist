@@ -33,10 +33,8 @@ public class GenericPotionProperties : MonoBehaviour
     {
         if (restrictionsOnStart == cancelTypeEnum.replacesOthers)
         {
-            Debug.Log("AAAA");
             if (conflictingPotionNames.Count > 0)
             {
-                Debug.Log("AAAA");
                 CancelPotions();
             }
         }

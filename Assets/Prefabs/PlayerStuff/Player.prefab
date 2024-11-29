@@ -19896,7 +19896,6 @@ MonoBehaviour:
   - Player
   - Enemy
   - Pickup
-  - PlayerHitbox
 --- !u!114 &2286084510725180714
 MonoBehaviour:
   m_ObjectHideFlags: 0

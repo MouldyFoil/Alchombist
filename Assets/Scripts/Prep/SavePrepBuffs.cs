@@ -15,18 +15,21 @@ public class SavePrepBuffs : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
     }
     private void Update()
     {
         if (FindObjectOfType<PlayerMovement>() && buffPlayer == true)
         {
-            GameObject player = FindObjectOfType<PlayerMovement>().gameObject;
-            player.GetComponent<PlayerMovement>().AddMovementSpeed(speedBuff);
-            player.GetComponent<AlchemyScript>().AddBuffDamage(damageBuff);
-            player.GetComponent<Health>().AddOrRemoveTempMaxHealth(healthBuff);
-            player.GetComponent<Health>().AddOrRemoveTempHealth(healthBuff);
-            buffPlayer = false;
+            AddBuffs();
         }
+    }
+    private void AddBuffs()
+    {
+        GameObject player = FindObjectOfType<PlayerMovement>().gameObject;
+        player.GetComponent<PlayerMovement>().AddMovementSpeed(speedBuff);
+        player.GetComponent<AlchemyScript>().AddBuffDamage(damageBuff);
+        player.GetComponent<Health>().AddOrRemoveTempMaxHealth(healthBuff);
+        player.GetComponent<Health>().AddOrRemoveTempHealth(healthBuff);
+        buffPlayer = false;
     }
 }
