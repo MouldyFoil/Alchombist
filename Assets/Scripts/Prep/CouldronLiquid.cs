@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class CouldronLiquid : MonoBehaviour
 {
+    [SerializeField] AudioClip ingredientAddedSound;
+    [SerializeField] float volume;
+    SFXManager soundManager;
     SpriteRenderer sprite;
     PrepBuffs prepBuffs;
     // Start is called before the first frame update
@@ -12,6 +15,7 @@ public class CouldronLiquid : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         prepBuffs = FindObjectOfType<PrepBuffs>();
+        soundManager = FindObjectOfType<SFXManager>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,6 +23,7 @@ public class CouldronLiquid : MonoBehaviour
         {
             PhysicsIngredient ingredientScript = collision.GetComponent<PhysicsIngredient>();
             prepBuffs.IncreaseStat(ingredientScript.ReturnBuffName(), ingredientScript.ReturnBuffAmount());
+            soundManager.PlayAudioClip(ingredientAddedSound, transform, volume);
             Destroy(collision.gameObject);
             //Color color = collision.GetComponent<PhysicsIngredient>().ReturnColor();
             //float influence = collision.GetComponent<PhysicsIngredient>().ReturnColorInfluence();

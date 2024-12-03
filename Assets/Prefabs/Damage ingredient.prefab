@@ -145,7 +145,15 @@ MonoBehaviour:
   statBuffedName: Damage
   buffAmount: 1
   liquidColorInfluence: 0.1
+  defaultVolume: 0.1
   ingredientColor: {r: 0.7411765, g: 0.07450981, b: 0.007843138, a: 1}
+  dropSounds:
+  - {fileID: 8300000, guid: c1fc2cd0f6f68b648998a457eb06bbc1, type: 3}
+  - {fileID: 8300000, guid: ea3dbdf6c9847034e913a6c0a0e09a83, type: 3}
+  - {fileID: 8300000, guid: 5080db1a4383c3a459da458556636349, type: 3}
+  - {fileID: 8300000, guid: 47cf92f68bc53fe44a67d17a764c437f, type: 3}
+  - {fileID: 8300000, guid: fbc5b236b1f5593459750f9064eebbd0, type: 3}
+  - {fileID: 8300000, guid: 3941cdbd3d394b24da4b7a363b72737e, type: 3}
 --- !u!222 &7442973193843118415
 CanvasRenderer:
   m_ObjectHideFlags: 0

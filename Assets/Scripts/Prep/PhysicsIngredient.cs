@@ -12,13 +12,17 @@ public class PhysicsIngredient : MonoBehaviour
     [SerializeField] float buffAmount = 5;
 
     [SerializeField] float liquidColorInfluence = 50;
+    [SerializeField] float defaultVolume;
     [SerializeField] Color ingredientColor;
+    [SerializeField] AudioClip[] dropSounds;
+    SFXManager soundManager;
     bool beingDragged = false;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        soundManager = FindObjectOfType<SFXManager>();
         beingDragged = true;
     }
 
@@ -33,6 +37,10 @@ public class PhysicsIngredient : MonoBehaviour
         {
             DraggedBehavior();
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        soundManager.PlayRandomAudioClip(dropSounds, transform, defaultVolume * rb.velocity.magnitude);
     }
 
     private void DraggedBehavior()
