@@ -6,41 +6,32 @@ using UnityEngine;
 public class PotionRepository : MonoBehaviour
 {
     [SerializeField] Potion[] potions;
-    SaveData saveData;
+    SaveDataInterface saveDataInterface;
     bool alreadyLoaded = false;
+    private void Start()
+    {
+        saveDataInterface = FindObjectOfType<SaveDataInterface>();
+        saveDataInterface.loadingPotionsDiscovered = true;
+    }
     private void Update()
     {
-        foreach (SaveData saveData1 in FindObjectsOfType<SaveData>())
+        if (potions[0].discovered == false)
         {
-            if (saveData1.potionsDiscovered.Count == potions.Length && alreadyLoaded == false)
-            {
-                saveData = saveData1;
-                LoadPotions();
-                alreadyLoaded = true;
-            }
+            potions[0].discovered = true;
         }
     }
-    private void LoadPotions()
+    public void SetDiscoveredStatuses(List<bool> discoveredList)
     {
         int index = 0;
-        foreach(Potion potion in potions)
+        foreach (Potion potion in potions)
         {
-            potion.discovered = saveData.potionsDiscovered[index];
-            index++;
+            potion.discovered = discoveredList[index];
         }
     }
-    public Potion ReturnPotion(int index)
-    {
-        return potions[index];
-    }
+    public Potion ReturnPotion(int index) { return potions[index]; }
     public int ReturnPotionsArrayLength()
-    {
-        return potions.Length;
-    }
-    public Potion[] ReturnPotions()
-    {
-        return potions;
-    }
+    { return potions.Length; }
+    public Potion[] ReturnPotions() { return potions; }
     public int ReturnPotionsDiscoveredNum()
     {
         int potionsDiscovered = 0;
@@ -69,16 +60,10 @@ public class PotionRepository : MonoBehaviour
             if(potion.name == name)
             {
                 potion.discovered = true;
+                break;
             }
         }
-        if(saveData != null)
-        {
-            saveData.SavePotionsDiscoveredToJson();
-        }
-        else
-        {
-            Debug.Log("SaveData is NULL!");
-        }
+        saveDataInterface.SavePotionsDiscovered();
     }
     
     private void OnDestroy()

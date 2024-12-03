@@ -76,12 +76,19 @@ public class PotionBook : MonoBehaviour
                 }
             }
         }
-        potionImage.sprite = potionData.spriteInBook;
-        nameText.text = potionData.name;
-        descriptionText.text = potionData.description;
-        potionNumberText.text = "potion #" + potionNum;
-        pageText.text = "Pg. " + pageNumber;
-        UpdateIngredientDisplay();
+        if(potionData != null)
+        {
+            potionImage.sprite = potionData.spriteInBook;
+            nameText.text = potionData.name;
+            descriptionText.text = potionData.description;
+            potionNumberText.text = "potion #" + potionNum;
+            pageText.text = "Pg. " + pageNumber;
+            UpdateIngredientDisplay();
+        }
+        else
+        {
+            //If i want to add a blank page for when the player has no potions then put that here
+        }
     }
     private void UpdateIngredientDisplay()
     {

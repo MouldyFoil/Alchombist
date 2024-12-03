@@ -7,57 +7,35 @@ using static UnityEditor.Progress;
 public class IngredientRepository : MonoBehaviour
 {
     [SerializeField] Ingredient[] ingredients;
-    SaveData saveData;
-    bool alreadyLoaded = false;
-    private void Update()
+    SaveDataInterface saveDataInterface;
+    private void Start()
     {
-        if(alreadyLoaded == false)
-        {
-            foreach (SaveData saveData1 in FindObjectsOfType<SaveData>())
-            {
-                if (saveData1.ingredientsUnlocked.Count == ingredients.Length)
-                {
-                    saveData = saveData1;
-                    LoadSaveData();
-                    alreadyLoaded = true;
-                }
-            }
-        }
+        saveDataInterface = FindObjectOfType<SaveDataInterface>();
+        saveDataInterface.loadingIngredientsUnlocked = true;
     }
-    public void LoadSaveData()
+    public void SetUnlockedStatuses(List<bool> unlockedList)
     {
-        if (saveData != null && saveData.ingredientsUnlocked.Count > 0)
-        {
-            int index = 0;
-            foreach (Ingredient ingredient in ingredients)
-            {
-                ingredient.unlocked = saveData.ingredientsUnlocked[index];
-                index++;
-            }
-        }
-    }
-    public void SaveIngredientsUnlocked()
-    {
-        List<bool> ingredientsUnlockedData = new List<bool>();
+        int index = 0;
         foreach(Ingredient ingredient in ingredients)
         {
-            ingredientsUnlockedData.Add(ingredient.unlocked);
+            ingredient.unlocked = unlockedList[index];
         }
-        if(saveData != null)
+    }
+    public List<bool> ReturnIngredientsUnlockedList()
+    {
+        List<bool> IngredientsUnlocked = new List<bool>();
+        foreach (Ingredient ingredient in ReturnIngredients())
         {
-            saveData.SaveIngredientsUnlockedToJson(ingredientsUnlockedData);
+            IngredientsUnlocked.Add(ingredient.unlocked);
         }
-        else
-        {
-            Debug.Log("SaveData is NULL!");
-        }
+        return IngredientsUnlocked;
     }
     public Ingredient ReturnIngredient(int index) { return ingredients[index]; }
     public Ingredient[] ReturnIngredients() { return ingredients; }
     public void UnlockIngredient(int ingredientIndex)
     {
         ingredients[ingredientIndex].unlocked = true;
-        SaveIngredientsUnlocked();
+        saveDataInterface.SaveIngredientsUnlocked();
     }
 }
 [Serializable]

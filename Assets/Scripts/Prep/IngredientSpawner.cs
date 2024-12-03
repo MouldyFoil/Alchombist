@@ -10,6 +10,7 @@ public class IngredientSpawner : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] ingredientTexts;
     [SerializeField] GameObject[] ingredients;
     [SerializeField] float ingredientZPos = 0.5f;
+    SaveDataInterface saveDataInterface;
     bool alreadySetIngredients = false;
     // Start is called before the first frame update
     void Start()
@@ -19,17 +20,17 @@ public class IngredientSpawner : MonoBehaviour
     private void Awake()
     {
         UpdateIngredientInfo();
+        saveDataInterface = FindObjectOfType<SaveDataInterface>();
+        saveDataInterface.loadingIngredientAmounts = true;
     }
-
+    public void SetIngredientAmounts(List<int> amounts)
+    {
+        ingredientAmounts = amounts;
+    }
     // Update is called once per frame
     void Update()
     {
-        if (FindObjectOfType<SaveData>().ingredientAmounts.Count > 0 && alreadySetIngredients == false)
-        {
-            ingredientAmounts = FindObjectOfType<SaveData>().ingredientAmounts;
-            UpdateIngredientInfo();
-            alreadySetIngredients = true;
-        }
+        
     }
     public void SpawnIngredient(int ingredientIndex)
     {
