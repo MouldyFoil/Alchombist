@@ -87,6 +87,10 @@ public class SaveData : MonoBehaviour
         {
             ingredientsUnlocked = FindObjectOfType<IngredientRepository>().ReturnIngredientsUnlockedList();
         }
+        else
+        {
+            Debug.Log("no repository to save data from");
+        }
         string prepIngredientData = JsonUtility.ToJson(ingredientsUnlocked);
         string filePath = Application.persistentDataPath + "/ingredientsUnlockedData.json";
         Debug.Log(filePath);
@@ -115,6 +119,10 @@ public class SaveData : MonoBehaviour
         if (FindObjectOfType<PotionRepository>())
         {
             potionsDiscovered = FindObjectOfType<PotionRepository>().ReturnPotionsDiscoveredList();
+        }
+        else
+        {
+            Debug.Log("no repository to save data from");
         }
         string prepIngredientData = JsonUtility.ToJson(potionsDiscovered);
         string filePath = Application.persistentDataPath + "/potionsDiscoveredData.json";
