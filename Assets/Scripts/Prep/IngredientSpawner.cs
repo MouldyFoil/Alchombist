@@ -43,7 +43,7 @@ public class IngredientSpawner : MonoBehaviour
         UpdateIngredientInfo();
     }
     public List<int> ReturnIngredientAmounts()  {  return ingredientAmounts.ToList();  }
-    private void UpdateIngredientInfo()
+    public void UpdateIngredientInfo()
     {
         int i = 0;
         foreach(TextMeshProUGUI ingredientText in ingredientTexts)

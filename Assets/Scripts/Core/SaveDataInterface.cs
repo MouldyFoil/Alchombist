@@ -41,6 +41,7 @@ public class SaveDataInterface : MonoBehaviour
             {
                 SetIngredientAmounts();
                 settingIngredientAmounts = false;
+                FindObjectOfType<IngredientSpawner>().UpdateIngredientInfo();
             }
             if (settingIngredientsUnlocked)
             {
