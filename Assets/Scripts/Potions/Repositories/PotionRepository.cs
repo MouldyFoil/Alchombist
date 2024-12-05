@@ -7,11 +7,10 @@ public class PotionRepository : MonoBehaviour
 {
     [SerializeField] Potion[] potions;
     SaveDataInterface saveDataInterface;
-    bool alreadyLoaded = false;
     private void Start()
     {
         saveDataInterface = FindObjectOfType<SaveDataInterface>();
-        saveDataInterface.loadingPotionsDiscovered = true;
+        saveDataInterface.settingPotionsDiscovered = true;
     }
     private void Update()
     {
@@ -26,6 +25,7 @@ public class PotionRepository : MonoBehaviour
         foreach (Potion potion in potions)
         {
             potion.discovered = discoveredList[index];
+            index++;
         }
     }
     public Potion ReturnPotion(int index) { return potions[index]; }

@@ -15,6 +15,7 @@ public class PhysicsIngredient : MonoBehaviour
     [SerializeField] float defaultVolume;
     [SerializeField] Color ingredientColor;
     [SerializeField] AudioClip[] dropSounds;
+    public int ingredientIndex;
     SFXManager soundManager;
     bool beingDragged = false;
     Rigidbody2D rb;

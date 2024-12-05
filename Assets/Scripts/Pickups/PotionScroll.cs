@@ -10,6 +10,11 @@ public class PotionScroll : MonoBehaviour
     void Start()
     {
         potionRepository = FindObjectOfType<PotionRepository>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         foreach (Potion potion in potionRepository.ReturnPotions())
         {
             if (potion.name == potionName && potion.discovered == true)
@@ -17,12 +22,6 @@ public class PotionScroll : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

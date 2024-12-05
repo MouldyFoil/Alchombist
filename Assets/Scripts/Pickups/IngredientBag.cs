@@ -10,7 +10,6 @@ public class IngredientBag : MonoBehaviour
     void Start()
     {
         ingredientRepository = FindObjectOfType<IngredientRepository>();
-        ingredientRepository.ReturnIngredient(ingredientIndex);
     }
 
     // Update is called once per frame

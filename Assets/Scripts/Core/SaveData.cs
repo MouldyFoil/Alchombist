@@ -9,10 +9,10 @@ public class SaveData : MonoBehaviour
     [SerializeField] bool dontSaveScene = false;
     [SerializeField] int[] ingredientAmountsFallback;
     public bool saveDataPrime;
-    public List<int> ingredientAmounts;
+    [SerializeField] List<int> ingredientAmounts;
 
-    public List<bool> ingredientsUnlocked;
-    public List<bool> potionsDiscovered;
+    [SerializeField] List<bool> ingredientsUnlocked;
+    [SerializeField] List<bool> potionsDiscovered;
     private void Awake()
     {
         if(dontSaveScene == true)
@@ -32,9 +32,26 @@ public class SaveData : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        saveDataPrime = true;
         LoadAll();
+        saveDataPrime = true;
         DontDestroyOnLoad(gameObject);
+    }
+    private void Update()
+    {
+        if (FindObjectOfType<IngredientRepository>())
+        {
+            if (ingredientsUnlocked.Count < FindObjectOfType<IngredientRepository>().ReturnIngredients().Length)
+            {
+                PopulateIngredientsUnlocked();
+            }
+        }
+        if (FindObjectOfType<PotionRepository>())
+        {
+            if (potionsDiscovered.Count < FindObjectOfType<PotionRepository>().ReturnPotions().Length)
+            {
+                PopulatePotionsDiscovered();
+            }
+        }
     }
     public void LoadAll()
     {
@@ -77,17 +94,19 @@ public class SaveData : MonoBehaviour
         Debug.Log(System.IO.File.ReadAllText(filePath));
         Debug.Log("ingredients unlocked save updated");
     }
+    public void SetIngredientsUnlocked()
+    {
+        if (FindObjectOfType<IngredientRepository>())
+        {
+            FindObjectOfType<IngredientRepository>().SetUnlockedStatuses(potionsDiscovered);
+        }
+    }
     public void LoadIngredientsUnlockedFromJson()
     {
         string filePath = Application.persistentDataPath + "/ingredientsUnlockedData.json";
         string ingredientsUnlockedData = System.IO.File.ReadAllText(filePath);
 
         ingredientsUnlocked = JsonUtility.FromJson<List<bool>>(ingredientsUnlockedData);
-        PopulateIngredientsUnlocked();
-        if (FindObjectOfType<IngredientRepository>())
-        {
-            FindObjectOfType<IngredientRepository>().SetUnlockedStatuses(ingredientsUnlocked);
-        }
         Debug.Log("LOADED INGREDIENTS UNLOCKED");
     }
     // potions below
@@ -104,26 +123,25 @@ public class SaveData : MonoBehaviour
         Debug.Log(System.IO.File.ReadAllText(filePath));
         Debug.Log("potions discovered save updated");
     }
+    public void SetPotionsDiscovered()
+    {
+        if (FindObjectOfType<PotionRepository>())
+        {
+            FindObjectOfType<PotionRepository>().SetDiscoveredStatuses(potionsDiscovered);
+        }
+    }
     public void LoadPotionsDiscoveredFromJson()
     {
         string filePath = Application.persistentDataPath + "/potionsDiscoveredData.json";
         string ingredientsUnlockedData = System.IO.File.ReadAllText(filePath);
 
         potionsDiscovered = JsonUtility.FromJson<List<bool>>(ingredientsUnlockedData);
-        PopulatePotionsDiscovered();
-        if (FindObjectOfType<PotionRepository>())
-        {
-            FindObjectOfType<PotionRepository>().SetDiscoveredStatuses(potionsDiscovered);
-        }
+
         Debug.Log("LOADED POTIONS DISCOVERED");
     }
     // prep ingredients below
     public void SaveIngredientAmountsToJson()
     {
-        if (FindObjectOfType<IngredientSpawner>())
-        {
-            ingredientAmounts = FindObjectOfType<IngredientSpawner>().ReturnIngredientAmounts();
-        }
         string prepIngredientData = JsonUtility.ToJson(ingredientAmounts);
         string filePath = Application.persistentDataPath + "/PrepIngredientData.json";
         Debug.Log(filePath);
@@ -131,9 +149,16 @@ public class SaveData : MonoBehaviour
         Debug.Log(System.IO.File.ReadAllText(filePath));
         Debug.Log("ingredient amounts save updated");
     }
-    public void AddToIngredients(int index, int amount)
+    public void SetIngredientAmounts()
     {
-        ingredientAmounts[index] += amount;
+        if (FindObjectOfType<IngredientSpawner>())
+        {
+            FindObjectOfType<IngredientSpawner>().SetIngredientAmounts(ingredientAmounts);
+        }
+    }
+    public void DecreaseIngredientAmountByOne(int index)
+    {
+        ingredientAmounts[index]--;
     }
     public void LoadIngredientAmountsFromJson()
     {
@@ -144,10 +169,6 @@ public class SaveData : MonoBehaviour
         if(ingredientAmounts.Count <= 0)
         {
             ingredientAmounts = ingredientAmountsFallback.ToList();
-        }
-        if (FindObjectOfType<IngredientSpawner>())
-        {
-            FindObjectOfType<IngredientSpawner>().SetIngredientAmounts(ingredientAmounts);
         }
         Debug.Log("LOADED INGREDIENT AMOUNTS");
     }

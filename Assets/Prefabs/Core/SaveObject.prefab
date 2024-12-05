@@ -43,8 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ccadd244e1c4f4d806ded28e499a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ingredientRepositoryPrefab: {fileID: 3741318569531942593, guid: cc23b321242a2234482dadd111b4845b, type: 3}
+  potionRepositoryPrefab: {fileID: 331534280916906194, guid: 0670a01e307292746804b411673ea8d6, type: 3}
   dontSaveScene: 0
   ingredientAmountsFallback: 050000000100000001000000
+  saveDataPrime: 0
   ingredientAmounts: 050000000100000001000000
   ingredientsUnlocked: 
   potionsDiscovered: 

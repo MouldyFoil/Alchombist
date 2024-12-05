@@ -6,9 +6,9 @@ using UnityEngine;
 public class SaveDataInterface : MonoBehaviour
 {
     SaveData saveData;
-    public bool loadingIngredientAmounts = false;
-    public bool loadingIngredientsUnlocked = false;
-    public bool loadingPotionsDiscovered = false;
+    public bool settingIngredientAmounts = false;
+    public bool settingIngredientsUnlocked = false;
+    public bool settingPotionsDiscovered = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,30 +37,35 @@ public class SaveDataInterface : MonoBehaviour
         }
         if(saveData != null && saveData.saveDataPrime)
         {
-            if (loadingIngredientAmounts)
+            if (settingIngredientAmounts)
             {
-                LoadIngredientAmounts();
-                loadingIngredientAmounts = false;
+                SetIngredientAmounts();
+                settingIngredientAmounts = false;
             }
-            if (loadingIngredientsUnlocked)
+            if (settingIngredientsUnlocked)
             {
-                LoadIngredientsUnlocked();
-                loadingIngredientsUnlocked = false;
+                SetIngredientsUnlocked();
+                settingIngredientsUnlocked = false;
             }
-            if (loadingPotionsDiscovered)
+            if (settingPotionsDiscovered)
             {
-                LoadPotionsDiscovered();
-                loadingPotionsDiscovered = false;
+                SetPotionsDiscovered();
+                settingPotionsDiscovered = false;
             }
         }
     }
+
     public void SaveIngredientAmounts() { saveData.SaveIngredientAmountsToJson(); }
+    public void SetIngredientAmounts() { saveData.SetIngredientAmounts(); }
+    public void DecreaseIngredientAmount(int index) { saveData.DecreaseIngredientAmountByOne(index); }
     public void LoadIngredientAmounts() { saveData.LoadIngredientAmountsFromJson(); }
 
     public void SaveIngredientsUnlocked() { saveData.SaveIngredientsUnlockedToJson(); }
+    public void SetIngredientsUnlocked() { saveData.SetIngredientsUnlocked(); }
     public void LoadIngredientsUnlocked() { saveData.LoadIngredientsUnlockedFromJson(); }
 
     public void SavePotionsDiscovered() { saveData.SavePotionsDiscoveredToJson(); }
+    public void SetPotionsDiscovered() { saveData.SetPotionsDiscovered(); }
     public void LoadPotionsDiscovered() { saveData.LoadPotionsDiscoveredFromJson(); }
 
     public void ResetData() { saveData.ResetIngredientAmountsData(); saveData.ResetPotionData(); }

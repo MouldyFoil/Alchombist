@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class IngredientSpawner : MonoBehaviour
 {
-    [SerializeField] List<int> ingredientAmounts;
+    [SerializeField] int[] ingredientAmounts;
     [SerializeField] TextMeshProUGUI[] ingredientTexts;
     [SerializeField] GameObject[] ingredients;
     [SerializeField] float ingredientZPos = 0.5f;
     SaveDataInterface saveDataInterface;
-    bool alreadySetIngredients = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,13 +19,13 @@ public class IngredientSpawner : MonoBehaviour
     }
     private void Awake()
     {
-        UpdateIngredientInfo();
         saveDataInterface = FindObjectOfType<SaveDataInterface>();
-        saveDataInterface.loadingIngredientAmounts = true;
+        saveDataInterface.settingIngredientAmounts = true;
+        UpdateIngredientInfo();
     }
     public void SetIngredientAmounts(List<int> amounts)
     {
-        ingredientAmounts = amounts;
+        ingredientAmounts = amounts.ToArray();
     }
     // Update is called once per frame
     void Update()
@@ -42,7 +42,7 @@ public class IngredientSpawner : MonoBehaviour
         }
         UpdateIngredientInfo();
     }
-    public List<int> ReturnIngredientAmounts()  {  return ingredientAmounts;  }
+    public List<int> ReturnIngredientAmounts()  {  return ingredientAmounts.ToList();  }
     private void UpdateIngredientInfo()
     {
         int i = 0;

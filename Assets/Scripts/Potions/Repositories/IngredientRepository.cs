@@ -11,7 +11,7 @@ public class IngredientRepository : MonoBehaviour
     private void Start()
     {
         saveDataInterface = FindObjectOfType<SaveDataInterface>();
-        saveDataInterface.loadingIngredientsUnlocked = true;
+        saveDataInterface.settingIngredientsUnlocked = true;
     }
     public void SetUnlockedStatuses(List<bool> unlockedList)
     {
@@ -19,6 +19,7 @@ public class IngredientRepository : MonoBehaviour
         foreach(Ingredient ingredient in ingredients)
         {
             ingredient.unlocked = unlockedList[index];
+            index++;
         }
     }
     public List<bool> ReturnIngredientsUnlockedList()
