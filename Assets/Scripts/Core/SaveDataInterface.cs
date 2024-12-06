@@ -61,14 +61,12 @@ public class SaveDataInterface : MonoBehaviour
     public void DecreaseIngredientAmount(int index) { saveData.DecreaseIngredientAmountByOne(index); }
     public void LoadIngredientAmounts() { saveData.LoadIngredientAmountsFromJson(); }
 
-    public void SaveIngredientsUnlocked() { saveData.SaveIngredientsUnlockedToJson(); }
+    public void SavePotionData() { saveData.SavePotionData(); }
+    public void LoadPotionData() { saveData.LoadUnlockedData(); }
     public void SetIngredientsUnlocked() { saveData.SetIngredientsUnlocked(); }
-    public void LoadIngredientsUnlocked() { saveData.LoadIngredientsUnlockedFromJson(); }
 
-    public void SavePotionsDiscovered() { saveData.SavePotionsDiscoveredToJson(); }
     public void SetPotionsDiscovered() { saveData.SetPotionsDiscovered(); }
-    public void LoadPotionsDiscovered() { saveData.LoadPotionsDiscoveredFromJson(); }
 
-    public void ResetData() { saveData.ResetIngredientAmountsData(); saveData.ResetPotionData(); }
-    public void SaveAll() { SaveIngredientAmounts(); SaveIngredientsUnlocked(); SavePotionsDiscovered(); }
+    public void ResetData() { saveData.ResetIngredientAmountsData(); saveData.ResetUnlockedData(); }
+    public void SaveAll() { SaveIngredientAmounts(); SavePotionData(); }
 }

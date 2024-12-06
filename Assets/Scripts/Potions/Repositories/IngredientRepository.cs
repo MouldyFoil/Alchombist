@@ -36,7 +36,7 @@ public class IngredientRepository : MonoBehaviour
     public void UnlockIngredient(int ingredientIndex)
     {
         ingredients[ingredientIndex].unlocked = true;
-        saveDataInterface.SaveIngredientsUnlocked();
+        saveDataInterface.SavePotionData();
     }
 }
 [Serializable]

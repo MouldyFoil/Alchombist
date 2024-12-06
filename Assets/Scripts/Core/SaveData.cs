@@ -9,10 +9,9 @@ public class SaveData : MonoBehaviour
     [SerializeField] bool dontSaveScene = false;
     [SerializeField] int[] ingredientAmountsFallback;
     public bool saveDataPrime;
-    [SerializeField] List<int> ingredientAmounts;
+    PrepIngredientData prepData = new PrepIngredientData();
 
-    [SerializeField] List<bool> ingredientsUnlocked;
-    [SerializeField] List<bool> potionsDiscovered;
+    UnlockData unlockedData = new UnlockData();
     private void Awake()
     {
         if(dontSaveScene == true)
@@ -32,22 +31,46 @@ public class SaveData : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        LoadAll();
         saveDataPrime = true;
         DontDestroyOnLoad(gameObject);
+        CreateFileDirectories();
+        LoadAll();
     }
+    private void CreateFileDirectories()
+    {
+        CreateUnlockedDirectory();
+        CreatePrepDirectory();
+    }
+    private void CreateUnlockedDirectory()
+    {
+        
+        string filePath = Application.persistentDataPath + "/UnlockedData.json";
+        if (!System.IO.File.Exists(filePath))
+        {
+            ResetUnlockedData();
+        }
+    }
+    private void CreatePrepDirectory()
+    {
+        string filePath = Application.persistentDataPath + "/PrepIngredientData.json";
+        if (!System.IO.File.Exists(filePath))
+        {
+            ResetIngredientAmountsData();
+        }
+    }
+
     private void Update()
     {
         if (FindObjectOfType<IngredientRepository>())
         {
-            if (ingredientsUnlocked.Count < FindObjectOfType<IngredientRepository>().ReturnIngredients().Length)
+            if (unlockedData.ingredientsUnlocked.Count < FindObjectOfType<IngredientRepository>().ReturnIngredients().Length)
             {
                 PopulateIngredientsUnlocked();
             }
         }
         if (FindObjectOfType<PotionRepository>())
         {
-            if (potionsDiscovered.Count < FindObjectOfType<PotionRepository>().ReturnPotions().Length)
+            if (unlockedData.potionsDiscovered.Count < FindObjectOfType<PotionRepository>().ReturnPotions().Length)
             {
                 PopulatePotionsDiscovered();
             }
@@ -56,17 +79,16 @@ public class SaveData : MonoBehaviour
     public void LoadAll()
     {
         LoadIngredientAmountsFromJson();
-        LoadIngredientsUnlockedFromJson();
-        LoadPotionsDiscoveredFromJson();
+        LoadUnlockedData();
     }
     //populate failsafes
     private void PopulateIngredientsUnlocked()
     {
         if (FindObjectOfType<IngredientRepository>())
         {
-            while (ingredientsUnlocked.Count < FindObjectOfType<IngredientRepository>().ReturnIngredients().Length)
+            while (unlockedData.ingredientsUnlocked.Count < FindObjectOfType<IngredientRepository>().ReturnIngredients().Length)
             {
-                ingredientsUnlocked.Add(false);
+                unlockedData.ingredientsUnlocked.Add(false);
             }
         }
     }
@@ -74,85 +96,53 @@ public class SaveData : MonoBehaviour
     {
         if (FindObjectOfType<PotionRepository>())
         {
-            while (potionsDiscovered.Count < FindObjectOfType<PotionRepository>().ReturnPotions().Length)
+            while (unlockedData.potionsDiscovered.Count < FindObjectOfType<PotionRepository>().ReturnPotions().Length)
             {
-                potionsDiscovered.Add(false);
+                unlockedData.potionsDiscovered.Add(false);
             }
         }
     }
-    // active ingredients below
-    public void SaveIngredientsUnlockedToJson()
-    {
-        if (FindObjectOfType<IngredientRepository>())
-        {
-            ingredientsUnlocked = FindObjectOfType<IngredientRepository>().ReturnIngredientsUnlockedList();
-        }
-        else
-        {
-            Debug.Log("no repository to save data from");
-        }
-        string prepIngredientData = JsonUtility.ToJson(ingredientsUnlocked);
-        string filePath = Application.persistentDataPath + "/ingredientsUnlockedData.json";
-        Debug.Log(filePath);
-        System.IO.File.WriteAllText(filePath, prepIngredientData);
-        Debug.Log(System.IO.File.ReadAllText(filePath));
-        Debug.Log("ingredients unlocked save updated");
-    }
+    // active potion things below
     public void SetIngredientsUnlocked()
     {
         if (FindObjectOfType<IngredientRepository>())
         {
-            FindObjectOfType<IngredientRepository>().SetUnlockedStatuses(potionsDiscovered);
+            FindObjectOfType<IngredientRepository>().SetUnlockedStatuses(unlockedData.potionsDiscovered);
         }
-    }
-    public void LoadIngredientsUnlockedFromJson()
-    {
-        string filePath = Application.persistentDataPath + "/ingredientsUnlockedData.json";
-        string ingredientsUnlockedData = System.IO.File.ReadAllText(filePath);
-
-        ingredientsUnlocked = JsonUtility.FromJson<List<bool>>(ingredientsUnlockedData);
-        Debug.Log("LOADED INGREDIENTS UNLOCKED");
-    }
-    // potions below
-    public void SavePotionsDiscoveredToJson()
-    {
-        if (FindObjectOfType<PotionRepository>())
-        {
-            potionsDiscovered = FindObjectOfType<PotionRepository>().ReturnPotionsDiscoveredList();
-        }
-        else
-        {
-            Debug.Log("no repository to save data from");
-        }
-        string prepIngredientData = JsonUtility.ToJson(potionsDiscovered);
-        string filePath = Application.persistentDataPath + "/potionsDiscoveredData.json";
-        Debug.Log(filePath);
-        System.IO.File.WriteAllText(filePath, prepIngredientData);
-        Debug.Log(System.IO.File.ReadAllText(filePath));
-        Debug.Log("potions discovered save updated");
     }
     public void SetPotionsDiscovered()
     {
         if (FindObjectOfType<PotionRepository>())
         {
-            FindObjectOfType<PotionRepository>().SetDiscoveredStatuses(potionsDiscovered);
+            FindObjectOfType<PotionRepository>().SetDiscoveredStatuses(unlockedData.potionsDiscovered);
         }
     }
-    public void LoadPotionsDiscoveredFromJson()
+    public void SavePotionData()
     {
-        string filePath = Application.persistentDataPath + "/potionsDiscoveredData.json";
-        string ingredientsUnlockedData = System.IO.File.ReadAllText(filePath);
+        if (FindObjectOfType<IngredientRepository>())
+        {
+            unlockedData.ingredientsUnlocked = FindObjectOfType<IngredientRepository>().ReturnIngredientsUnlockedList();
+        }
+        if (FindObjectOfType<PotionRepository>())
+        {
+            unlockedData.potionsDiscovered = FindObjectOfType<PotionRepository>().ReturnPotionsDiscoveredList();
+        }
+        string potionDataJSON = JsonUtility.ToJson(unlockedData);
+        string filePath = Application.persistentDataPath + "/UnlockedData.json";
+        System.IO.File.WriteAllText(filePath, potionDataJSON);
+    }
+    public void LoadUnlockedData()
+    {
+        string filePath = Application.persistentDataPath + "/UnlockedData.json";
+        string potionDataJSON = System.IO.File.ReadAllText(filePath);
 
-        potionsDiscovered = JsonUtility.FromJson<List<bool>>(ingredientsUnlockedData);
-
-        Debug.Log("LOADED POTIONS DISCOVERED");
+        unlockedData = JsonUtility.FromJson<UnlockData>(potionDataJSON);
     }
     // prep ingredients below
     public void SaveIngredientAmountsToJson()
     {
-        string prepIngredientData = JsonUtility.ToJson(ingredientAmounts);
+        string prepIngredientData = JsonUtility.ToJson(prepData);
         string filePath = Application.persistentDataPath + "/PrepIngredientData.json";
-        Debug.Log(filePath);
         System.IO.File.WriteAllText(filePath, prepIngredientData);
         Debug.Log(System.IO.File.ReadAllText(filePath));
         Debug.Log("ingredient amounts save updated");
@@ -161,41 +151,50 @@ public class SaveData : MonoBehaviour
     {
         if (FindObjectOfType<IngredientSpawner>())
         {
-            FindObjectOfType<IngredientSpawner>().SetIngredientAmounts(ingredientAmounts);
+            FindObjectOfType<IngredientSpawner>().SetIngredientAmounts(prepData.ingredientAmounts);
         }
     }
     public void DecreaseIngredientAmountByOne(int index)
     {
-        ingredientAmounts[index]--;
+        prepData.ingredientAmounts[index]--;
     }
     public void LoadIngredientAmountsFromJson()
     {
         string filePath = Application.persistentDataPath + "/PrepIngredientData.json";
         string prepIngredientData = System.IO.File.ReadAllText(filePath);
 
-        ingredientAmounts = JsonUtility.FromJson<List<int>>(prepIngredientData);
-        if(ingredientAmounts.Count <= 0)
+        prepData = JsonUtility.FromJson<PrepIngredientData>(prepIngredientData);
+        if(prepData.ingredientAmounts.Count <= 0)
         {
-            ingredientAmounts = ingredientAmountsFallback.ToList();
+            prepData.ingredientAmounts = ingredientAmountsFallback.ToList();
         }
         Debug.Log("LOADED INGREDIENT AMOUNTS");
     }
     public void ResetIngredientAmountsData()
     {
-        string prepIngredientData = JsonUtility.ToJson(ingredientAmountsFallback);
+        prepData.ingredientAmounts = ingredientAmountsFallback.ToList();
+        string prepIngredientData = JsonUtility.ToJson(prepData);
         string filePath = Application.persistentDataPath + "/PrepIngredientData.json";
-        Debug.Log(filePath);
         System.IO.File.WriteAllText(filePath, prepIngredientData);
-        ingredientAmounts = ingredientAmountsFallback.ToList();
+        Debug.Log(filePath);
         Debug.Log("reset");
     }
-    public void ResetPotionData()
+    public void ResetUnlockedData()
     {
-        string emptyList = JsonUtility.ToJson(new List<bool>());
-        string filePath = Application.persistentDataPath + "/ingredientsUnlockedData.json";
-        string filePath2 = Application.persistentDataPath + "/potionsDiscoveredData.json";
-        Debug.Log(filePath + " and " + filePath2);
-        System.IO.File.WriteAllText(filePath, emptyList);
-        System.IO.File.WriteAllText(filePath2, emptyList);
+        unlockedData = new UnlockData();
+        string potionDataJSON = JsonUtility.ToJson(unlockedData);
+        string filePath = Application.persistentDataPath + "/UnlockedData.json";
+        System.IO.File.WriteAllText(filePath, potionDataJSON);
     }
+}
+[System.Serializable]
+public class PrepIngredientData
+{
+    public List<int> ingredientAmounts;
+}
+[System.Serializable]
+public class UnlockData
+{
+    public List<bool> ingredientsUnlocked;
+    public List<bool> potionsDiscovered;
 }

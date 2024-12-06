@@ -63,7 +63,7 @@ public class PotionRepository : MonoBehaviour
                 break;
             }
         }
-        saveDataInterface.SavePotionsDiscovered();
+        saveDataInterface.SavePotionData();
     }
     
     private void OnDestroy()
