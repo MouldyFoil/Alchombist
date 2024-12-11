@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyAIMovement : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
     [SerializeField] float detectDistance = 10;
     [SerializeField] float chaseDistance = 20;
@@ -13,6 +13,8 @@ public class EnemyAIMovement : MonoBehaviour
     [SerializeField] float stopZoneMin = 3;
     [SerializeField] float stopZoneMax = 5;
     [SerializeField] float speed = 20f;
+    [SerializeField] float dodgeSpeed = 10f;
+    [SerializeField] float dodgeCooldown = 5f;
     //[SerializeField] float avoidOtherEnemyDistance = 2;
     [SerializeField] float distanceOfCanCircleCheck = 2; //find a better name for this
     [SerializeField] float minTimeToSwitchDirection = 1;
@@ -121,4 +123,6 @@ public class EnemyAIMovement : MonoBehaviour
         if (agressiveEnemy) { return distanceFromPlayer < stopZoneMax; }
         else {return distanceFromPlayer > stopZoneMin && distanceFromPlayer < stopZoneMax;}
     }
+    public void SetPlayerRemembered(bool remembered) { playerRemembered = remembered; }
+    public bool ReturnPlayerRemembered() { return playerRemembered; }
 }

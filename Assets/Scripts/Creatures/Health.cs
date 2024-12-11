@@ -54,6 +54,10 @@ public class Health : MonoBehaviour
             {
                 Die();
             }
+            if(player == false && GetComponent<EnemyAI>())
+            {
+                GetComponent<EnemyAI>().SetPlayerRemembered(true);
+            }
         }
         else //interger is positive or 0
         {

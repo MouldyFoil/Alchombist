@@ -5064,6 +5064,7 @@ GameObject:
   - component: {fileID: 1657985284}
   - component: {fileID: 1657985282}
   - component: {fileID: 1657985283}
+  - component: {fileID: 3523683535555510992}
   - component: {fileID: 103576421}
   - component: {fileID: 824399979}
   - component: {fileID: 824399980}
@@ -5196,6 +5197,8 @@ MonoBehaviour:
   stopZoneMin: 4
   stopZoneMax: 5
   speed: 7
+  dodgeSpeed: 10
+  dodgeCooldown: 5
   distanceOfCanCircleCheck: 2
   minTimeToSwitchDirection: 0.5
   maxTimeToSwitchDirection: 2
@@ -5217,6 +5220,38 @@ MonoBehaviour:
   dontCircleWhenBetween:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &3523683535555510992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6248280323844338216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc218246c873dc41919366dc6d7d669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minAttackCooldown: 2
+  maxAttackCooldown: 7
+  chargeUpTime: 1
+  backAwayDuringChargeUp: 1
+  backAwaySpeed: 2
+  onAttack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 103576421}
+        m_TargetAssemblyTypeName: MeleeGoblinAttack, Assembly-CSharp
+        m_MethodName: AttackBehavior
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &103576421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5230,11 +5265,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 981941463}
-  minAttackCooldown: 2
-  maxAttackCooldown: 7
-  chargeUpTime: 1
-  backAwaySpeed: 1
-  chargeSpeed: 20
+  backAwaySpeed: 2
+  dashSpeed: 20
   stunTimeAfterAttacking: 2
 --- !u!114 &824399979
 MonoBehaviour:

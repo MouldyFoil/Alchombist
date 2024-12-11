@@ -10,13 +10,13 @@ public class RangedEnemyAttack : MonoBehaviour
     [SerializeField] float maxAttackCooldown = 7;
     [SerializeField] float recoil = 10;
     [SerializeField] float stunTimeAfterAttacking = 2;
-    EnemyAIMovement AI;
+    EnemyAI AI;
     EnemyMovement movement;
     bool canAttack = true;
     // Start is called before the first frame update
     void Start()
     {
-        AI = GetComponent<EnemyAIMovement>();
+        AI = GetComponent<EnemyAI>();
         movement = GetComponent<EnemyMovement>();
     }
 

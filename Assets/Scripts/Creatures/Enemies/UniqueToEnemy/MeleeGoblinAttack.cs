@@ -6,55 +6,53 @@ using UnityEngine;
 public class MeleeGoblinAttack : MonoBehaviour
 {
     [SerializeField] GameObject attack;
-    [SerializeField] float minAttackCooldown = 2;
-    [SerializeField] float maxAttackCooldown = 7;
-    [SerializeField] float chargeUpTime = 3;
-    [SerializeField] float backAwaySpeed = 5;
-    [SerializeField] float chargeSpeed = 30;
+    //[SerializeField] float backAwaySpeed = 5;
+    [SerializeField] float dashSpeed = 20;
     [SerializeField] float stunTimeAfterAttacking = 2;
-    EnemyAIMovement AI;
+    EnemyAI AI;
     EnemyMovement movement;
-    bool canAttack = true;
+    EnemyAttackGeneral attackGeneral;
     bool chargingUp;
     // Start is called before the first frame update
     void Start()
     {
-        AI = GetComponent<EnemyAIMovement>();
+        AI = GetComponent<EnemyAI>();
         movement = GetComponent<EnemyMovement>();
+        attackGeneral = GetComponent<EnemyAttackGeneral>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(AI == true && canAttack == true && AI.ReturnIsInAttackRange() == true && movement.ReturnIsBlocked() == false)
-        {
-            AttackBehavior();
-        }
-        if(chargingUp == true)
-        {
-            movement.MoveTowardsOrBack(-backAwaySpeed);
-        }
+        //if(chargingUp == true)
+        //{
+        //    movement.MoveTowardsOrBack(-backAwaySpeed);
+        //}
     }
 
-    private void AttackBehavior()
+    public void AttackBehavior()
     {
-        canAttack = false;
-        AI.enabled = false;
-        movement.TogglePathfinding(false);
-        StartCoroutine(HandleChargeUp());
-    }
-
-    private IEnumerator HandleChargeUp()
-    {
-        chargingUp = true;
-        yield return new WaitForSeconds(chargeUpTime);
-        chargingUp = false;
-        movement.Dash(chargeSpeed);
+        Debug.Log("attacked");
+        movement.Dash(dashSpeed);
         GetComponent<SpriteRenderer>().enabled = false;
         movement.ToggleAim(false);
         attack.SetActive(true);
         StartCoroutine(HandleStun());
     }
+
+    //private IEnumerator HandleChargeUp()
+    //{
+    //    chargingUp = true;
+    //    AI.enabled = false;
+    //    movement.TogglePathfinding(false);
+    //    yield return new WaitForSeconds(chargeUpTime);
+    //    chargingUp = false;
+    //    movement.Dash(dashSpeed);
+    //    GetComponent<SpriteRenderer>().enabled = false;
+    //    movement.ToggleAim(false);
+    //    attack.SetActive(true);
+    //    StartCoroutine(HandleStun());
+    //}
     private IEnumerator HandleStun()
     {
         yield return new WaitForSeconds(stunTimeAfterAttacking);
@@ -62,11 +60,6 @@ public class MeleeGoblinAttack : MonoBehaviour
         attack.SetActive(false);
         movement.ToggleAim(true);
         AI.enabled = true;
-        StartCoroutine(HandleCooldown());
-    }
-    private IEnumerator HandleCooldown()
-    {
-        yield return new WaitForSeconds(UnityEngine.Random.Range(minAttackCooldown, maxAttackCooldown));
-        canAttack = true;
+        attackGeneral.StartCooldown();
     }
 }
