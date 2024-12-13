@@ -57,14 +57,14 @@ MonoBehaviour:
     ID: 3
     unlocked: 0
   - ingredientSprite: {fileID: 21300000, guid: 515d1fdb9ebf77546a6e4b9f734b951b, type: 3}
-    input: u
+    input: l
     ID: 4
     unlocked: 0
   - ingredientSprite: {fileID: 21300000, guid: 11a5de71a7217ad43bdccb5d5dd2a55f, type: 3}
-    input: i
+    input: u
     ID: 5
     unlocked: 0
   - ingredientSprite: {fileID: 21300000, guid: 01a6394037921e543852c7a9ba91a828, type: 3}
-    input: l
+    input: i
     ID: 6
     unlocked: 0

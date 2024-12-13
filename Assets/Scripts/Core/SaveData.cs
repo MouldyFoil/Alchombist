@@ -11,7 +11,7 @@ public class SaveData : MonoBehaviour
     public bool saveDataPrime;
     PrepIngredientData prepData = new PrepIngredientData();
 
-    UnlockData unlockedData = new UnlockData();
+    [SerializeField] UnlockData unlockedData = new UnlockData();
     private void Awake()
     {
         if(dontSaveScene == true)
@@ -61,20 +61,7 @@ public class SaveData : MonoBehaviour
 
     private void Update()
     {
-        if (FindObjectOfType<IngredientRepository>())
-        {
-            if (unlockedData.ingredientsUnlocked.Count < FindObjectOfType<IngredientRepository>().ReturnIngredients().Length)
-            {
-                PopulateIngredientsUnlocked();
-            }
-        }
-        if (FindObjectOfType<PotionRepository>())
-        {
-            if (unlockedData.potionsDiscovered.Count < FindObjectOfType<PotionRepository>().ReturnPotions().Length)
-            {
-                PopulatePotionsDiscovered();
-            }
-        }
+        
     }
     public void LoadAll()
     {
@@ -107,14 +94,30 @@ public class SaveData : MonoBehaviour
     {
         if (FindObjectOfType<IngredientRepository>())
         {
-            FindObjectOfType<IngredientRepository>().SetUnlockedStatuses(unlockedData.potionsDiscovered);
+            if(unlockedData.ingredientsUnlocked != null)
+            {
+                FindObjectOfType<IngredientRepository>().SetUnlockedStatuses(unlockedData.potionsDiscovered);
+            }
+            else
+            {
+                unlockedData.ingredientsUnlocked = new List<bool>();
+                PopulateIngredientsUnlocked();
+            }
         }
     }
     public void SetPotionsDiscovered()
     {
         if (FindObjectOfType<PotionRepository>())
         {
-            FindObjectOfType<PotionRepository>().SetDiscoveredStatuses(unlockedData.potionsDiscovered);
+            if (unlockedData.potionsDiscovered != null)
+            {
+                FindObjectOfType<PotionRepository>().SetDiscoveredStatuses(unlockedData.potionsDiscovered);
+            }
+            else
+            {
+                unlockedData.potionsDiscovered = new List<bool>();
+                PopulatePotionsDiscovered();
+            }
         }
     }
     public void SavePotionData()
