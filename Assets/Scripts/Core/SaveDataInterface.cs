@@ -58,7 +58,7 @@ public class SaveDataInterface : MonoBehaviour
 
     public void SaveIngredientAmounts() { saveData.SaveIngredientAmountsToJson(); }
     public void SetIngredientAmounts() { saveData.SetIngredientAmounts(); }
-    public void DecreaseIngredientAmount(int index) { saveData.DecreaseIngredientAmountByOne(index); }
+    public void AddOrRemoveIngredientAmount(int index, int amount) { saveData.AddOrRemoveIngredientAmount(index, amount); }
     public void LoadIngredientAmounts() { saveData.LoadIngredientAmountsFromJson(); }
 
     public void SavePotionData() { saveData.SavePotionData(); }

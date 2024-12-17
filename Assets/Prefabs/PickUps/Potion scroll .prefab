@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 976275383493854769}
   - component: {fileID: 2815661849756537824}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Scroll
   m_TagString: Pickup
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8454058042846625650}
   - component: {fileID: 8454058042846625653}
   - component: {fileID: 7543683083821046555}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: 'Potion scroll '
   m_TagString: Pickup
   m_Icon: {fileID: 0}

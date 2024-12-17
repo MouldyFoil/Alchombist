@@ -26,37 +26,16 @@ public class CouldronLiquid : MonoBehaviour
         {
             PhysicsIngredient ingredientScript = collision.GetComponent<PhysicsIngredient>();
             prepBuffs.IncreaseStat(ingredientScript.ReturnBuffName(), ingredientScript.ReturnBuffAmount());
-            saveDataInterface.DecreaseIngredientAmount(collision.GetComponent<PhysicsIngredient>().ingredientIndex);
+            saveDataInterface.AddOrRemoveIngredientAmount(collision.GetComponent<PhysicsIngredient>().ingredientIndex, -1);
             soundManager.PlayAudioClip(ingredientAddedSound, transform, volume);
             Destroy(collision.gameObject);
-            //Color color = collision.GetComponent<PhysicsIngredient>().ReturnColor();
-            //float influence = collision.GetComponent<PhysicsIngredient>().ReturnColorInfluence();
-            //MoveColor(color, influence);
+            Color color = collision.GetComponent<PhysicsIngredient>().ReturnColor();
+            MoveColor(color);
         }
     }
-    //private void MoveColor(Color color, float influence)
-    //{
-    //    float hueHome, satHome, valHome;
-    //    float hueGoal, satGoal, valGoal;
-    //    Color.RGBToHSV(sprite.color, out hueHome, out satHome, out valHome);
-    //    Color.RGBToHSV(color, out hueGoal, out satGoal, out valGoal);
-    //    Debug.Log("current colors: " + "hue: " + hueHome + "sat: " + satHome + "val: " + valHome);
-    //    Debug.Log("Added colors: " + "hue: " + hueGoal);
-    //    if(hueHome <= hueGoal)
-    //    {
-    //        sprite.color += (Color.HSVToRGB(hueGoal, 0, 0));
-    //        if (hueHome > hueGoal)
-    //        {
-    //            sprite.color = (Color.HSVToRGB(hueGoal, satGoal, valGoal));
-    //        }
-    //    }
-    //    if(hueHome >= hueGoal)
-    //    {
-    //        sprite.color -= (Color.HSVToRGB(hueGoal * influence, 0, 0));
-    //        if(hueHome < hueGoal)
-    //        {
-    //            sprite.color = (Color.HSVToRGB(hueGoal, satGoal, valGoal));
-    //        }
-    //    }
-    //}
+    private void MoveColor(Color color)
+    {
+        Color colorFinal = (color + sprite.color) / 2;
+        sprite.color = colorFinal;
+    }
 }

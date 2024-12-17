@@ -5070,6 +5070,7 @@ GameObject:
   - component: {fileID: 1657985284}
   - component: {fileID: 1657985282}
   - component: {fileID: 1657985283}
+  - component: {fileID: 2421749867600812167}
   - component: {fileID: 5067216800787795659}
   - component: {fileID: 590030144}
   - component: {fileID: 590030145}
@@ -5203,6 +5204,8 @@ MonoBehaviour:
   stopZoneMin: 4
   stopZoneMax: 7
   speed: 7
+  dodgeSpeed: 10
+  dodgeCooldown: 5
   distanceOfCanCircleCheck: 2
   minTimeToSwitchDirection: 0.5
   maxTimeToSwitchDirection: 2
@@ -5224,6 +5227,39 @@ MonoBehaviour:
   dontCircleWhenBetween:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &2421749867600812167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6248280323844338216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc218246c873dc41919366dc6d7d669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minAttackCooldown: 2
+  maxAttackCooldown: 7
+  chargeUpTime: 0
+  backAwayDuringChargeUp: 0
+  backAwaySpeed: 0
+  onAttack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5067216800787795659}
+        m_TargetAssemblyTypeName: RangedEnemyAttack, Assembly-CSharp
+        m_MethodName: AttackBehavior
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  chargeTimePrime: 0
 --- !u!114 &5067216800787795659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5238,8 +5274,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 537828859312606276, guid: 4a464ff3e3378e34f9f20d1611022098, type: 3}
   projectileSpawn: {fileID: 5723617666179816844}
-  minAttackCooldown: 2
-  maxAttackCooldown: 7
   recoil: 3
   stunTimeAfterAttacking: 2
 --- !u!114 &590030144

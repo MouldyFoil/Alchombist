@@ -10,8 +10,6 @@ public class PhysicsIngredient : MonoBehaviour
 
     [SerializeField] string statBuffedName = "Speed";
     [SerializeField] float buffAmount = 5;
-
-    [SerializeField] float liquidColorInfluence = 50;
     [SerializeField] float defaultVolume;
     [SerializeField] Color ingredientColor;
     [SerializeField] AudioClip[] dropSounds;
@@ -58,5 +56,4 @@ public class PhysicsIngredient : MonoBehaviour
     public string ReturnBuffName() { return statBuffedName; }
     public float ReturnBuffAmount() { return buffAmount; }
     public Color ReturnColor() { return ingredientColor; }
-    public float ReturnColorInfluence() { return liquidColorInfluence; }
 }

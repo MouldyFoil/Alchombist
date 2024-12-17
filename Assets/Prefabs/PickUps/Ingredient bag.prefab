@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2266312089735903051}
   - component: {fileID: 2266312089735903050}
   - component: {fileID: 2266312089735903029}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Ingredient bag
   m_TagString: Pickup
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6290513895407715578}
   - component: {fileID: 3329592800693984596}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bag sprite
   m_TagString: Pickup
   m_Icon: {fileID: 0}

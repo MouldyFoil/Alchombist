@@ -61,6 +61,7 @@ public class EnemyAttackGeneral : MonoBehaviour
     public void StartCooldown()
     {
         cooldown = Random.Range(minAttackCooldown, maxAttackCooldown);
+        AI.enabled = true;
         canAttack = true;
     }
 }

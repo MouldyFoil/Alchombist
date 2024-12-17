@@ -11,7 +11,7 @@ public class SaveData : MonoBehaviour
     public bool saveDataPrime;
     PrepIngredientData prepData = new PrepIngredientData();
 
-    [SerializeField] UnlockData unlockedData = new UnlockData();
+    UnlockData unlockedData = new UnlockData();
     private void Awake()
     {
         if(dontSaveScene == true)
@@ -96,7 +96,7 @@ public class SaveData : MonoBehaviour
         {
             if(unlockedData.ingredientsUnlocked != null)
             {
-                FindObjectOfType<IngredientRepository>().SetUnlockedStatuses(unlockedData.potionsDiscovered);
+                FindObjectOfType<IngredientRepository>().SetUnlockedStatuses(unlockedData.ingredientsUnlocked);
             }
             else
             {
@@ -157,9 +157,9 @@ public class SaveData : MonoBehaviour
             FindObjectOfType<IngredientSpawner>().SetIngredientAmounts(prepData.ingredientAmounts);
         }
     }
-    public void DecreaseIngredientAmountByOne(int index)
+    public void AddOrRemoveIngredientAmount(int index, int amount)
     {
-        prepData.ingredientAmounts[index]--;
+        prepData.ingredientAmounts[index] += amount;
     }
     public void LoadIngredientAmountsFromJson()
     {

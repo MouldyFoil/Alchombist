@@ -9,25 +9,14 @@ public class MeleeGoblinAttack : MonoBehaviour
     //[SerializeField] float backAwaySpeed = 5;
     [SerializeField] float dashSpeed = 20;
     [SerializeField] float stunTimeAfterAttacking = 2;
-    EnemyAI AI;
     EnemyMovement movement;
     EnemyAttackGeneral attackGeneral;
     bool chargingUp;
     // Start is called before the first frame update
     void Start()
     {
-        AI = GetComponent<EnemyAI>();
         movement = GetComponent<EnemyMovement>();
         attackGeneral = GetComponent<EnemyAttackGeneral>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //if(chargingUp == true)
-        //{
-        //    movement.MoveTowardsOrBack(-backAwaySpeed);
-        //}
     }
 
     public void AttackBehavior()
@@ -39,27 +28,12 @@ public class MeleeGoblinAttack : MonoBehaviour
         attack.SetActive(true);
         StartCoroutine(HandleStun());
     }
-
-    //private IEnumerator HandleChargeUp()
-    //{
-    //    chargingUp = true;
-    //    AI.enabled = false;
-    //    movement.TogglePathfinding(false);
-    //    yield return new WaitForSeconds(chargeUpTime);
-    //    chargingUp = false;
-    //    movement.Dash(dashSpeed);
-    //    GetComponent<SpriteRenderer>().enabled = false;
-    //    movement.ToggleAim(false);
-    //    attack.SetActive(true);
-    //    StartCoroutine(HandleStun());
-    //}
     private IEnumerator HandleStun()
     {
         yield return new WaitForSeconds(stunTimeAfterAttacking);
         GetComponent<SpriteRenderer>().enabled = true;
         attack.SetActive(false);
         movement.ToggleAim(true);
-        AI.enabled = true;
         attackGeneral.StartCooldown();
     }
 }

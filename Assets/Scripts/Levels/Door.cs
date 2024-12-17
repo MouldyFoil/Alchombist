@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -8,13 +9,16 @@ public class Door : MonoBehaviour
     [SerializeField] int buttonsRequired = 1;
     [SerializeField] bool exactChange;
     [SerializeField] Sprite openedSprite;
+    [SerializeField] float boundingBoxExtention = 2;
     SpriteRenderer spriteRenderer;
     Sprite closedSprite;
     List<PressurePlate> buttons = new List<PressurePlate>();
+    Collider2D collider;
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         closedSprite = spriteRenderer.sprite;
+        collider = GetComponent<Collider2D>();
     }
     private void Update()
     {
@@ -56,12 +60,18 @@ public class Door : MonoBehaviour
     {
         spriteRenderer.sprite = openedSprite;
         GetComponent<Collider2D>().enabled = false;
-        AstarPath.active.Scan();
+        UpdatePathFinding();
     }
     public void CloseDoor()
     {
         spriteRenderer.sprite = closedSprite;
         GetComponent<Collider2D>().enabled = true;
-        AstarPath.active.Scan();
+        UpdatePathFinding();
+    }
+    public void UpdatePathFinding()
+    {
+        AstarPath.active.UpdateGraphs
+        (new Bounds(transform.position,
+        new Vector3(collider.bounds.extents.x + boundingBoxExtention, collider.bounds.extents.y + boundingBoxExtention, collider.bounds.extents.z + boundingBoxExtention)));
     }
 }
