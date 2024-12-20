@@ -12,11 +12,6 @@ public class IngredientSpawner : MonoBehaviour
     [SerializeField] GameObject[] ingredients;
     [SerializeField] float ingredientZPos = 0.5f;
     SaveDataInterface saveDataInterface;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
     private void Awake()
     {
         saveDataInterface = FindObjectOfType<SaveDataInterface>();
@@ -26,11 +21,6 @@ public class IngredientSpawner : MonoBehaviour
     public void SetIngredientAmounts(List<int> amounts)
     {
         ingredientAmounts = amounts.ToArray();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
     public void SpawnIngredient(int ingredientIndex)
     {

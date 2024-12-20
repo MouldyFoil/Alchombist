@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class AlchemyScript : MonoBehaviour
 {
-    //The particles that play when specific ingredient is used
+    //Polish
     [SerializeField] GameObject ingredientParticlesParent;
     ParticleSystem[] ingredientParticles;
+    SFXManager soundManager;
+    [SerializeField] AudioClip[] ingredientSFX;
+    [SerializeField] float volume;
 
     //The input to clear all ingredients
     [SerializeField] string clearInput;
@@ -19,9 +22,6 @@ public class AlchemyScript : MonoBehaviour
     IngredientRepository ingredientRepository;
 
     //misc
-    SFXManager soundManager;
-    [SerializeField] AudioClip[] ingredientSFX;
-    [SerializeField] float volume;
 
     int buffDamage;
     int[] activeIngredients = new int[6];
@@ -40,8 +40,11 @@ public class AlchemyScript : MonoBehaviour
     }
     void Update()
     {
-        CreateOrCancel();
-        DetermineIngredient();
+        if(Time.deltaTime > 0)
+        {
+            CreateOrCancel();
+            DetermineIngredient();
+        }
     }
 
     private void DetermineIngredient()

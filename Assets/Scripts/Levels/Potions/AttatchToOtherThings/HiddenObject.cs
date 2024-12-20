@@ -5,6 +5,10 @@ using UnityEngine;
 public class HiddenObject : MonoBehaviour
 {
     [SerializeField] string revealID;
+    [Header("Extra Variables")]
+    [SerializeField] Behaviour[] extraComponentsToDisable;
+    [SerializeField] GameObject originalObject;
+    [SerializeField] GameObject hintOrReplacementObjcet;
     SpriteRenderer sprite;
 
     // Start is called before the first frame update
@@ -13,15 +17,13 @@ public class HiddenObject : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         sprite.enabled = false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void Reveal()
     {
         sprite.enabled = true;
+        foreach (Behaviour component in extraComponentsToDisable)
+        {
+            component.enabled = true;
+        }
     }
     public void Hide(RevealingPotion potionCalling)
     {
@@ -42,6 +44,10 @@ public class HiddenObject : MonoBehaviour
             }
         }
         sprite.enabled = false;
+        foreach (Behaviour component in extraComponentsToDisable)
+        {
+            component.enabled = false;
+        }
     }
     public string ReturnID() { return revealID; }
 }

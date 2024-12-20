@@ -255,6 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
+  extraComponentsToDisable: []
 --- !u!4 &30388487 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 733300556898372768, guid: fda592272ba6208488f1afd9d4545ebf, type: 3}
@@ -879,6 +880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
+  extraComponentsToDisable: []
 --- !u!4 &171522914 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 733300556898372768, guid: fda592272ba6208488f1afd9d4545ebf, type: 3}
@@ -1591,6 +1593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
+  extraComponentsToDisable: []
 --- !u!4 &560684215 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6248280323844338218, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
@@ -1614,6 +1617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
+  extraComponentsToDisable: []
 --- !u!4 &564882486 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 733300556898372768, guid: fda592272ba6208488f1afd9d4545ebf, type: 3}
@@ -1704,6 +1708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
+  extraComponentsToDisable: []
 --- !u!4 &784089770 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7195146594942207189, guid: 4cb083e4c88011a41bae5fe391494b12, type: 3}
@@ -2062,6 +2067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
+  extraComponentsToDisable: []
 --- !u!1001 &953371582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2142,6 +2148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
+  extraComponentsToDisable: []
 --- !u!1001 &1012479533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2239,6 +2246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
+  extraComponentsToDisable: []
 --- !u!1001 &1028846677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4650,6 +4658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
+  extraComponentsToDisable: []
 --- !u!1 &1270661382 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7529179622377545840, guid: c1d49507aba2f5041b7cdf6709f7b21a, type: 3}
@@ -4668,6 +4677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
+  extraComponentsToDisable: []
 --- !u!1 &1286574172
 GameObject:
   m_ObjectHideFlags: 0
@@ -6311,6 +6321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
+  extraComponentsToDisable: []
 --- !u!4 &1328764918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 733300556898372768, guid: fda592272ba6208488f1afd9d4545ebf, type: 3}
@@ -6422,6 +6433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
+  extraComponentsToDisable: []
 --- !u!4 &1442455046 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 733300556898372768, guid: fda592272ba6208488f1afd9d4545ebf, type: 3}
@@ -6660,6 +6672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
+  extraComponentsToDisable: []
 --- !u!1001 &1562798567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78453,6 +78466,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1778677640}
+    - target: {fileID: 254951788289836344, guid: 039d7e49d17ed5144b7d81bfb8355f04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1778677640}
     - target: {fileID: 2843510549012287643, guid: 039d7e49d17ed5144b7d81bfb8355f04, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -78541,6 +78558,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3297986715312032043, guid: 039d7e49d17ed5144b7d81bfb8355f04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1778677640}
+    - target: {fileID: 8178257267368629279, guid: 039d7e49d17ed5144b7d81bfb8355f04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1778677640}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 039d7e49d17ed5144b7d81bfb8355f04, type: 3}
 --- !u!1001 &1822041253
@@ -78618,6 +78643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
+  extraComponentsToDisable: []
 --- !u!4 &1825337994 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8619923802490842308, guid: 91b237b919289e2428151752e4b2d58c, type: 3}
@@ -80212,6 +80238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
+  extraComponentsToDisable: []
 --- !u!1001 &2107970722
 PrefabInstance:
   m_ObjectHideFlags: 0

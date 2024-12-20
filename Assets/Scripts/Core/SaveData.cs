@@ -58,11 +58,6 @@ public class SaveData : MonoBehaviour
             ResetIngredientAmountsData();
         }
     }
-
-    private void Update()
-    {
-        
-    }
     public void LoadAll()
     {
         LoadIngredientAmountsFromJson();

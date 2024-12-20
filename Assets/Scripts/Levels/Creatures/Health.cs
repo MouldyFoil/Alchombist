@@ -25,11 +25,6 @@ public class Health : MonoBehaviour
             playerHealthDisplay.UpdateHearts();
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
     public int ReturnHealth() { return health; }
     public int ReturnTempHealth() { return tempHealth; }
     public int ReturnTrueMaxHealth() { return maxHealth; }
@@ -116,6 +111,7 @@ public class Health : MonoBehaviour
         else
         {
             MenuHandler menuHandler = FindObjectOfType<MenuHandler>();
+            menuHandler.DisableEscapeButton();
             menuHandler.SwitchMenu("Death");
             menuHandler.PauseGame();
         }
