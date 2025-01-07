@@ -7,14 +7,14 @@ using System;
 
 public class DialogueCore : MonoBehaviour
 {
-    [SerializeField] DialoguePage[] dialogueThings;
+    [SerializeField] GameObject[] pages;
     [SerializeField] string nextKey = "space";
     // Start is called before the first frame update
     void Start()
     {
-        foreach(DialoguePage page in dialogueThings)
+        foreach(GameObject page in pages)
         {
-            page.dObject.GetComponent<DialogueTyper>().SetNextKey(nextKey);
+            page.GetComponent<DialogueTyper>().SetNextKey(nextKey);
         }
     }
 
@@ -25,15 +25,15 @@ public class DialogueCore : MonoBehaviour
     }
     public void NewDialoguePage(string ID)
     {
-        foreach(DialoguePage dialogueThing in dialogueThings)
+        foreach(GameObject page in pages)
         {
-            if (dialogueThing.dialogueID == ID)
+            if (page.name == ID)
             {
-                dialogueThing.dObject.SetActive(true);
+                page.SetActive(true);
             }
             else
             {
-                dialogueThing.dObject.SetActive(false);
+                page.SetActive(false);
             }
         }
     }
@@ -41,6 +41,5 @@ public class DialogueCore : MonoBehaviour
 [Serializable]
 public class DialoguePage
 {
-    public string dialogueID;
     public GameObject dObject;
 }
