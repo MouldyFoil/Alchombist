@@ -8,39 +8,128 @@ using UnityEngine.Events;
 
 public class DialogueTyper : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI dialogueText;
-    [SerializeField] float waitTimeBetweenCharacters;
-    [SerializeField] string text;
-    [SerializeField] UnityEvent endEvent;
-
+    [SerializeField] DialogueObject[] dialogueObjects;
+    [SerializeField] string nextPageID;
+    [SerializeField] bool canSkip;
+    [SerializeField] bool dialogueOptions;
+    [SerializeField] bool automaticallyFlipPage = false;
+    int currentIndex = 0;
+    DialogueCore dialogueCore;
+    string nextInput = "space";
+    bool finishedDialogue = false;
+    private void OnEnable()
+    {
+        StartDialogue();
+    }
+    private void Awake()
+    {
+        dialogueCore = FindObjectOfType<DialogueCore>();
+    }
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(nextInput))
+        {
+            if (finishedDialogue == true && dialogueOptions == false)
+            {
+                dialogueCore.NewDialoguePage(nextPageID);
+            }
+            else if (canSkip == true)
+            {
+                SkipDialogue();
+            }
+        }
     }
-    public void SetDialogueTextObject(TextMeshProUGUI text)
+    private void SkipDialogue()
     {
-        dialogueText = text;
+        StopAllCoroutines();
+        int index = 0;
+        foreach(DialogueObject dialogueObject in dialogueObjects)
+        {
+            dialogueObject.dGameObject.SetActive(true);
+            if (dialogueObject.dGameObject.GetComponent<TextMeshProUGUI>())
+            {
+                dialogueObject.dGameObject.GetComponent<TextMeshProUGUI>().text = dialogueObjects[index].text;
+            }
+            index++;
+        }
+        finishedDialogue = true;
     }
-    public void StartDialogue()
+    public void SetNextKey(string newKey)
     {
-        dialogueText.text = string.Empty;
+        nextInput = newKey;
+    }
+    public void RemoveLine(GameObject text)
+    {
+        StartCoroutine(RemoveLineCoroutine(text.GetComponent<TextMeshProUGUI>(), 0.1f));
+    }
+    private void StartDialogue()
+    {
+        finishedDialogue = false;
+        currentIndex = 0;
+        foreach(DialogueObject dialogueObject in dialogueObjects)
+        {
+            if (dialogueObject.dGameObject.GetComponent<TextMeshProUGUI>())
+            {
+                dialogueObject.dGameObject.GetComponent<TextMeshProUGUI>().text = string.Empty;
+            }
+            else
+            {
+                dialogueObject.dGameObject.SetActive(false);
+            }
+        }
         StartCoroutine(TypeLine());
     }
     IEnumerator TypeLine()
     {
-        foreach (char c in text.ToCharArray())
+        dialogueObjects[currentIndex].startEvent.Invoke();
+        yield return new WaitForSeconds(dialogueObjects[currentIndex].startDelay);
+        if (dialogueObjects[currentIndex].dGameObject.GetComponent<TextMeshProUGUI>())
         {
-            dialogueText.text += c;
-            yield return new WaitForSeconds(waitTimeBetweenCharacters);
+            foreach (char c in dialogueObjects[currentIndex].text.ToCharArray())
+            {
+                dialogueObjects[currentIndex].dGameObject.GetComponent<TextMeshProUGUI>().text += c;
+                yield return new WaitForSeconds(dialogueObjects[currentIndex].waitBetweenCharacters);
+            }
         }
-        endEvent.Invoke();
-        Destroy(gameObject);
+        else
+        {
+            dialogueObjects[currentIndex].dGameObject.SetActive(true);
+            yield return new WaitForSeconds(dialogueObjects[currentIndex].waitBetweenCharacters);
+        }
+        yield return new WaitForSeconds(dialogueObjects[currentIndex].endDelay);
+        dialogueObjects[currentIndex].endEvent.Invoke();
+        currentIndex++;
+        if(currentIndex < dialogueObjects.Length)
+        {
+            StartCoroutine(TypeLine());
+        }
+        else
+        {
+            finishedDialogue = true;
+            if (automaticallyFlipPage)
+            {
+                dialogueCore.NewDialoguePage(nextPageID);
+            }
+        }
     }
-    public void DestroySelf()
+    IEnumerator RemoveLineCoroutine(TextMeshProUGUI tmp, float timeBetweenRemoval)
     {
-        StopAllCoroutines();
-        dialogueText.text = text;
-        Destroy(gameObject);
+        foreach(char c in tmp.text.ToCharArray())
+        {
+            tmp.text = tmp.text.Substring(0, tmp.text.Length - 1);
+            yield return new WaitForSeconds(timeBetweenRemoval);
+        }
     }
+}
+[Serializable]
+public class DialogueObject
+{
+    public float startDelay;
+    public UnityEvent startEvent;
+    public GameObject dGameObject;
+    public float waitBetweenCharacters = 0.1f;
+    public string text;
+    public float endDelay;
+    public UnityEvent endEvent;
 }

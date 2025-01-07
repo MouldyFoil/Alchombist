@@ -13,8 +13,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float stopZoneMin = 3;
     [SerializeField] float stopZoneMax = 5;
     [SerializeField] float speed = 20f;
-    [SerializeField] float dodgeSpeed = 10f;
-    [SerializeField] float dodgeCooldown = 5f;
+    //[SerializeField] float dodgeSpeed = 10f;
+    //[SerializeField] float dodgeCooldown = 5f;
     //[SerializeField] float avoidOtherEnemyDistance = 2;
     [SerializeField] float distanceOfCanCircleCheck = 2; //find a better name for this
     [SerializeField] float minTimeToSwitchDirection = 1;
