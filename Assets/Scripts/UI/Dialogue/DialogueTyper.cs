@@ -13,6 +13,7 @@ public class DialogueTyper : MonoBehaviour
     [SerializeField] bool canSkip;
     [SerializeField] bool dialogueOptions;
     [SerializeField] bool automaticallyFlipPage = false;
+    [SerializeField] float removeLineSpeed = 0.1f;
     int currentIndex = 0;
     DialogueCore dialogueCore;
     string nextInput = "space";
@@ -59,9 +60,13 @@ public class DialogueTyper : MonoBehaviour
     {
         nextInput = newKey;
     }
+    public void ChangeRemoveSpeed(float speed)
+    {
+        removeLineSpeed = speed;
+    }
     public void RemoveLine(GameObject text)
     {
-        StartCoroutine(RemoveLineCoroutine(text.GetComponent<TextMeshProUGUI>(), 0.1f));
+        StartCoroutine(RemoveLineCoroutine(text.GetComponent<TextMeshProUGUI>(), removeLineSpeed));
     }
     private void StartDialogue()
     {
