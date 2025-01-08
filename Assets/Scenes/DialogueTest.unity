@@ -624,21 +624,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e234d6c940b014f949811c87644ce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueThings:
-  - dialogueID: Page 1
-    dObject: {fileID: 1861011527}
-  - dialogueID: Page 2
-    dObject: {fileID: 505951076}
-  - dialogueID: Page 3
-    dObject: {fileID: 219085651}
-  - dialogueID: Page 4
-    dObject: {fileID: 2062646493}
-  - dialogueID: Page 5
-    dObject: {fileID: 1725503691}
-  - dialogueID: Page 6
-    dObject: {fileID: 828289478}
-  - dialogueID: Page 7
-    dObject: {fileID: 116135359}
+  pages:
+  - {fileID: 1861011527}
+  - {fileID: 505951076}
+  - {fileID: 219085651}
+  - {fileID: 2062646493}
+  - {fileID: 1725503691}
+  - {fileID: 828289478}
+  - {fileID: 116135359}
   nextKey: space
 --- !u!1 &165111323
 GameObject:
