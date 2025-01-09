@@ -8,7 +8,12 @@ public class MenuHandler : MonoBehaviour
 {
     [SerializeField] GameObject[] menus;
     [SerializeField] UnityEvent escapeButtonFunctionalities;
+    SceneManagement sceneManager;
     bool disableEscape = false;
+    private void Start()
+    {
+        sceneManager = FindObjectOfType<SceneManagement>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -103,5 +108,13 @@ public class MenuHandler : MonoBehaviour
     public void DisableEscapeButton()
     {
         disableEscape = true;
+    }
+    public void LoadSceneByName(string name)
+    {
+        sceneManager.LoadSceneByName(name);
+    }
+    public void ReloadScene()
+    {
+        sceneManager.ReloadScene();
     }
 }

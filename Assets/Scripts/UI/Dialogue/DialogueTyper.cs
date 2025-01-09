@@ -14,6 +14,9 @@ public class DialogueTyper : MonoBehaviour
     [SerializeField] bool dialogueOptions;
     [SerializeField] bool automaticallyFlipPage = false;
     [SerializeField] float removeLineSpeed = 0.1f;
+    [SerializeField] Transform soundLocation;
+    PlayerMovement player;
+    SFXManager sfx;
     int currentIndex = 0;
     DialogueCore dialogueCore;
     string nextInput = "space";
@@ -25,6 +28,7 @@ public class DialogueTyper : MonoBehaviour
     private void Awake()
     {
         dialogueCore = FindObjectOfType<DialogueCore>();
+        sfx = FindObjectOfType<SFXManager>();
     }
     // Update is called once per frame
     void Update()
@@ -87,23 +91,32 @@ public class DialogueTyper : MonoBehaviour
     }
     IEnumerator TypeLine()
     {
-        dialogueObjects[currentIndex].startEvent.Invoke();
-        yield return new WaitForSeconds(dialogueObjects[currentIndex].startDelay);
-        if (dialogueObjects[currentIndex].dGameObject.GetComponent<TextMeshProUGUI>())
+        DialogueObject currentDObject = dialogueObjects[currentIndex];
+        yield return new WaitForSeconds(currentDObject.startDelay);
+        currentDObject.startEvent.Invoke();
+        if (currentDObject.dGameObject.GetComponent<TextMeshProUGUI>())
         {
-            foreach (char c in dialogueObjects[currentIndex].text.ToCharArray())
+            foreach (char c in currentDObject.text.ToCharArray())
             {
-                dialogueObjects[currentIndex].dGameObject.GetComponent<TextMeshProUGUI>().text += c;
-                yield return new WaitForSeconds(dialogueObjects[currentIndex].waitBetweenCharacters);
+                currentDObject.dGameObject.GetComponent<TextMeshProUGUI>().text += c;
+                if(!char.IsWhiteSpace(c) && currentDObject.sound)
+                {
+                    sfx.PlayAudioClip(currentDObject.sound, soundLocation, currentDObject.soundVolume);
+                }
+                yield return new WaitForSeconds(currentDObject.waitBetweenCharacters);
             }
         }
         else
         {
-            dialogueObjects[currentIndex].dGameObject.SetActive(true);
-            yield return new WaitForSeconds(dialogueObjects[currentIndex].waitBetweenCharacters);
+            currentDObject.dGameObject.SetActive(true);
+            if (currentDObject.sound)
+            {
+                sfx.PlayAudioClip(currentDObject.sound, soundLocation, currentDObject.soundVolume);
+            }
+            yield return new WaitForSeconds(currentDObject.waitBetweenCharacters);
         }
-        yield return new WaitForSeconds(dialogueObjects[currentIndex].endDelay);
-        dialogueObjects[currentIndex].endEvent.Invoke();
+        yield return new WaitForSeconds(currentDObject.endDelay);
+        currentDObject.endEvent.Invoke();
         currentIndex++;
         if(currentIndex < dialogueObjects.Length)
         {
@@ -137,4 +150,6 @@ public class DialogueObject
     public string text;
     public float endDelay;
     public UnityEvent endEvent;
+    public AudioClip sound;
+    public float soundVolume = 0.15f;
 }
