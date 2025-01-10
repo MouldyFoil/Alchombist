@@ -87,7 +87,7 @@ public class SaveData : MonoBehaviour
     // active potion things below
     public void SetIngredientsUnlocked()
     {
-        if (FindObjectOfType<IngredientRepository>())
+        if (unlockedData.ingredientsUnlocked.Count > 0 && FindObjectOfType<IngredientRepository>())
         {
             if(unlockedData.ingredientsUnlocked != null)
             {
@@ -102,7 +102,7 @@ public class SaveData : MonoBehaviour
     }
     public void SetPotionsDiscovered()
     {
-        if (FindObjectOfType<PotionRepository>())
+        if (unlockedData.potionsDiscovered.Count > 0 && FindObjectOfType<PotionRepository>())
         {
             if (unlockedData.potionsDiscovered != null)
             {

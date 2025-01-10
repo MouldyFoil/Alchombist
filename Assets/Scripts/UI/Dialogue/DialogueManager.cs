@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 
-public class DialogueCore : MonoBehaviour
+public class DialogueManager : MonoBehaviour
 {
     [SerializeField] GameObject[] pages;
     [SerializeField] string nextKey = "space";
@@ -23,7 +23,7 @@ public class DialogueCore : MonoBehaviour
     {
         
     }
-    public void NewDialoguePage(string ID)
+    public void OpenDialoguePage(string ID)
     {
         foreach(GameObject page in pages)
         {

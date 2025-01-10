@@ -8,27 +8,34 @@ using UnityEngine.Events;
 
 public class DialogueTyper : MonoBehaviour
 {
+    [SerializeField] bool startDialogueOnEnable = true;
+    [SerializeField] GameObject nextPage;
     [SerializeField] DialogueObject[] dialogueObjects;
-    [SerializeField] string nextPageID;
     [SerializeField] bool canSkip;
     [SerializeField] bool dialogueOptions;
     [SerializeField] bool automaticallyFlipPage = false;
     [SerializeField] float removeLineSpeed = 0.1f;
-    [SerializeField] Transform soundLocation;
-    PlayerMovement player;
+    [Header("Leave sound transform empty if player exists.")]
+    [SerializeField] Transform soundTransform;
+    Transform playerTransform;
     SFXManager sfx;
     int currentIndex = 0;
-    DialogueCore dialogueCore;
     string nextInput = "space";
     bool finishedDialogue = false;
     private void OnEnable()
     {
-        StartDialogue();
+        if (startDialogueOnEnable)
+        {
+            StartDialogue();
+        }
     }
     private void Awake()
     {
-        dialogueCore = FindObjectOfType<DialogueCore>();
         sfx = FindObjectOfType<SFXManager>();
+        if (FindObjectOfType<PlayerMovement>())
+        {
+            playerTransform = FindObjectOfType<PlayerMovement>().gameObject.transform;
+        }
     }
     // Update is called once per frame
     void Update()
@@ -37,7 +44,7 @@ public class DialogueTyper : MonoBehaviour
         {
             if (finishedDialogue == true && dialogueOptions == false)
             {
-                dialogueCore.NewDialoguePage(nextPageID);
+                OpenNextPage();
             }
             else if (canSkip == true)
             {
@@ -51,10 +58,10 @@ public class DialogueTyper : MonoBehaviour
         int index = 0;
         foreach(DialogueObject dialogueObject in dialogueObjects)
         {
-            dialogueObject.dGameObject.SetActive(true);
-            if (dialogueObject.dGameObject.GetComponent<TextMeshProUGUI>())
+            dialogueObject.objectInQuestion.SetActive(true);
+            if (dialogueObject.objectInQuestion.GetComponent<TextMeshProUGUI>())
             {
-                dialogueObject.dGameObject.GetComponent<TextMeshProUGUI>().text = dialogueObjects[index].text;
+                dialogueObject.objectInQuestion.GetComponent<TextMeshProUGUI>().text = dialogueObjects[index].text;
             }
             index++;
         }
@@ -78,13 +85,13 @@ public class DialogueTyper : MonoBehaviour
         currentIndex = 0;
         foreach(DialogueObject dialogueObject in dialogueObjects)
         {
-            if (dialogueObject.dGameObject.GetComponent<TextMeshProUGUI>())
+            if (dialogueObject.objectInQuestion.GetComponent<TextMeshProUGUI>())
             {
-                dialogueObject.dGameObject.GetComponent<TextMeshProUGUI>().text = string.Empty;
+                dialogueObject.objectInQuestion.GetComponent<TextMeshProUGUI>().text = string.Empty;
             }
             else
             {
-                dialogueObject.dGameObject.SetActive(false);
+                dialogueObject.objectInQuestion.SetActive(false);
             }
         }
         StartCoroutine(TypeLine());
@@ -94,24 +101,38 @@ public class DialogueTyper : MonoBehaviour
         DialogueObject currentDObject = dialogueObjects[currentIndex];
         yield return new WaitForSeconds(currentDObject.startDelay);
         currentDObject.startEvent.Invoke();
-        if (currentDObject.dGameObject.GetComponent<TextMeshProUGUI>())
+        if (currentDObject.objectInQuestion.GetComponent<TextMeshProUGUI>())
         {
             foreach (char c in currentDObject.text.ToCharArray())
             {
-                currentDObject.dGameObject.GetComponent<TextMeshProUGUI>().text += c;
+                currentDObject.objectInQuestion.GetComponent<TextMeshProUGUI>().text += c;
                 if(!char.IsWhiteSpace(c) && currentDObject.sound)
                 {
-                    sfx.PlayAudioClip(currentDObject.sound, soundLocation, currentDObject.soundVolume);
+                    if (soundTransform)
+                    {
+                        sfx.PlayAudioClip(currentDObject.sound, soundTransform, currentDObject.soundVolume);
+                    }
+                    else if (playerTransform)
+                    {
+                        sfx.PlayAudioClip(currentDObject.sound, playerTransform, currentDObject.soundVolume);
+                    }
                 }
                 yield return new WaitForSeconds(currentDObject.waitBetweenCharacters);
             }
         }
         else
         {
-            currentDObject.dGameObject.SetActive(true);
+            currentDObject.objectInQuestion.SetActive(true);
             if (currentDObject.sound)
             {
-                sfx.PlayAudioClip(currentDObject.sound, soundLocation, currentDObject.soundVolume);
+                if (soundTransform)
+                {
+                    sfx.PlayAudioClip(currentDObject.sound, soundTransform, currentDObject.soundVolume);
+                }
+                else if (playerTransform)
+                {
+                    sfx.PlayAudioClip(currentDObject.sound, playerTransform, currentDObject.soundVolume);
+                }
             }
             yield return new WaitForSeconds(currentDObject.waitBetweenCharacters);
         }
@@ -127,9 +148,18 @@ public class DialogueTyper : MonoBehaviour
             finishedDialogue = true;
             if (automaticallyFlipPage)
             {
-                dialogueCore.NewDialoguePage(nextPageID);
+                OpenNextPage();
             }
         }
+
+    }
+    public void OpenNextPage()
+    {
+        if (nextPage)
+        {
+            nextPage.SetActive(true);
+        }
+        gameObject.SetActive(false);
     }
     IEnumerator RemoveLineCoroutine(TextMeshProUGUI tmp, float timeBetweenRemoval)
     {
@@ -145,7 +175,7 @@ public class DialogueObject
 {
     public float startDelay;
     public UnityEvent startEvent;
-    public GameObject dGameObject;
+    public GameObject objectInQuestion;
     public float waitBetweenCharacters = 0.1f;
     public string text;
     public float endDelay;

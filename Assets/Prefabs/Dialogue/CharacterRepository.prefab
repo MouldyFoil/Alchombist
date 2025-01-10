@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2053294238513466855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2053294238513466853}
+  - component: {fileID: 2053294238513466852}
+  m_Layer: 0
+  m_Name: CharacterRepository
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2053294238513466853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053294238513466855}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.020779, y: -1.3035038, z: -130.9901}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2053294238513466852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053294238513466855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d8f9149ea9dacd439384aeaee21864c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characters:
+  - name: GameMaster
+    colors:
+    - {r: 0.49019608, g: 0.23529412, b: 0.23529412, a: 1}
+    portraits:
+    - {fileID: 0}
+    voice:
+    - tone: default
+      sound: {fileID: 8300000, guid: fb760a55fa3bd85468818d58dbfbe60d, type: 3}
+    - tone: low
+      sound: {fileID: 8300000, guid: e499c766dcbb0484da9d97d89a4b5010, type: 3}
+    - tone: question
+      sound: {fileID: 8300000, guid: ca9e9c9000ba13146944e5c3025482cb, type: 3}
+  - name: You
+    colors:
+    - {r: 0.5764706, g: 0.5764706, b: 0.5764706, a: 1}
+    portraits: []
+    voice:
+    - tone: default
+      sound: {fileID: 8300000, guid: da74a10c124863b4f9d8ffa61b6afa2c, type: 3}
+    - tone: low
+      sound: {fileID: 8300000, guid: 1b87c0d61834d5445943ea297e70c0a8, type: 3}
+    - tone: question
+      sound: {fileID: 8300000, guid: 3ce45b41ceb93b24685fc290cdc289da, type: 3}
+  - name: Alchombist
+    colors:
+    - {r: 0.5372549, g: 0.29803923, b: 0.94509804, a: 1}
+    - {r: 0.8509804, g: 0.29803923, b: 0.94509804, a: 1}
+    - {r: 0.67058825, g: 0.29803923, b: 0.94509804, a: 1}
+    - {r: 0.43529412, g: 0.34901962, b: 0.58431375, a: 1}
+    portraits: []
+    voice:
+    - tone: default
+      sound: {fileID: 8300000, guid: 6e8537a5f22309e46904cd8a1f130f72, type: 3}
+    - tone: high
+      sound: {fileID: 8300000, guid: d03a822b8df8bec48818baea0f1ba718, type: 3}
+    - tone: question
+      sound: {fileID: 8300000, guid: 93f1a98bc907c7142ac11b1ab729500e, type: 3}
+    - tone: deep
+      sound: {fileID: 8300000, guid: 95fe409d6ed57904bb21fe5e032bd0fb, type: 3}
