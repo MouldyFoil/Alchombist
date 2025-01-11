@@ -59,9 +59,29 @@ public class DialogueTyper : MonoBehaviour
         foreach(DialogueObject dialogueObject in dialogueObjects)
         {
             dialogueObject.objectInQuestion.SetActive(true);
+            dialogueObject.startEvent.Invoke();
+            dialogueObject.endEvent.Invoke();
             if (dialogueObject.objectInQuestion.GetComponent<TextMeshProUGUI>())
             {
-                dialogueObject.objectInQuestion.GetComponent<TextMeshProUGUI>().text = dialogueObjects[index].text;
+                if(index - 1 >= 0 && dialogueObject.objectInQuestion == dialogueObjects[index - 1].objectInQuestion)
+                {
+                    dialogueObject.objectInQuestion.GetComponent<TextMeshProUGUI>().text += dialogueObject.text;
+                }
+                else
+                {
+                    dialogueObject.objectInQuestion.GetComponent<TextMeshProUGUI>().text = dialogueObject.text;
+                }
+            }
+            else if (dialogueObject.objectInQuestion.GetComponent<TextMeshPro>())
+            {
+                if (index - 1 >= 0 && dialogueObject.objectInQuestion == dialogueObjects[index - 1].objectInQuestion)
+                {
+                    dialogueObject.objectInQuestion.GetComponent<TextMeshPro>().text += dialogueObject.text;
+                }
+                else
+                {
+                    dialogueObject.objectInQuestion.GetComponent<TextMeshPro>().text = dialogueObject.text;
+                }
             }
             index++;
         }
@@ -89,6 +109,10 @@ public class DialogueTyper : MonoBehaviour
             {
                 dialogueObject.objectInQuestion.GetComponent<TextMeshProUGUI>().text = string.Empty;
             }
+            else if (dialogueObject.objectInQuestion.GetComponent<TextMeshPro>())
+            {
+                dialogueObject.objectInQuestion.GetComponent<TextMeshPro>().text = string.Empty;
+            }
             else
             {
                 dialogueObject.objectInQuestion.SetActive(false);
@@ -107,6 +131,25 @@ public class DialogueTyper : MonoBehaviour
             {
                 currentDObject.objectInQuestion.GetComponent<TextMeshProUGUI>().text += c;
                 if(!char.IsWhiteSpace(c) && currentDObject.sound)
+                {
+                    if (soundTransform)
+                    {
+                        sfx.PlayAudioClip(currentDObject.sound, soundTransform, currentDObject.soundVolume);
+                    }
+                    else if (playerTransform)
+                    {
+                        sfx.PlayAudioClip(currentDObject.sound, playerTransform, currentDObject.soundVolume);
+                    }
+                }
+                yield return new WaitForSeconds(currentDObject.waitBetweenCharacters);
+            }
+        }
+        else if (currentDObject.objectInQuestion.GetComponent<TextMeshPro>())
+        {
+            foreach (char c in currentDObject.text.ToCharArray())
+            {
+                currentDObject.objectInQuestion.GetComponent<TextMeshPro>().text += c;
+                if (!char.IsWhiteSpace(c) && currentDObject.sound)
                 {
                     if (soundTransform)
                     {
@@ -151,7 +194,6 @@ public class DialogueTyper : MonoBehaviour
                 OpenNextPage();
             }
         }
-
     }
     public void OpenNextPage()
     {
