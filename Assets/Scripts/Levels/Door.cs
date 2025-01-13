@@ -12,7 +12,7 @@ public class Door : MonoBehaviour
     [SerializeField] float boundingBoxExtention = 2;
     SpriteRenderer spriteRenderer;
     Sprite closedSprite;
-    List<PressurePlate> buttons = new List<PressurePlate>();
+    [SerializeField] List<PressurePlate> buttons = new List<PressurePlate>();
     Collider2D collider;
     private void Start()
     {
@@ -51,6 +51,7 @@ public class Door : MonoBehaviour
                 }
             }
         }
+        Debug.Log(buttonsPressed);
         if(buttonsPressed < buttonsRequired && GetComponent<Collider2D>().enabled == false)
         {
             CloseDoor();
