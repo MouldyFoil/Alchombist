@@ -5036,7 +5036,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12
+  orthographic size: 10.344271
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -19866,9 +19866,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientParticlesParent: {fileID: 1961450974}
-  clearInput: left ctrl
-  enterInput: left shift
-  throwSpawn: {fileID: 105128094}
   ingredientSFX:
   - {fileID: 8300000, guid: 2e963fc6bc571834e82f16309f1c07d2, type: 3}
   - {fileID: 8300000, guid: 11c9d8a035435b644ad00c6661021ec0, type: 3}
@@ -19877,6 +19874,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 933a6b70c38fb8744a368164cbc0da4f, type: 3}
   - {fileID: 8300000, guid: e14923fa2046996479454dfcf8ae7127, type: 3}
   volume: 0.1
+  clearInput: left ctrl
+  enterInput: left shift
+  throwSpawn: {fileID: 105128094}
 --- !u!114 &1211771687
 MonoBehaviour:
   m_ObjectHideFlags: 0

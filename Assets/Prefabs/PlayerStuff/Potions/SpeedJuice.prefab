@@ -64,7 +64,7 @@ MonoBehaviour:
   restrictionsOnStart: 0
   noDuration: 0
   durationOrCooldown: 2
-  potionName: unnamed
+  potionName: Speed Potion
   conflictingPotionNames: []
   maxAmount: 0
   timerText: {fileID: 0}

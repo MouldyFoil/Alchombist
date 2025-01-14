@@ -10,6 +10,7 @@ public class DialogueTyper : MonoBehaviour
 {
     [SerializeField] bool startDialogueOnEnable = true;
     [SerializeField] GameObject nextPage;
+    [SerializeField] UnityEvent flipPageEvent;
     [SerializeField] DialogueObject[] dialogueObjects;
     [SerializeField] bool canSkip;
     [SerializeField] bool dialogueOptions;
@@ -59,8 +60,8 @@ public class DialogueTyper : MonoBehaviour
         foreach(DialogueObject dialogueObject in dialogueObjects)
         {
             dialogueObject.objectInQuestion.SetActive(true);
-            dialogueObject.startEvent.Invoke();
-            dialogueObject.endEvent.Invoke();
+            if (!dialogueObject.startEventOccured) { dialogueObject.startEvent.Invoke(); }
+            if (!dialogueObject.endEventOccured) { dialogueObject.endEvent.Invoke(); }
             if (dialogueObject.objectInQuestion.GetComponent<TextMeshProUGUI>())
             {
                 if(index - 1 >= 0 && dialogueObject.objectInQuestion == dialogueObjects[index - 1].objectInQuestion)
@@ -105,17 +106,20 @@ public class DialogueTyper : MonoBehaviour
         currentIndex = 0;
         foreach(DialogueObject dialogueObject in dialogueObjects)
         {
-            if (dialogueObject.objectInQuestion.GetComponent<TextMeshProUGUI>())
+            if (dialogueObject.objectInQuestion)
             {
-                dialogueObject.objectInQuestion.GetComponent<TextMeshProUGUI>().text = string.Empty;
-            }
-            else if (dialogueObject.objectInQuestion.GetComponent<TextMeshPro>())
-            {
-                dialogueObject.objectInQuestion.GetComponent<TextMeshPro>().text = string.Empty;
-            }
-            else
-            {
-                dialogueObject.objectInQuestion.SetActive(false);
+                if (dialogueObject.objectInQuestion.GetComponent<TextMeshProUGUI>())
+                {
+                    dialogueObject.objectInQuestion.GetComponent<TextMeshProUGUI>().text = string.Empty;
+                }
+                else if (dialogueObject.objectInQuestion.GetComponent<TextMeshPro>())
+                {
+                    dialogueObject.objectInQuestion.GetComponent<TextMeshPro>().text = string.Empty;
+                }
+                else
+                {
+                    dialogueObject.objectInQuestion.SetActive(false);
+                }
             }
         }
         StartCoroutine(TypeLine());
@@ -125,6 +129,7 @@ public class DialogueTyper : MonoBehaviour
         DialogueObject currentDObject = dialogueObjects[currentIndex];
         yield return new WaitForSeconds(currentDObject.startDelay);
         currentDObject.startEvent.Invoke();
+        currentDObject.startEventOccured = true;
         if (currentDObject.objectInQuestion.GetComponent<TextMeshProUGUI>())
         {
             foreach (char c in currentDObject.text.ToCharArray())
@@ -181,6 +186,7 @@ public class DialogueTyper : MonoBehaviour
         }
         yield return new WaitForSeconds(currentDObject.endDelay);
         currentDObject.endEvent.Invoke();
+        currentDObject.endEventOccured = true;
         currentIndex++;
         if(currentIndex < dialogueObjects.Length)
         {
@@ -197,6 +203,7 @@ public class DialogueTyper : MonoBehaviour
     }
     public void OpenNextPage()
     {
+        flipPageEvent.Invoke();
         if (nextPage)
         {
             nextPage.SetActive(true);
@@ -224,4 +231,8 @@ public class DialogueObject
     public UnityEvent endEvent;
     public AudioClip sound;
     public float soundVolume = 0.15f;
+    [HideInInspector]
+    public bool startEventOccured = false;
+    [HideInInspector]
+    public bool endEventOccured = false;
 }

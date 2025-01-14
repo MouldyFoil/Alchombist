@@ -51,7 +51,6 @@ public class Door : MonoBehaviour
                 }
             }
         }
-        Debug.Log(buttonsPressed);
         if(buttonsPressed < buttonsRequired && GetComponent<Collider2D>().enabled == false)
         {
             CloseDoor();

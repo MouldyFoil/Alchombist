@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class IngredientBag : MonoBehaviour
 {
     [SerializeField] int ingredientIndex = 0;
+    [SerializeField] UnityEvent pickupEvent;
     IngredientRepository ingredientRepository;
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,7 @@ public class IngredientBag : MonoBehaviour
         if (collision.GetComponent<PlayerMovement>())
         {
             ingredientRepository.UnlockIngredient(ingredientIndex);
+            pickupEvent.Invoke();
             Destroy(gameObject);
         }
     }

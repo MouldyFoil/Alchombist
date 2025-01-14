@@ -18,7 +18,6 @@ public class Health : MonoBehaviour
     {
         player = GetComponent<PlayerMovement>() != null;
         health = maxHealth;
-        damageParticles = GetComponentInChildren<ParticleSystem>();
         if (player == true)
         {
             playerHealthDisplay = FindObjectOfType<DisplayHealth>();
@@ -67,6 +66,7 @@ public class Health : MonoBehaviour
         {
             playerHealthDisplay.UpdateHearts();
         }
+        Debug.Log("AAA");
     }
     public void AddOrRemoveTempMaxHealth(int interger)
     {
