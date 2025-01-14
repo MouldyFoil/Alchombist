@@ -66,7 +66,6 @@ public class Health : MonoBehaviour
         {
             playerHealthDisplay.UpdateHearts();
         }
-        Debug.Log("AAA");
     }
     public void AddOrRemoveTempMaxHealth(int interger)
     {

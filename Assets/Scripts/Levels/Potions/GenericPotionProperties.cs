@@ -19,6 +19,7 @@ public class GenericPotionProperties : MonoBehaviour
     [SerializeField] TextMeshPro timerText;
     [SerializeField] AudioClip[] possibleStartSounds;
     [SerializeField] float startSoundVolume = 1;
+    bool hasBeenCheckedByPotionChecker;
     SFXManager soundManager;
     int potionNumber = 0;
     // Start is called before the first frame update
@@ -144,6 +145,8 @@ public class GenericPotionProperties : MonoBehaviour
         timerText.text = displayTime.ToString();
     }
 
+    public void GetChecked() { hasBeenCheckedByPotionChecker = true; }
+    public bool CheckChecked() { return hasBeenCheckedByPotionChecker; }
     public string ReturnPotionName() { return potionName; }
     public void IncreasePotionNum()
     {
