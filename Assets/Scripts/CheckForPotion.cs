@@ -12,7 +12,7 @@ public class CheckForPotion : MonoBehaviour
     [SerializeField] UnityEvent eventOnRequirementsMet;
     [SerializeField] UnityEvent lateEvent;
     bool startedRequirement = false;
-    int currentAmount;
+    [SerializeField] int currentAmount;
     bool completed;
     // Start is called before the first frame update
     void Start()
@@ -32,21 +32,23 @@ public class CheckForPotion : MonoBehaviour
         }
         if (FindObjectOfType<GenericPotionProperties>())
         {
-            GenericPotionProperties currentPotion = FindObjectOfType<GenericPotionProperties>();
-            if (currentPotion.ReturnPotionName() == potionName && currentPotion.CheckChecked())
+            foreach(GenericPotionProperties potion in FindObjectsOfType<GenericPotionProperties>())
             {
-                currentPotion.GetChecked();
-                currentAmount++;
+                if (potion.ReturnPotionName() == potionName && !potion.CheckChecked())
+                {
+                    potion.GetChecked();
+                    currentAmount++;
+                }
             }
+            
         }
         if(currentAmount >= amountRequired && completed == false)
         {
-            completed = true;
             if (timeBound && timer > 0)
             {
                 eventOnRequirementsMet.Invoke();
             }
-            else if(timeBound && timer < 0)
+            else if(timeBound && timer <= 0)
             {
                 lateEvent.Invoke();
             }
@@ -54,6 +56,7 @@ public class CheckForPotion : MonoBehaviour
             {
                 eventOnRequirementsMet.Invoke();
             }
+            completed = true;
             gameObject.SetActive(false);
         }
     }

@@ -31,7 +31,7 @@ public class InputEvents : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
-        if (Input.GetKeyDown(inputString))
+        if (Input.GetKeyDown(inputString) && startedRequirement)
         {
             currentAmount++;
         }

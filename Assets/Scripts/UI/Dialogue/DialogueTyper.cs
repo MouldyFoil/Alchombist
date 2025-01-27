@@ -13,7 +13,7 @@ public class DialogueTyper : MonoBehaviour
     [SerializeField] UnityEvent flipPageEvent;
     [SerializeField] DialogueObject[] dialogueObjects;
     [SerializeField] bool canSkip;
-    [SerializeField] bool dialogueOptions;
+    [SerializeField] bool externalNextPageActivation;
     [SerializeField] bool automaticallyFlipPage = false;
     [SerializeField] float removeLineSpeed = 0.1f;
     [Header("Leave sound transform empty if player exists.")]
@@ -43,7 +43,7 @@ public class DialogueTyper : MonoBehaviour
     {
         if (Input.GetKeyDown(nextInput))
         {
-            if (finishedDialogue == true && dialogueOptions == false)
+            if (finishedDialogue == true && externalNextPageActivation == false)
             {
                 OpenNextPage();
             }

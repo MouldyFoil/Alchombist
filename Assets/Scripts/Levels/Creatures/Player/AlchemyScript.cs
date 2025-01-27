@@ -112,10 +112,18 @@ public class AlchemyScript : MonoBehaviour
     private void MakePotion()
     {
         int potionIndex = 0;
-        foreach (Potion potionCode in potionRepository.ReturnPotions())
+        foreach (Potion potion in potionRepository.ReturnPotions())
         {
-            if(potionCode.ingredientCombo == intVersionOfIngredients)
+            if(potion.ingredientCombo == intVersionOfIngredients)
             {
+                if (potion.discoverOnCreate)
+                {
+                    potion.discovered = true;
+                }
+                else if(!potion.discovered)
+                {
+                    break;
+                }
                 PotionTypeHandler(potionIndex);
                 break;
             }

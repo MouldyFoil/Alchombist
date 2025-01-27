@@ -94,4 +94,6 @@ public enum potionTypeEnum { spawn_on_player = 0, spawn_on_aim = 1, spawn_as_chi
     public potionTypeEnum spawnType;
     //Determines if potion appears in book
     public bool discovered;
+    //only set true for potions hidden in puzzles (like a potion code hidden in the OST or something)
+    public bool discoverOnCreate;
 }

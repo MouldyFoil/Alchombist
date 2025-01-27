@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PotionScroll : MonoBehaviour
 {
     [SerializeField] string potionName;
+    [SerializeField] UnityEvent pickupEvent;
     PotionRepository potionRepository;
     // Start is called before the first frame update
     void Start()
@@ -28,6 +30,7 @@ public class PotionScroll : MonoBehaviour
         if (collision.GetComponent<PlayerMovement>())
         {
             potionRepository.DiscoverPotionByName(potionName);
+            pickupEvent.Invoke();
             Destroy(gameObject);
         }
     }
