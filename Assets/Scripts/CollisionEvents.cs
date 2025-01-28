@@ -6,17 +6,9 @@ using UnityEngine.Events;
 
 public class CollisionEvents : MonoBehaviour
 {
-    [SerializeField] int collideRequirement;
     [SerializeField] UnityEvent collisionEvent;
-    [SerializeField] string[] tagsForCollision;
-    [SerializeField] string[] layersForCollision;
-    int collisions;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
+    [SerializeField] string[] tags;
+    [SerializeField] int[] layers;
     // Update is called once per frame
     void Update()
     {
@@ -24,31 +16,24 @@ public class CollisionEvents : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        bool collidedWithProperThing = false;
-        foreach(string tag in tagsForCollision)
+        bool theThing = false;
+        foreach (string tag in tags)
         {
-            if(tag == other.tag)
+            if(other.tag == tag)
             {
-                collidedWithProperThing = true;
-                break;
+                theThing = true;
             }
         }
-        foreach (string layer in layersForCollision)
+        foreach (int layer in layers)
         {
-            if (layer == other.tag)
+            if (other.gameObject.layer == layer)
             {
-                collidedWithProperThing = true;
-                break;
+                theThing = true;
             }
         }
-        if (collidedWithProperThing)
-        {
-            collisions++;
-        }
-        if(collisions >= collideRequirement)
+        if (theThing)
         {
             collisionEvent.Invoke();
-            this.enabled = false;
         }
     }
 }
