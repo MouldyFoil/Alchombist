@@ -8,6 +8,7 @@ TagManager:
   - TargetableByPlayer
   - DepletedHealthPot
   - Pickup
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX

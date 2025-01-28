@@ -4967,7 +4967,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: dc36556278dd3bb488fe2605caf9c1ff, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.48235294}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.3764706}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -19732,9 +19732,11 @@ GameObject:
   - component: {fileID: 1364846491788290613}
   - component: {fileID: 1364846491788290618}
   - component: {fileID: 1364846491788290614}
-  - component: {fileID: 1211771687}
   - component: {fileID: 2286084510725180714}
   - component: {fileID: 2062490153045063650}
+  - component: {fileID: 3353473673975107387}
+  - component: {fileID: 1211771687}
+  - component: {fileID: 6218809800617368574}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -19877,25 +19879,6 @@ MonoBehaviour:
   clearInput: left ctrl
   enterInput: left shift
   throwSpawn: {fileID: 105128094}
---- !u!114 &1211771687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1364846491788290619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79b3bf8132c1460409264502f0cd0f33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aimTransform: {fileID: 1556429032}
-  marker: {fileID: 381525089}
-  enemyDetectRadius: 20
-  ignoreTags:
-  - Player
-  - Enemy
-  - Pickup
 --- !u!114 &2286084510725180714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19923,7 +19906,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0030065775, y: -0.09921971}
+  m_Offset: {x: -0.0030065775, y: -0.025092125}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -19934,8 +19917,57 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0569508, y: 1.9348943}
+  m_Size: {x: 1.0569508, y: 1.9297822}
   m_EdgeRadius: 0
+--- !u!114 &3353473673975107387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364846491788290619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 160f666fa77f2dd4cb170decd55caf29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: g
+  autoAimScript: {fileID: 1211771687}
+  manualAimScript: {fileID: 6218809800617368574}
+--- !u!114 &1211771687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364846491788290619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79b3bf8132c1460409264502f0cd0f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimTransform: {fileID: 1556429032}
+  marker: {fileID: 381525089}
+  enemyDetectRadius: 20
+  ignoreTags:
+  - Player
+  - Enemy
+  - Pickup
+  - PlayerAttack
+--- !u!114 &6218809800617368574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364846491788290619}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7ebc65551e1334d9a8694377a115f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimTransform: {fileID: 1556429032}
+  marker: {fileID: 381525089}
 --- !u!1 &1511902316142510537
 GameObject:
   m_ObjectHideFlags: 0

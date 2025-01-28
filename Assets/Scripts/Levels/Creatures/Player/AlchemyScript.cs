@@ -139,7 +139,7 @@ public class AlchemyScript : MonoBehaviour
         }
         if(potionRepository.ReturnPotion(potionIndex).spawnType == Potion.potionTypeEnum.spawn_on_aim)
         {
-            if(FindObjectOfType<PlayerAutoAim>().ReturnCanTarget() == true)
+            if(FindObjectOfType<PlayerAutoAim>().ReturnCanTarget() == true || FindObjectOfType<PlayerManualAim>().enabled)
             {
                 SpawnAttackPotion(potionIndex);
             }
