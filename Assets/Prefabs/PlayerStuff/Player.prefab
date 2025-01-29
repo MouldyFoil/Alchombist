@@ -19738,6 +19738,7 @@ GameObject:
   - component: {fileID: 1211771687}
   - component: {fileID: 2307174146046822740}
   - component: {fileID: 6218809800617368574}
+  - component: {fileID: 25242332518832882}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -19939,7 +19940,7 @@ MonoBehaviour:
   - {fileID: 1211771687}
   - {fileID: 2307174146046822740}
   - {fileID: 6218809800617368574}
-  allowSwitching: 1
+  aimText: {fileID: 0}
 --- !u!114 &1211771687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19965,7 +19966,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364846491788290619}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78c7c4987d51448408f3c0cc14e12cc0, type: 3}
   m_Name: 
@@ -19980,11 +19981,50 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364846491788290619}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a7ebc65551e1334d9a8694377a115f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &25242332518832882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364846491788290619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ce6647fc223264b81243d5c47e6bfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aim: {fileID: 1556429032}
+  facingStates:
+  - name: North
+    sprite: {fileID: -4255015227825082319, guid: 544b2d23298313044b977359b6f9cf08, type: 3}
+    minRange: 40
+    maxRange: 140
+    inclusive: 1
+  - name: East
+    sprite: {fileID: 8018685769079363936, guid: 544b2d23298313044b977359b6f9cf08, type: 3}
+    minRange: -40
+    maxRange: 40
+    inclusive: 0
+  - name: South
+    sprite: {fileID: 2710633680975690648, guid: 544b2d23298313044b977359b6f9cf08, type: 3}
+    minRange: -140
+    maxRange: -40
+    inclusive: 1
+  - name: West1
+    sprite: {fileID: 8792270646085650844, guid: 544b2d23298313044b977359b6f9cf08, type: 3}
+    minRange: -181
+    maxRange: -140
+    inclusive: 0
+  - name: West2
+    sprite: {fileID: 8792270646085650844, guid: 544b2d23298313044b977359b6f9cf08, type: 3}
+    minRange: 140
+    maxRange: 181
+    inclusive: 0
 --- !u!1 &1511902316142510537
 GameObject:
   m_ObjectHideFlags: 0

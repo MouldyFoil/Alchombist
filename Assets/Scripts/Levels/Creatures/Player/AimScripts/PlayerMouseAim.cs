@@ -9,10 +9,11 @@ public class PlayerMouseAim : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mainScript = GetComponent<PlayerAimMain>();
+        
     }
-    private void Awake()
+    private void OnEnable()
     {
+        mainScript = GetComponent<PlayerAimMain>();
         mainScript.SetMarkerVisibility(true);
     }
     void Update()

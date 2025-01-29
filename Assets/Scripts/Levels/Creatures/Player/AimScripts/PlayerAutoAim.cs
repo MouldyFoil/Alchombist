@@ -13,6 +13,13 @@ public class PlayerAutoAim : MonoBehaviour
     bool canTarget;
     Vector3 target;
     Vector3 aimDirection;
+    List<string> movementInputs;
+
+    float offsetOnMove;
+    float cornerGraceTime;
+    float xGraceTimer = 0;
+    float yGraceTimer = 0;
+    Vector2 markerPosOffset;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +27,13 @@ public class PlayerAutoAim : MonoBehaviour
         if (FindObjectOfType<SavePrepBuffs>())
         {
             FindObjectOfType<SavePrepBuffs>().buffPlayer = true;
+        }
+        if (FindObjectOfType<PlayerMoveAim>())
+        {
+            PlayerMoveAim moveAim = FindObjectOfType<PlayerMoveAim>();
+            movementInputs = moveAim.movementInputs;
+            offsetOnMove = moveAim.offsetOnMove;
+            cornerGraceTime = moveAim.cornerGraceTime;
         }
     }
 
@@ -112,7 +126,75 @@ public class PlayerAutoAim : MonoBehaviour
         else
         {
             mainScript.marker.GetComponent<SpriteRenderer>().enabled = false;
+            HandleNoTargetMarker();
         }
+        if (xGraceTimer > 0)
+        {
+            xGraceTimer -= Time.deltaTime;
+        }
+        if (yGraceTimer > 0)
+        {
+            yGraceTimer -= Time.deltaTime;
+        }
+    }
+    //I dont know why I didnt just export the movement aim capabilities to a new script with public funtions but I did this and it works I guess
+    private void HandleNoTargetMarker()
+    {
+        if (movementInputs.Count == 0)
+        {
+            movementInputs = FindObjectOfType<PlayerMoveAim>().movementInputs;
+            if(movementInputs.Count == 0)
+            {
+                return;
+            }
+        }
+        if (Input.GetKey(movementInputs[0]))
+        {
+            VerticalInput(true);
+        }
+        if (Input.GetKey(movementInputs[1]))
+        {
+            VerticalInput(false);
+        }
+        if (Input.GetKey(movementInputs[2]))
+        {
+            HorizontalInput(false);
+        }
+        if (Input.GetKey(movementInputs[3]))
+        {
+            HorizontalInput(true);
+        }
+    }
+    private void HorizontalInput(bool right)
+    {
+        float modifiedOffset = offsetOnMove;
+        if (right == false)
+        {
+            modifiedOffset = -offsetOnMove;
+        }
+        if (yGraceTimer <= 0)
+        {
+            markerPosOffset.y = 0;
+        }
+        xGraceTimer = cornerGraceTime;
+        markerPosOffset.x = modifiedOffset;
+        mainScript.marker.localPosition = new Vector3(markerPosOffset.x, markerPosOffset.y, transform.position.z);
+    }
+
+    private void VerticalInput(bool up)
+    {
+        float modifiedOffset = offsetOnMove;
+        if (up == false)
+        {
+            modifiedOffset = -offsetOnMove;
+        }
+        if (xGraceTimer <= 0)
+        {
+            markerPosOffset.x = 0;
+        }
+        yGraceTimer = cornerGraceTime;
+        markerPosOffset.y = modifiedOffset;
+        mainScript.marker.localPosition = new Vector3(markerPosOffset.x, markerPosOffset.y, transform.position.z);
     }
     public bool ReturnCanTarget() { return canTarget; }
     public Vector3 ReturnTargetLocation() { return target; }

@@ -11,7 +11,7 @@ public class PlayerAimMain : MonoBehaviour
     [SerializeField] string input = "g";
     [SerializeField] MonoBehaviour[] aimScripts;
     [SerializeField] TextMeshProUGUI aimText;
-    public bool allowSwitching = true;
+    bool allowSwitching = true;
     int currentAimMode = 0;
     Vector3 aimDirection;
 
@@ -80,4 +80,5 @@ public class PlayerAimMain : MonoBehaviour
         marker.GetComponent<SpriteRenderer>().enabled = status;
     }
     public int ReturnCurrentModeInt() { return currentAimMode; }
+    public void SetCanSwitchAimModes(bool can) { allowSwitching = can; }
 }
