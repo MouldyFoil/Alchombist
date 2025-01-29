@@ -6,10 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float baseSpeed;
     [SerializeField] float angularSpeedMultiplier;
-    [SerializeField] string upInput;
-    [SerializeField] string downInput;
-    [SerializeField] string rightInput;
-    [SerializeField] string leftInput;
+    public string upInput;
+    public string downInput;
+    public string rightInput;
+    public string leftInput;
     BuffDisplay buffDisplay;
     float speed;
     Rigidbody2D rb;
