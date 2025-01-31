@@ -16,6 +16,7 @@ public class ProjectileBehavior : MonoBehaviour
     [SerializeField] bool hasAcceleration = false;
     [SerializeField] float acceleration;
     [SerializeField] float maxSidewaysSpeed = 2;
+    [SerializeField] float sideSpeedCorrectionAcceleration = 50f;
     [Header("Piercing projectiles")]
     [SerializeField] bool persistThroughBeings = false;
     [SerializeField] float hitCooldown = 0.5f;
@@ -86,11 +87,11 @@ public class ProjectileBehavior : MonoBehaviour
             rb.velocity += new Vector2(objectHomingOverride.transform.up.x, objectHomingOverride.transform.up.y) * acceleration * Time.deltaTime;
             if (Vector2.Dot(rb.velocity, objectHomingOverride.transform.right) > maxSidewaysSpeed)
             {
-                rb.velocity -= new Vector2(objectHomingOverride.transform.right.x, objectHomingOverride.transform.right.y) * acceleration * Time.deltaTime;
+                rb.velocity -= new Vector2(objectHomingOverride.transform.right.x, objectHomingOverride.transform.right.y) * sideSpeedCorrectionAcceleration * Time.deltaTime;
             }
             if (Vector2.Dot(rb.velocity, -objectHomingOverride.transform.right) > maxSidewaysSpeed)
             {
-                rb.velocity += new Vector2(objectHomingOverride.transform.right.x, objectHomingOverride.transform.right.y) * acceleration * Time.deltaTime;
+                rb.velocity += new Vector2(objectHomingOverride.transform.right.x, objectHomingOverride.transform.right.y) * sideSpeedCorrectionAcceleration * Time.deltaTime;
             }
         }
     }

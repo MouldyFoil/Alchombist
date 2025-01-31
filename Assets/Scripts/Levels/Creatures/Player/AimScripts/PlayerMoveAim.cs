@@ -16,7 +16,6 @@ public class PlayerMoveAim : MonoBehaviour
     void Start()
     {
         PlayerMovement movementScript = GetComponent<PlayerMovement>();
-        markerPosOffset.x = offsetOnMove;
         movementInputs.Add(movementScript.upInput);
         movementInputs.Add(movementScript.downInput);
         movementInputs.Add(movementScript.leftInput);

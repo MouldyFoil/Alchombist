@@ -150,8 +150,9 @@ MonoBehaviour:
   infiniteDuration: 0
   duration: 5
   hasAcceleration: 1
-  acceleration: 7
-  maxSidewaysSpeed: 1
+  acceleration: 4
+  maxSidewaysSpeed: 3
+  sideSpeedCorrectionAcceleration: 20
   persistThroughBeings: 0
   hitCooldown: 0.5
   volume: 1
@@ -160,3 +161,4 @@ MonoBehaviour:
   hitSounds: []
   isPlayerProjectile: 1
   isHoming: 1
+  objectHomingOverride: {fileID: 0}

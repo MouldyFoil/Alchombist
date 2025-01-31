@@ -93,7 +93,7 @@ MonoBehaviour:
     discovered: 0
     discoverOnCreate: 0
   - name: Potion Of Homing
-    description: Deals 1 damage on impact. Homes in on enemies.
+    description: Deals 1 damage on impact. Homes in on marker.
     prefab: {fileID: 8159140217954514304, guid: 562d1e9e629a71f468dc86bd18618059, type: 3}
     spriteInBook: {fileID: 5081175238802344075, guid: 11bf883dbbc542d4991f49a0b9004832, type: 3}
     ingredientCombo: 122
