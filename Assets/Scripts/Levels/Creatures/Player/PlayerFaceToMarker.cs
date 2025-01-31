@@ -17,10 +17,18 @@ public class PlayerFaceToMarker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach(FacingState state in facingStates)
+        if(Time.deltaTime > 0)
+        {
+            HandleFacing();
+        }
+    }
+
+    private void HandleFacing()
+    {
+        foreach (FacingState state in facingStates)
         {
             float inspectorZAngle = aim.eulerAngles.z;
-            if(inspectorZAngle > 180)
+            if (inspectorZAngle > 180)
             {
                 inspectorZAngle -= 180;
                 inspectorZAngle = 180 - inspectorZAngle;

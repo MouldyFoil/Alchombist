@@ -12,7 +12,6 @@ public class PlayerAutoAim : MonoBehaviour
     PlayerAimMain mainScript;
     bool canTarget;
     Vector3 target;
-    Vector3 aimDirection;
     List<string> movementInputs;
 
     float offsetOnMove;

@@ -146,13 +146,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  duration: 5
-  speed: 5
+  speed: 10
   infiniteDuration: 0
-  isHoming: 1
+  duration: 5
+  hasAcceleration: 1
+  acceleration: 7
+  maxSidewaysSpeed: 1
   persistThroughBeings: 0
-  isPlayerProjectile: 0
+  hitCooldown: 0.5
   volume: 1
   spawnSounds:
   - {fileID: 8300000, guid: aea70eddaee96cb43bee6f7712b2bba4, type: 3}
   hitSounds: []
+  isPlayerProjectile: 1
+  isHoming: 1

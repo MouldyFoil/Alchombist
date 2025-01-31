@@ -6,16 +6,18 @@ using UnityEngine.Events;
 
 public class GeneralRequirementScript : MonoBehaviour
 {
-    [SerializeField] bool requireOnStart;
+    [SerializeField] bool oneTimeCheck = true;
+    [SerializeField] bool requireOnStart = false;
     [SerializeField] int amountRequired = 1;
     [SerializeField] bool timeBound;
     [Header("UniversalEvent occurs when timebound is off")]
     [Header("and occurs every timed event")]
     [SerializeField] UnityEvent universalEvent;
     [SerializeField] TimeBoundEvent[] timedEvents;
-    float timer;
+    [SerializeField] UnityEvent undoEvent;
+    float timer = 0;
     bool startedRequirement = false;
-    int currentAmount;
+    [SerializeField] int currentAmount;
     bool completed;
 
     private void Start()
@@ -38,7 +40,7 @@ public class GeneralRequirementScript : MonoBehaviour
     }
     public void TickUpRequirement()
     {
-        if (startedRequirement && !completed)
+        if (startedRequirement && !completed || !oneTimeCheck)
         {
             currentAmount++;
             if (currentAmount >= amountRequired)
@@ -55,7 +57,17 @@ public class GeneralRequirementScript : MonoBehaviour
             }
         }
     }
-
+    public void TickDownRequirement()
+    {
+        if (!oneTimeCheck)
+        {
+            if (currentAmount == amountRequired)
+            {
+                undoEvent.Invoke();
+            }
+            currentAmount--;
+        }
+    }
     private void HandleTimeBoundEvents()
     {
         UnityEvent lastEvent = null;

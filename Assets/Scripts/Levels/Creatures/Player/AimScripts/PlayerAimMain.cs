@@ -22,13 +22,13 @@ public class PlayerAimMain : MonoBehaviour
         {
             NextAimMode();
         }
-        if (MultipleScriptsEnabledQuery())
+        if (ScriptsEnabledQuery())
         {
-            SwitchAimMode();
+            UpdateAimMode();
         }
         AimAtMarker();
     }
-    private bool MultipleScriptsEnabledQuery()
+    private bool ScriptsEnabledQuery()
     {
         bool oneEnabled = false;
         foreach(MonoBehaviour script in aimScripts)
@@ -39,10 +39,16 @@ public class PlayerAimMain : MonoBehaviour
             }
             else if(oneEnabled)
             {
+                //if two are enabled update aim mode
                 return true;
             }
         }
-        return false;
+        if (oneEnabled)
+        {
+            return false;
+        }
+        //If none enabled then update aim mode
+        return true;
     }
     private void NextAimMode()
     {
@@ -51,9 +57,9 @@ public class PlayerAimMain : MonoBehaviour
         {
             currentAimMode = 0;
         }
-        SwitchAimMode();
+        UpdateAimMode();
     }
-    private void SwitchAimMode()
+    private void UpdateAimMode()
     {
         int index = 0;
         foreach(MonoBehaviour script in aimScripts)

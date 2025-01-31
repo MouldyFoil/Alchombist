@@ -6,13 +6,11 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] int buttonsRequired = 1;
     [SerializeField] bool exactChange;
     [SerializeField] Sprite openedSprite;
     [SerializeField] float boundingBoxExtention = 2;
     SpriteRenderer spriteRenderer;
     Sprite closedSprite;
-    [SerializeField] List<PressurePlate> buttons = new List<PressurePlate>();
     Collider2D collider;
     private void Start()
     {
@@ -22,39 +20,7 @@ public class Door : MonoBehaviour
     }
     private void Update()
     {
-        CheckButtons();
-    }
-    public void JoinTheClub(PressurePlate button)
-    {
-        buttons.Add(button);
-    }
-    public void CheckButtons()
-    {
-        int buttonsPressed = 0;
-        foreach(PressurePlate button in buttons)
-        {
-            if(button.pressed == true)
-            {
-                buttonsPressed++;
-            }
-            if(GetComponent<Collider2D>().enabled == true)
-            {
-                if (exactChange == false && buttonsPressed >= buttonsRequired)
-                {
-                    OpenDoor();
-                    break;
-                }
-                if (exactChange == true && buttonsPressed == buttonsRequired)
-                {
-                    OpenDoor();
-                    break;
-                }
-            }
-        }
-        if(buttonsPressed < buttonsRequired && GetComponent<Collider2D>().enabled == false)
-        {
-            CloseDoor();
-        }
+        
     }
     public void OpenDoor()
     {

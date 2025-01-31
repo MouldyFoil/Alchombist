@@ -5,53 +5,99 @@ using UnityEngine;
 
 public class ProjectileBehavior : MonoBehaviour
 {
+    [Header("Basic things")]
     [SerializeField] int damage = 1;
-    [SerializeField] float duration = 5;
     [SerializeField] float speed = 5;
+    [Header("Duration values")]
     [SerializeField] bool infiniteDuration = false;
-    [SerializeField] bool isHoming = false;
+    [SerializeField] float duration = 5;
+    [Header("Acceleration values below")]
+    [Header("hasAcceleration turns speed into max speed")]
+    [SerializeField] bool hasAcceleration = false;
+    [SerializeField] float acceleration;
+    [SerializeField] float maxSidewaysSpeed = 2;
+    [Header("Piercing projectiles")]
     [SerializeField] bool persistThroughBeings = false;
-    [SerializeField] bool isPlayerProjectile = false;
+    [SerializeField] float hitCooldown = 0.5f;
+    [Header("Audio")]
     [SerializeField] float volume = 1;
     [SerializeField] AudioClip[] spawnSounds;
     [SerializeField] AudioClip[] hitSounds;
+    [Header("Misc")]
+    [SerializeField] bool isPlayerProjectile = false;
+    [SerializeField] bool isHoming = false;
+    [Header("This is for if the projectile itself is not rotating")]
+    [SerializeField] GameObject objectHomingOverride;
     SFXManager soundManager;
     Rigidbody2D rb;
     Vector3 target;
     Vector3 aimDirection;
+    PlayerAimMain playerMainAim;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         soundManager = FindObjectOfType<SFXManager>();
-        if(infiniteDuration == false)
+        if (isPlayerProjectile)
         {
-            StartCoroutine(LifeSpan());
+            playerMainAim = FindObjectOfType<PlayerAimMain>();
+            target = FindObjectOfType<PlayerAimMain>().marker.position;
         }
         if(spawnSounds != null && soundManager != null)
         {
             soundManager.PlayRandomAudioClip(spawnSounds, transform, volume);
+        }
+        if(objectHomingOverride == null)
+        {
+            objectHomingOverride = gameObject;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = transform.up * speed;
-        if(isHoming == true && target != null)
+        if (!infiniteDuration)
         {
-            UpdateTarget();
+            duration -= Time.deltaTime;
+        }
+        if (duration <= 0)
+        {
+            Destroy(gameObject);
+        }
+        HandleProjectileSpeed();
+        if (isPlayerProjectile)
+        {
+            target = playerMainAim.marker.position;
+        }
+        if (isHoming == true && target != null)
+        {
             HomeIn();
         }
     }
+
+    private void HandleProjectileSpeed()
+    {
+        if (!hasAcceleration)
+        {
+            rb.velocity = objectHomingOverride.transform.up * speed;
+        }
+        else if (Vector2.Dot(rb.velocity, aimDirection) < speed)
+        {
+            rb.velocity += new Vector2(objectHomingOverride.transform.up.x, objectHomingOverride.transform.up.y) * acceleration * Time.deltaTime;
+            if (Vector2.Dot(rb.velocity, objectHomingOverride.transform.right) > maxSidewaysSpeed)
+            {
+                rb.velocity -= new Vector2(objectHomingOverride.transform.right.x, objectHomingOverride.transform.right.y) * acceleration * Time.deltaTime;
+            }
+            if (Vector2.Dot(rb.velocity, -objectHomingOverride.transform.right) > maxSidewaysSpeed)
+            {
+                rb.velocity += new Vector2(objectHomingOverride.transform.right.x, objectHomingOverride.transform.right.y) * acceleration * Time.deltaTime;
+            }
+        }
+    }
+
     public void AddExtraDamage(int extraDamage)
     {
         damage += extraDamage;
-    }
-    private IEnumerator LifeSpan()
-    {
-        yield return new WaitForSeconds(duration);
-        Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -76,45 +122,17 @@ public class ProjectileBehavior : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (hitSounds != null && soundManager != null)
+        if (hitSounds.Count() > 0 && soundManager != null)
         {
             soundManager.PlayRandomAudioClip(hitSounds, transform, volume);
         }
     }
-    private void UpdateTarget()
-    {
-        Transform[] enemies = GameObject.FindGameObjectsWithTag("TargetableByPlayer").Select(player => player.transform).ToArray();
-        if (enemies.Length > 0)
-        {
-            target = GetClosestEnemy(enemies).position;
-        }
-        if (enemies.Length == 0)
-        {
-            target = new Vector3(Mathf.Infinity, Mathf.Infinity, Mathf.Infinity);
-        }
-    }
-    Transform GetClosestEnemy(Transform[] enemies)
-    {
-        Transform transformMin = null;
-        float minDist = Mathf.Infinity;
-        Vector3 currentPos = transform.position;
-        foreach (Transform enemy in enemies)
-        {
-            float dist = Vector3.Distance(enemy.position, currentPos);
-            if (dist < minDist)
-            {
-                transformMin = enemy;
-                minDist = dist;
-            }
-        }
-        return transformMin;
-    }
     private void HomeIn()
     {
-        target.z = transform.position.z;
+        target.z = objectHomingOverride.transform.position.z;
         aimDirection = (target - transform.position).normalized;
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90;
-        transform.eulerAngles = new Vector3(0, 0, angle);
+        objectHomingOverride.transform.eulerAngles = new Vector3(0, 0, angle);
     }
     //for animations (if i need probably not now that i think about it)
     //public void ChangeSpeed(float newSpeed, float transitionSpeed)
