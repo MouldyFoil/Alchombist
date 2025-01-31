@@ -146,13 +146,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
-  duration: 5
-  speed: 10
+  speed: 20
   infiniteDuration: 0
-  isHoming: 0
+  duration: 5
+  hasAcceleration: 1
+  acceleration: 40
+  deccelerationAtMax: 30
+  maxSidewaysSpeed: 2
+  sideSpeedCorrectionAcceleration: 50
+  persistThroughTags: []
   persistThroughBeings: 0
-  isPlayerProjectile: 1
+  hitCooldown: 0.5
   volume: 0.3
   spawnSounds:
   - {fileID: 8300000, guid: a47ff7984ff48e240a7d5d33594af444, type: 3}
   hitSounds: []
+  isPlayerProjectile: 1
+  isHoming: 0
+  destroyEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  hitEnemyEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  objectHomingOverride: {fileID: 0}

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class ProjectileBehavior : MonoBehaviour
 {
@@ -14,10 +16,12 @@ public class ProjectileBehavior : MonoBehaviour
     [Header("Acceleration values below")]
     [Header("hasAcceleration turns speed into max speed")]
     [SerializeField] bool hasAcceleration = false;
-    [SerializeField] float acceleration;
+    [SerializeField] float acceleration = 5;
+    [SerializeField] float deccelerationAtMax = 2;
     [SerializeField] float maxSidewaysSpeed = 2;
     [SerializeField] float sideSpeedCorrectionAcceleration = 50f;
     [Header("Piercing projectiles")]
+    [SerializeField] string[] persistThroughTags;
     [SerializeField] bool persistThroughBeings = false;
     [SerializeField] float hitCooldown = 0.5f;
     [Header("Audio")]
@@ -27,8 +31,11 @@ public class ProjectileBehavior : MonoBehaviour
     [Header("Misc")]
     [SerializeField] bool isPlayerProjectile = false;
     [SerializeField] bool isHoming = false;
+    [SerializeField] UnityEvent destroyEvent;
+    [SerializeField] UnityEvent hitEnemyEvent;
     [Header("This is for if the projectile itself is not rotating")]
     [SerializeField] GameObject objectHomingOverride;
+    float hitTimer;
     SFXManager soundManager;
     Rigidbody2D rb;
     Vector3 target;
@@ -57,6 +64,7 @@ public class ProjectileBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(hitTimer > 0) { hitTimer -= Time.deltaTime; }
         if (!infiniteDuration)
         {
             duration -= Time.deltaTime;
@@ -82,9 +90,17 @@ public class ProjectileBehavior : MonoBehaviour
         {
             rb.velocity = objectHomingOverride.transform.up * speed;
         }
-        else if (Vector2.Dot(rb.velocity, aimDirection) < speed)
+        else
         {
-            rb.velocity += new Vector2(objectHomingOverride.transform.up.x, objectHomingOverride.transform.up.y) * acceleration * Time.deltaTime;
+            if (Vector2.Dot(rb.velocity, transform.up) <= speed)
+            {
+                rb.velocity += new Vector2(objectHomingOverride.transform.up.x, objectHomingOverride.transform.up.y) * acceleration * Time.deltaTime;
+                Debug.Log("AAAAA");
+            }
+            else
+            {
+                rb.velocity -= new Vector2(objectHomingOverride.transform.up.x, objectHomingOverride.transform.up.y) * deccelerationAtMax * Time.deltaTime;
+            }
             if (Vector2.Dot(rb.velocity, objectHomingOverride.transform.right) > maxSidewaysSpeed)
             {
                 rb.velocity -= new Vector2(objectHomingOverride.transform.right.x, objectHomingOverride.transform.right.y) * sideSpeedCorrectionAcceleration * Time.deltaTime;
@@ -113,11 +129,16 @@ public class ProjectileBehavior : MonoBehaviour
         }
         if (collision.GetComponent<Health>())
         {
-            if(persistThroughBeings == false)
+            if(DoesntPersist(collision.gameObject))
             {
                 Destroy(gameObject);
             }
-            collision.GetComponent<Health>().AddOrRemoveGeneralHealth(-damage);
+            if(hitTimer <= 0)
+            {
+                hitTimer = hitCooldown;
+                collision.GetComponent<Health>().AddOrRemoveGeneralHealth(-damage);
+                hitEnemyEvent.Invoke();
+            }
         }
         else
         {
@@ -128,12 +149,31 @@ public class ProjectileBehavior : MonoBehaviour
             soundManager.PlayRandomAudioClip(hitSounds, transform, volume);
         }
     }
+    private bool DoesntPersist(GameObject collidingObject)
+    {
+        foreach (string tag in persistThroughTags)
+        {
+            if(collidingObject.tag == tag)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     private void HomeIn()
     {
         target.z = objectHomingOverride.transform.position.z;
         aimDirection = (target - transform.position).normalized;
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90;
         objectHomingOverride.transform.eulerAngles = new Vector3(0, 0, angle);
+    }
+    public void SetVelocity(Vector2 velocitySet)
+    {
+        rb.velocity = velocitySet;
+    }
+    private void OnDestroy()
+    {
+        destroyEvent.Invoke();
     }
     //for animations (if i need probably not now that i think about it)
     //public void ChangeSpeed(float newSpeed, float transitionSpeed)

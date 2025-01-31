@@ -150,7 +150,7 @@ MonoBehaviour:
   infiniteDuration: 0
   duration: 5
   hasAcceleration: 1
-  acceleration: 4
+  acceleration: 5
   maxSidewaysSpeed: 3
   sideSpeedCorrectionAcceleration: 20
   persistThroughBeings: 0
