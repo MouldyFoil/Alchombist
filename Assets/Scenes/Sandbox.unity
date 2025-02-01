@@ -1418,6 +1418,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &403409522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6248280323844338216, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
+  m_PrefabInstance: {fileID: 1562798567}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &403409533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403409522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ce6647fc223264b81243d5c47e6bfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aim: {fileID: 2106746521}
+  facingStates:
+  - name: North
+    sprite: {fileID: -8161150418473717443, guid: 4ab0f8711a72616408ba21888906edf8, type: 3}
+    minRange: 40
+    maxRange: 140
+    inclusive: 1
+  - name: East
+    sprite: {fileID: 7966731412235394279, guid: 4ab0f8711a72616408ba21888906edf8, type: 3}
+    minRange: -40
+    maxRange: 40
+    inclusive: 0
+  - name: South
+    sprite: {fileID: -8346811386632078709, guid: 4ab0f8711a72616408ba21888906edf8, type: 3}
+    minRange: -140
+    maxRange: -40
+    inclusive: 1
+  - name: West1
+    sprite: {fileID: 8466053182906350322, guid: 4ab0f8711a72616408ba21888906edf8, type: 3}
+    minRange: -181
+    maxRange: -140
+    inclusive: 0
+  - name: West2
+    sprite: {fileID: 8466053182906350322, guid: 4ab0f8711a72616408ba21888906edf8, type: 3}
+    minRange: 140
+    maxRange: 181
+    inclusive: 0
 --- !u!1001 &416385931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6809,6 +6853,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 158004858}
     m_Modifications:
+    - target: {fileID: 432299875821717712, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 432299875821717712, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 432299875821717712, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6248280323844338216, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
       propertyPath: m_Name
       value: Pawn Goblin (2)
@@ -6856,6 +6912,18 @@ PrefabInstance:
     - target: {fileID: 6248280323844338218, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248280323844338219, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248280323844338219, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248280323844338219, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
@@ -80364,6 +80432,11 @@ MonoBehaviour:
   extraComponentsToDisable: []
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
+--- !u!4 &2106746521 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1617886831, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
+  m_PrefabInstance: {fileID: 1562798567}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2107970722
 PrefabInstance:
   m_ObjectHideFlags: 0

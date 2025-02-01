@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFaceToMarker : MonoBehaviour
+public class FaceTowardsAim : MonoBehaviour
 {
     [SerializeField] Transform aim;
     [SerializeField] FacingState[] facingStates;

@@ -92,10 +92,9 @@ public class ProjectileBehavior : MonoBehaviour
         }
         else
         {
-            if (Vector2.Dot(rb.velocity, transform.up) <= speed)
+            if (Vector2.Dot(rb.velocity, objectHomingOverride.transform.up) <= speed)
             {
                 rb.velocity += new Vector2(objectHomingOverride.transform.up.x, objectHomingOverride.transform.up.y) * acceleration * Time.deltaTime;
-                Debug.Log("AAAAA");
             }
             else
             {

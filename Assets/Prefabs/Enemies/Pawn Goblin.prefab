@@ -175,12 +175,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a65f6625480156443ac10f2ec44a1c2f, type: 3}
+  m_Sprite: {fileID: -8161150418473717443, guid: 4ab0f8711a72616408ba21888906edf8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.1333334, y: 2.1333334}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5133,12 +5133,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 12c420c8bcc1aea4faea12f8e8873c5e, type: 3}
+  m_Sprite: {fileID: -8346811386632078709, guid: 4ab0f8711a72616408ba21888906edf8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.1333334, y: 2.1333334}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5197,8 +5197,6 @@ MonoBehaviour:
   stopZoneMin: 4
   stopZoneMax: 5
   speed: 7
-  dodgeSpeed: 10
-  dodgeCooldown: 5
   distanceOfCanCircleCheck: 2
   minTimeToSwitchDirection: 0.5
   maxTimeToSwitchDirection: 2
@@ -5252,6 +5250,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  chargeTimePrime: 0
 --- !u!114 &103576421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5265,7 +5264,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 981941463}
-  backAwaySpeed: 2
   dashSpeed: 20
   stunTimeAfterAttacking: 2
 --- !u!114 &824399979

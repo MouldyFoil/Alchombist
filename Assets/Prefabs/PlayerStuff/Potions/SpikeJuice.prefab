@@ -151,7 +151,7 @@ MonoBehaviour:
   duration: 5
   hasAcceleration: 1
   acceleration: 40
-  deccelerationAtMax: 30
+  deccelerationAtMax: 10
   maxSidewaysSpeed: 2
   sideSpeedCorrectionAcceleration: 50
   persistThroughTags: []

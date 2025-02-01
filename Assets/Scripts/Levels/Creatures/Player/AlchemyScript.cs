@@ -157,6 +157,7 @@ public class AlchemyScript : MonoBehaviour
     private void SpawnAttackPotion(int potionIndex)
     {
         var thrownPotion = Instantiate(potionRepository.ReturnPotion(potionIndex).prefab, throwSpawn.position, throwSpawn.rotation * Quaternion.Euler(0, 0, -90));
+        //thrownPotion.GetComponent<ProjectileBehavior>().SetVelocity(GetComponent<Rigidbody2D>().velocity);
         thrownPotion.GetComponent<ProjectileBehavior>().AddExtraDamage(buffDamage);
     }
 
