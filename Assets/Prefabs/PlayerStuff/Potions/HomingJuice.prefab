@@ -151,8 +151,10 @@ MonoBehaviour:
   duration: 5
   hasAcceleration: 1
   acceleration: 5
+  deccelerationAtMax: 2
   maxSidewaysSpeed: 3
   sideSpeedCorrectionAcceleration: 20
+  persistThroughTags: []
   persistThroughBeings: 0
   hitCooldown: 0.5
   volume: 1
@@ -161,4 +163,10 @@ MonoBehaviour:
   hitSounds: []
   isPlayerProjectile: 1
   isHoming: 1
+  destroyEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  hitEnemyEvent:
+    m_PersistentCalls:
+      m_Calls: []
   objectHomingOverride: {fileID: 0}
