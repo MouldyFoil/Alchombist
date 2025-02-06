@@ -29,10 +29,7 @@ public class PressurePlate : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (ObjectAlreadyPressing(collision.gameObject))
-        {
-            pressingObjects.Remove(collision.gameObject);
-        }
+        pressingObjects.Remove(collision.gameObject);
         if (pressingObjects.Count <= 0)
         {
             unpressEvent.Invoke();

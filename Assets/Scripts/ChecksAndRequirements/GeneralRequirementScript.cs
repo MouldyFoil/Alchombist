@@ -59,14 +59,11 @@ public class GeneralRequirementScript : MonoBehaviour
     }
     public void TickDownRequirement()
     {
-        if (!oneTimeCheck)
+        if (currentAmount == amountRequired)
         {
-            if (currentAmount == amountRequired)
-            {
-                undoEvent.Invoke();
-            }
-            currentAmount--;
+            undoEvent.Invoke();
         }
+        currentAmount--;
     }
     private void HandleTimeBoundEvents()
     {

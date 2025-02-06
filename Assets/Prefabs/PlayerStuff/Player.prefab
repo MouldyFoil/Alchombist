@@ -19736,8 +19736,9 @@ GameObject:
   - component: {fileID: 2062490153045063650}
   - component: {fileID: 3353473673975107387}
   - component: {fileID: 1211771687}
-  - component: {fileID: 2307174146046822740}
+  - component: {fileID: 8641019845267172481}
   - component: {fileID: 6218809800617368574}
+  - component: {fileID: 8249615082151783859}
   - component: {fileID: 25242332518832882}
   m_Layer: 3
   m_Name: Player
@@ -19938,7 +19939,7 @@ MonoBehaviour:
   input: g
   aimScripts:
   - {fileID: 1211771687}
-  - {fileID: 2307174146046822740}
+  - {fileID: 8641019845267172481}
   - {fileID: 6218809800617368574}
   aimText: {fileID: 0}
 --- !u!114 &1211771687
@@ -19959,7 +19960,31 @@ MonoBehaviour:
   - Enemy
   - Pickup
   - PlayerAttack
---- !u!114 &2307174146046822740
+--- !u!114 &8641019845267172481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364846491788290619}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e49c7e8a348af44d884c35e00953072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6218809800617368574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364846491788290619}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7ebc65551e1334d9a8694377a115f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8249615082151783859
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19971,21 +19996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c7c4987d51448408f3c0cc14e12cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cornerGraceTime: 0.05
-  offsetOnMove: 2
-  movementInputs: []
---- !u!114 &6218809800617368574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1364846491788290619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a7ebc65551e1334d9a8694377a115f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  markerMoveOnInputs: 0
 --- !u!114 &25242332518832882
 MonoBehaviour:
   m_ObjectHideFlags: 0

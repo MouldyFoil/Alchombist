@@ -4,38 +4,31 @@ using UnityEngine;
 
 public class PlayerMoveAim : MonoBehaviour
 {
-    public float cornerGraceTime = 0.01f;
-    public float offsetOnMove = 1;
-    PlayerAimMain mainScript;
+    [SerializeField] float cornerGraceTime = 0.01f;
+    [SerializeField] float offsetOnMove = 1;
     [HideInInspector]
-    public List<string> movementInputs;
+    public bool markerMoveOnInputs = false;
+    bool markerCanMove = true;
+    PlayerAimMain mainScript;
+    List<string> movementInputs = new List<string>();
     Vector2 markerPosOffset;
     float yGraceTimer = 0;
     float xGraceTimer = 0;
     // Start is called before the first frame update
     void Start()
     {
+        mainScript = GetComponent<PlayerAimMain>();
         PlayerMovement movementScript = GetComponent<PlayerMovement>();
         movementInputs.Add(movementScript.upInput);
         movementInputs.Add(movementScript.downInput);
         movementInputs.Add(movementScript.leftInput);
         movementInputs.Add(movementScript.rightInput);
-    }
-    private void OnEnable()
-    {
-        mainScript = GetComponent<PlayerAimMain>();
-        mainScript.SetMarkerVisibility(true);
         markerPosOffset.x = 0;
         markerPosOffset.y = -offsetOnMove;
-        mainScript.marker.localPosition = new Vector3(markerPosOffset.x, markerPosOffset.y, transform.position.z);
     }
     // Update is called once per frame
     void Update()
     {
-        if (!mainScript.marker.GetComponent<SpriteRenderer>().enabled)
-        {
-            mainScript.SetMarkerVisibility(true);
-        }
         if (xGraceTimer > 0)
         {
             xGraceTimer -= Time.deltaTime;
@@ -44,7 +37,10 @@ public class PlayerMoveAim : MonoBehaviour
         {
             yGraceTimer -= Time.deltaTime;
         }
-        HandleInputs();
+        if (markerMoveOnInputs && markerCanMove)
+        {
+            HandleInputs();
+        }
     }
 
     private void HandleInputs()
@@ -97,5 +93,9 @@ public class PlayerMoveAim : MonoBehaviour
         yGraceTimer = cornerGraceTime;
         markerPosOffset.y = modifiedOffset;
         mainScript.marker.localPosition = new Vector3(markerPosOffset.x, markerPosOffset.y, transform.position.z);
+    }
+    public void SetCanMoveMarker(bool canMove)
+    {
+        markerCanMove = canMove;
     }
 }
