@@ -6,15 +6,25 @@ public class PlayerMouseAim : MonoBehaviour
 {
     PlayerAimMain mainScript;
     Vector3 mousePos;
+
+    PlayerMoveAim moveAim;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (FindObjectOfType<PlayerMoveAim>())
+        {
+            moveAim = FindObjectOfType<PlayerMoveAim>();
+        }
     }
     private void OnEnable()
     {
+        if (FindObjectOfType<PlayerMoveAim>())
+        {
+            moveAim = FindObjectOfType<PlayerMoveAim>();
+        }
         mainScript = GetComponent<PlayerAimMain>();
         mainScript.SetMarkerVisibility(true);
+        moveAim.markerMoveOnInputs = false;
     }
     void Update()
     {
