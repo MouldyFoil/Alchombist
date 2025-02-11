@@ -5069,6 +5069,7 @@ GameObject:
   - component: {fileID: 824399979}
   - component: {fileID: 824399980}
   - component: {fileID: 824399977}
+  - component: {fileID: 403409533}
   m_Layer: 6
   m_Name: Pawn Goblin
   m_TagString: TargetableByPlayer
@@ -5352,3 +5353,42 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.2626028}
   m_Size: {x: 1, y: 1.4747944}
   m_Direction: 0
+--- !u!114 &403409533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6248280323844338216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ce6647fc223264b81243d5c47e6bfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aim: {fileID: 1617886831}
+  facingStates:
+  - name: North
+    sprite: {fileID: -8161150418473717443, guid: 4ab0f8711a72616408ba21888906edf8, type: 3}
+    minRange: 40
+    maxRange: 140
+    inclusive: 1
+  - name: East
+    sprite: {fileID: 7966731412235394279, guid: 4ab0f8711a72616408ba21888906edf8, type: 3}
+    minRange: -40
+    maxRange: 40
+    inclusive: 0
+  - name: South
+    sprite: {fileID: -8346811386632078709, guid: 4ab0f8711a72616408ba21888906edf8, type: 3}
+    minRange: -140
+    maxRange: -40
+    inclusive: 1
+  - name: West1
+    sprite: {fileID: 8466053182906350322, guid: 4ab0f8711a72616408ba21888906edf8, type: 3}
+    minRange: -181
+    maxRange: -140
+    inclusive: 0
+  - name: West2
+    sprite: {fileID: 8466053182906350322, guid: 4ab0f8711a72616408ba21888906edf8, type: 3}
+    minRange: 140
+    maxRange: 181
+    inclusive: 0
