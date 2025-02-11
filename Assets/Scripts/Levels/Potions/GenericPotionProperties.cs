@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using TMPro;
-using static UnityEditor.Progress;
 using UnityEngine.UI;
 
 public class GenericPotionProperties : MonoBehaviour
