@@ -1665,6 +1665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a7206c98706acc4eaafeceae32b536c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canGoNegative: 0
   oneTimeCheck: 0
   requireOnStart: 1
   amountRequired: 2
@@ -1724,7 +1725,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  currentAmount: 0
 --- !u!4 &617944483
 Transform:
   m_ObjectHideFlags: 0

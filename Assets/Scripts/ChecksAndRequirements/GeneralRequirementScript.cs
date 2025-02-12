@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public class GeneralRequirementScript : MonoBehaviour
 {
+    [SerializeField] bool canGoNegative = false;
     [SerializeField] bool oneTimeCheck = true;
     [SerializeField] bool requireOnStart = false;
     [SerializeField] int amountRequired = 1;
@@ -17,7 +18,7 @@ public class GeneralRequirementScript : MonoBehaviour
     [SerializeField] UnityEvent undoEvent;
     float timer = 0;
     bool startedRequirement = false;
-    [SerializeField] int currentAmount;
+    int currentAmount;
     bool completed;
 
     private void Start()
@@ -64,6 +65,10 @@ public class GeneralRequirementScript : MonoBehaviour
             undoEvent.Invoke();
         }
         currentAmount--;
+        if(!canGoNegative && currentAmount < 0)
+        {
+            currentAmount = 0;
+        }
     }
     private void HandleTimeBoundEvents()
     {

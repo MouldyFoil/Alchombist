@@ -73,7 +73,8 @@ MonoBehaviour:
     - {r: 0.8509804, g: 0.29803923, b: 0.94509804, a: 1}
     - {r: 0.67058825, g: 0.29803923, b: 0.94509804, a: 1}
     - {r: 0.43529412, g: 0.34901962, b: 0.58431375, a: 1}
-    portraits: []
+    portraits:
+    - {fileID: 21300000, guid: ceaafdf022459c14eb0747cf471d77e0, type: 3}
     voice:
     - tone: default
       sound: {fileID: 8300000, guid: 6e8537a5f22309e46904cd8a1f130f72, type: 3}
