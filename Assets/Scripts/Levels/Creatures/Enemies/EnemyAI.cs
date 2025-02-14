@@ -26,16 +26,20 @@ public class EnemyAI : MonoBehaviour
     float distanceFromPlayer = Mathf.Infinity;
     bool circleClockwise = true;
     EnemyMovement movement;
+    FaceTowardsAim stareScript;
     //EnemyAIMovement[] otherEnemies;
     // Start is called before the first frame update
     void Start()
     {
+        stareScript = GetComponent<FaceTowardsAim>();
+        stareScript.enabled = false;
         movement = GetComponent<EnemyMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        stareScript.enabled = playerRemembered;
         CalculateDistance();
         if(playerRemembered == false || movement.ReturnIsBlocked() == true)
         {
