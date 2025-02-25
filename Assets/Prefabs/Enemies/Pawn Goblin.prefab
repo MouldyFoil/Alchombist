@@ -5134,7 +5134,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8346811386632078709, guid: 4ab0f8711a72616408ba21888906edf8, type: 3}
+  m_Sprite: {fileID: 7966731412235394279, guid: 4ab0f8711a72616408ba21888906edf8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5392,3 +5392,4 @@ MonoBehaviour:
     minRange: 140
     maxRange: 181
     inclusive: 0
+  spriteRenderer: {fileID: 6248280323844338219}

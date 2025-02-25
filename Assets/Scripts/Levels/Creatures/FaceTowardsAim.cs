@@ -7,13 +7,7 @@ public class FaceTowardsAim : MonoBehaviour
 {
     [SerializeField] Transform aim;
     [SerializeField] FacingState[] facingStates;
-    SpriteRenderer spriteRenderer;
-    // Start is called before the first frame update
-    void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
+    [SerializeField] SpriteRenderer spriteRenderer;
     // Update is called once per frame
     void Update()
     {
