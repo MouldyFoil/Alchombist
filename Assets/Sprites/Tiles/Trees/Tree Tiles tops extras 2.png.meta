@@ -32,6 +32,15 @@ TextureImporter:
   - first:
       213: 4556743249389554204
     second: Tree Tiles tops extras 2_9
+  - first:
+      213: -8758190100755675458
+    second: Tree Tiles tops extras 2_10
+  - first:
+      213: 5151644124139952038
+    second: Tree Tiles tops extras 2_11
+  - first:
+      213: 7723352594097063723
+    second: Tree Tiles tops extras 2_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -326,6 +335,69 @@ TextureImporter:
       bones: []
       spriteID: c1a0688b7ddcc3f30800000000000000
       internalID: 4556743249389554204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree Tiles tops extras 2_10
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb68d199188a47680800000000000000
+      internalID: -8758190100755675458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree Tiles tops extras 2_11
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a7179c49015e7740800000000000000
+      internalID: 5151644124139952038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree Tiles tops extras 2_12
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b274f36a34cde2b60800000000000000
+      internalID: 7723352594097063723
       vertices: []
       indices: 
       edges: []

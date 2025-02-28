@@ -1023,7 +1023,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 53
     m_Sprites:
-    - {fileID: 7797830847302190245, guid: 1751b2ba9fec008449a6ed131172a586, type: 3}
+    - {fileID: -8758190100755675458, guid: 07b9224138ec3344687aadc0308bdc36, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
@@ -1031,20 +1031,20 @@ MonoBehaviour:
     m_Output: 0
     m_ColliderType: 1
     m_RandomTransform: 0
-    m_Neighbors: 
+    m_Neighbors: 0100000001000000010000000100000001000000020000000200000002000000
     m_NeighborPositions:
-    - {x: -1, y: 1, z: 0}
     - {x: 0, y: 1, z: 0}
-    - {x: 1, y: 1, z: 0}
-    - {x: -1, y: 0, z: 0}
     - {x: 1, y: 0, z: 0}
-    - {x: -1, y: -1, z: 0}
     - {x: 0, y: -1, z: 0}
+    - {x: -1, y: -1, z: 0}
+    - {x: -1, y: 0, z: 0}
+    - {x: -1, y: 1, z: 0}
     - {x: 1, y: -1, z: 0}
+    - {x: 1, y: 1, z: 0}
     m_RuleTransform: 0
   - m_Id: 54
     m_Sprites:
-    - {fileID: 7797830847302190245, guid: 1751b2ba9fec008449a6ed131172a586, type: 3}
+    - {fileID: 5151644124139952038, guid: 07b9224138ec3344687aadc0308bdc36, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
@@ -1052,20 +1052,20 @@ MonoBehaviour:
     m_Output: 0
     m_ColliderType: 1
     m_RandomTransform: 0
-    m_Neighbors: 
+    m_Neighbors: 0100000001000000010000000200000002000000020000000100000001000000
     m_NeighborPositions:
-    - {x: -1, y: 1, z: 0}
     - {x: 0, y: 1, z: 0}
-    - {x: 1, y: 1, z: 0}
+    - {x: -1, y: 1, z: 0}
     - {x: -1, y: 0, z: 0}
-    - {x: 1, y: 0, z: 0}
+    - {x: 1, y: 1, z: 0}
     - {x: -1, y: -1, z: 0}
-    - {x: 0, y: -1, z: 0}
     - {x: 1, y: -1, z: 0}
+    - {x: 0, y: -1, z: 0}
+    - {x: 1, y: 0, z: 0}
     m_RuleTransform: 0
   - m_Id: 55
     m_Sprites:
-    - {fileID: 7797830847302190245, guid: 1751b2ba9fec008449a6ed131172a586, type: 3}
+    - {fileID: 7723352594097063723, guid: 07b9224138ec3344687aadc0308bdc36, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
@@ -1073,14 +1073,14 @@ MonoBehaviour:
     m_Output: 0
     m_ColliderType: 1
     m_RandomTransform: 0
-    m_Neighbors: 
+    m_Neighbors: 0100000001000000010000000100000001000000020000000200000002000000
     m_NeighborPositions:
-    - {x: -1, y: 1, z: 0}
     - {x: 0, y: 1, z: 0}
     - {x: 1, y: 1, z: 0}
-    - {x: -1, y: 0, z: 0}
     - {x: 1, y: 0, z: 0}
-    - {x: -1, y: -1, z: 0}
     - {x: 0, y: -1, z: 0}
+    - {x: -1, y: 0, z: 0}
+    - {x: -1, y: -1, z: 0}
     - {x: 1, y: -1, z: 0}
+    - {x: -1, y: 1, z: 0}
     m_RuleTransform: 0

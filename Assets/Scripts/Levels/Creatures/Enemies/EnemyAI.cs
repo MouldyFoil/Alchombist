@@ -19,12 +19,14 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float distanceOfCanCircleCheck = 2; //find a better name for this
     [SerializeField] float minTimeToSwitchDirection = 1;
     [SerializeField] float maxTimeToSwitchDirection = 4;
+    [SerializeField] float circleInZoneAfterTime;
     [SerializeField] bool circleInStopZone;
     [SerializeField] bool agressiveEnemy = false;
     bool playerRemembered = false;
     bool isSwitchingDirection = false;
     float distanceFromPlayer = Mathf.Infinity;
     bool circleClockwise = true;
+    float timeUntilCircling = 0.2f;
     EnemyMovement movement;
     FaceTowardsAim stareScript;
     //EnemyAIMovement[] otherEnemies;
@@ -89,7 +91,15 @@ public class EnemyAI : MonoBehaviour
         {
             if(circleInStopZone == true && movement.ReturnCanCircleInSpace(distanceOfCanCircleCheck))
             {
-                HandleCircling();
+                if(timeUntilCircling > 0)
+                {
+                    movement.ResetVelocity();
+                    timeUntilCircling -= Time.deltaTime;
+                }
+                else
+                {
+                    HandleCircling();
+                }
             }
             else
             {

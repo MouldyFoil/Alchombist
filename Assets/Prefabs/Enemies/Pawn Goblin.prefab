@@ -5197,7 +5197,7 @@ MonoBehaviour:
   minPathDistance: 6
   stopZoneMin: 4
   stopZoneMax: 5
-  speed: 7
+  speed: 10
   distanceOfCanCircleCheck: 2
   minTimeToSwitchDirection: 0.5
   maxTimeToSwitchDirection: 2
