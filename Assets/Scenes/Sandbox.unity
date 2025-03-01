@@ -187,6 +187,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 838238525}
     m_Modifications:
+    - target: {fileID: 4999534240368853925, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8161150418473717443, guid: 4ab0f8711a72616408ba21888906edf8, type: 3}
     - target: {fileID: 6248280323844338216, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
       propertyPath: m_Name
       value: Pawn Goblin (1)
@@ -235,6 +239,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6248280323844338219, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8161150418473717443, guid: 4ab0f8711a72616408ba21888906edf8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
 --- !u!1 &30388482 stripped
@@ -1794,6 +1802,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8259690887589135984, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6159728995685752646, guid: 23820bf964fb27542b796eeccce661d7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
 --- !u!4 &673588178 stripped
@@ -2190,6 +2202,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 838238525}
     m_Modifications:
+    - target: {fileID: 4999534240368853925, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8466053182906350322, guid: 4ab0f8711a72616408ba21888906edf8, type: 3}
     - target: {fileID: 6248280323844338216, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
       propertyPath: m_Name
       value: Pawn Goblin (4)
@@ -2478,6 +2494,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8259690887589135984, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6884791485373307648, guid: 23820bf964fb27542b796eeccce661d7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
 --- !u!114 &1078144760 stripped
@@ -80996,10 +81016,6 @@ PrefabInstance:
     - target: {fileID: 2266312089735903031, guid: c1d49507aba2f5041b7cdf6709f7b21a, type: 3}
       propertyPath: m_Name
       value: Ingredient bag
-      objectReference: {fileID: 0}
-    - target: {fileID: 2266312089735903051, guid: c1d49507aba2f5041b7cdf6709f7b21a, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1d49507aba2f5041b7cdf6709f7b21a, type: 3}

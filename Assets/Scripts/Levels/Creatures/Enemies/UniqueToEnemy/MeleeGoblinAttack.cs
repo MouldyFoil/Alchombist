@@ -9,6 +9,7 @@ public class MeleeGoblinAttack : MonoBehaviour
     //[SerializeField] float backAwaySpeed = 5;
     [SerializeField] float dashSpeed = 20;
     [SerializeField] float stunTimeAfterAttacking = 2;
+    [SerializeField] SpriteRenderer sprite;
     EnemyMovement movement;
     EnemyAttackGeneral attackGeneral;
     bool chargingUp;
@@ -23,7 +24,7 @@ public class MeleeGoblinAttack : MonoBehaviour
     {
         Debug.Log("attacked");
         movement.Dash(dashSpeed);
-        GetComponent<SpriteRenderer>().enabled = false;
+        sprite.enabled = false;
         movement.ToggleAim(false);
         attack.SetActive(true);
         StartCoroutine(HandleStun());
@@ -31,7 +32,7 @@ public class MeleeGoblinAttack : MonoBehaviour
     private IEnumerator HandleStun()
     {
         yield return new WaitForSeconds(stunTimeAfterAttacking);
-        GetComponent<SpriteRenderer>().enabled = true;
+        sprite.enabled = true;
         attack.SetActive(false);
         movement.ToggleAim(true);
         attackGeneral.StartCooldown();
