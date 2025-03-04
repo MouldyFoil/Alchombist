@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+
 
 public class AlchemyScript : MonoBehaviour
 {
@@ -22,6 +24,11 @@ public class AlchemyScript : MonoBehaviour
     IngredientRepository ingredientRepository;
 
     //misc
+    public Color[] parryTypes;
+    [SerializeField] GameObject parryObject;
+    [SerializeField] float parryTime = 0.2f;
+    int currentParryType;
+    float parryClock = 0;
 
     int buffDamage;
     int[] activeIngredients = new int[6];
@@ -45,6 +52,11 @@ public class AlchemyScript : MonoBehaviour
             CreateOrCancel();
             DetermineIngredient();
         }
+        if(parryClock > 0)
+        {
+            parryClock -= Time.deltaTime;
+        }
+        parryObject.SetActive(parryClock > 0);
     }
 
     private void DetermineIngredient()
@@ -112,22 +124,29 @@ public class AlchemyScript : MonoBehaviour
     private void MakePotion()
     {
         int potionIndex = 0;
-        foreach (Potion potion in potionRepository.ReturnPotions())
+        if(intVersionOfIngredients > 9)
         {
-            if(potion.ingredientCombo == intVersionOfIngredients)
+            foreach (Potion potion in potionRepository.ReturnPotions())
             {
-                if (potion.discoverOnCreate)
+                if (potion.ingredientCombo == intVersionOfIngredients)
                 {
-                    potion.discovered = true;
-                }
-                else if(!potion.discovered)
-                {
+                    if (potion.discoverOnCreate)
+                    {
+                        potion.discovered = true;
+                    }
+                    else if (!potion.discovered)
+                    {
+                        break;
+                    }
+                    PotionTypeHandler(potionIndex);
                     break;
                 }
-                PotionTypeHandler(potionIndex);
-                break;
+                potionIndex++;
             }
-            potionIndex++;
+        }
+        else
+        {
+            ActivateParry(intVersionOfIngredients);
         }
         ClearIngredients();
     }
@@ -171,6 +190,13 @@ public class AlchemyScript : MonoBehaviour
         currentSlot = 0;
         activeIngredientUI.UpdateIngredientUI();
     }
+    private void ActivateParry(int parryType)
+    {
+        currentParryType = parryType - 1;
+        parryClock = parryTime;
+        Color parryColorFinal = parryTypes[currentParryType];
+        parryObject.GetComponent<SpriteRenderer>().color = parryColorFinal;
+    }
     public int ReturnActiveIngredients(int ingredientIndex)
     {
         return activeIngredients[ingredientIndex];
@@ -181,3 +207,9 @@ public class AlchemyScript : MonoBehaviour
         buffDisplay.UpdateDamageUI(buffDamage);
     }
 }
+//[Serializable]
+//public class ParryType
+//{
+//    public int type;
+//    public Color color;
+//}

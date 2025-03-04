@@ -15,6 +15,9 @@ public class EnemyAttackGeneral : MonoBehaviour
     [SerializeField] UnityEvent onAttack;
     float cooldown;
     [SerializeField] float chargeTimePrime;
+    [SerializeField] GameObject attackIndicator;
+    [SerializeField] float indicatorTime = 0.5f;
+    float indicatorClock;
     bool charging;
     bool canAttack = true;
     EnemyAI AI;
@@ -43,6 +46,11 @@ public class EnemyAttackGeneral : MonoBehaviour
                 charging = false;
             }
         }
+        if(indicatorClock > 0)
+        {
+            indicatorClock -= Time.deltaTime;
+        }
+        attackIndicator.SetActive(indicatorClock > 0);
         if (cooldown > 0)
         {
             cooldown -= Time.deltaTime;
@@ -57,6 +65,10 @@ public class EnemyAttackGeneral : MonoBehaviour
                 movement.TogglePathfinding(false);
             }
         }
+    }
+    public void IndicateParry()
+    {
+        indicatorClock = indicatorTime;
     }
     public void StartCooldown()
     {

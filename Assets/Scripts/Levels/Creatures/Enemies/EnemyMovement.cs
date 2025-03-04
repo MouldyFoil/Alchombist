@@ -107,9 +107,13 @@ public class EnemyMovement : MonoBehaviour
         Vector2 vector2Speed = aimTransform.up * dodgeSpeed;
         rb.velocity += vector2Speed;
     }
-    public void MoveTowardsOrBack(float customSpeed)
+    public void MoveTowardsOrBack(float speed)
     {
-        rb.velocity = aimTransform.right * customSpeed;
+        rb.velocity = aimTransform.right * speed;
+    }
+    public void MoveDiagonal(float speed1, float speed2)
+    {
+        rb.velocity = aimTransform.right * speed1 + aimTransform.up * speed2;
     }
     public void PutAwayWeapon(bool weaponOut)
     {

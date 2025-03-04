@@ -10,6 +10,7 @@ TagManager:
   - Pickup
   - PlayerAttack
   - PlayerAim
+  - Parry
   layers:
   - Default
   - TransparentFX

@@ -12,6 +12,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float minPathDistance = 6;
     [SerializeField] float stopZoneMin = 3;
     [SerializeField] float stopZoneMax = 5;
+    [SerializeField] float stopZoneOffset = 0.5f;
     [SerializeField] float speed = 20f;
     //[SerializeField] float dodgeSpeed = 10f;
     //[SerializeField] float dodgeCooldown = 5f;
@@ -19,14 +20,12 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float distanceOfCanCircleCheck = 2; //find a better name for this
     [SerializeField] float minTimeToSwitchDirection = 1;
     [SerializeField] float maxTimeToSwitchDirection = 4;
-    [SerializeField] float circleInZoneAfterTime;
     [SerializeField] bool circleInStopZone;
     [SerializeField] bool agressiveEnemy = false;
     bool playerRemembered = false;
     bool isSwitchingDirection = false;
     float distanceFromPlayer = Mathf.Infinity;
     bool circleClockwise = true;
-    float timeUntilCircling = 0.2f;
     EnemyMovement movement;
     FaceTowardsAim stareScript;
     //EnemyAIMovement[] otherEnemies;
@@ -91,19 +90,7 @@ public class EnemyAI : MonoBehaviour
         {
             if(circleInStopZone == true && movement.ReturnCanCircleInSpace(distanceOfCanCircleCheck))
             {
-                if(timeUntilCircling > 0)
-                {
-                    movement.ResetVelocity();
-                    timeUntilCircling -= Time.deltaTime;
-                }
-                else
-                {
-                    HandleCircling();
-                }
-            }
-            else
-            {
-                movement.ResetVelocity();
+                HandleCircling();
             }
         }
         if (distanceFromPlayer < stopZoneMin)
@@ -116,10 +103,34 @@ public class EnemyAI : MonoBehaviour
         if(circleClockwise == true)
         {
             movement.Circle(speed);
+            //if (distanceFromPlayer < stopZoneMax - stopZoneOffset)
+            //{
+            //    movement.MoveDiagonal(speed, speed);
+            //}
+            //else if (distanceFromPlayer > stopZoneMin + stopZoneOffset)
+            //{
+            //    movement.MoveDiagonal(-speed, speed);
+            //}
+            //else
+            //{
+            //    movement.Circle(speed);
+            //}
         }
         else
         {
-            movement.Circle(-speed);
+            movement.Circle(speed);
+            //if (distanceFromPlayer < stopZoneMax - stopZoneOffset)
+            //{
+            //    movement.MoveDiagonal(speed, -speed);
+            //}
+            //else if (distanceFromPlayer > stopZoneMin + stopZoneOffset)
+            //{
+            //    movement.MoveDiagonal(-speed, -speed);
+            //}
+            //else
+            //{
+            //    movement.Circle(-speed);
+            //}
         }
         if(isSwitchingDirection == false)
         {
