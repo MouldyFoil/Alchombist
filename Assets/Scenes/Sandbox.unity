@@ -78595,6 +78595,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9efd3f181bc28304d83a29103bd52cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1794049891 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1794049891, guid: 039d7e49d17ed5144b7d81bfb8355f04, type: 3}
+  m_PrefabInstance: {fileID: 1814467480}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1805387815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5046629732245633345, guid: 91bf78b924a3a904aac82b9f93c4878a, type: 3}
@@ -80903,6 +80908,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6532842302896543114, guid: d64ff964ae8a4214db057923a8338581, type: 3}
+      propertyPath: hitStunUI
+      value: 
+      objectReference: {fileID: 1794049891}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d64ff964ae8a4214db057923a8338581, type: 3}
 --- !u!1001 &2176177429826635896

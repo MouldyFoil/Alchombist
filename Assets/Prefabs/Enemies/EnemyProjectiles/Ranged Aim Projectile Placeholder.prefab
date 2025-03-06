@@ -100,16 +100,83 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  duration: 5
   speed: 10
   infiniteDuration: 0
-  isHoming: 0
+  duration: 5
+  hasAcceleration: 1
+  acceleration: 50
+  deccelerationAtMax: 2
+  maxSidewaysSpeed: 2
+  sideSpeedCorrectionAcceleration: 50
+  persistThroughTags: []
   persistThroughBeings: 0
-  isPlayerProjectile: 0
+  hitCooldown: 0.5
   volume: 1
   spawnSounds:
   - {fileID: 8300000, guid: 96af2e23354954b44a6e716769618aff, type: 3}
   hitSounds: []
+  parryEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 537828859312606276}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: set_layer
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 987869097503625342}
+        m_TargetAssemblyTypeName: ProjectileBehavior, Assembly-CSharp
+        m_MethodName: AddExtraDamage
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 987869097503625342}
+        m_TargetAssemblyTypeName: ProjectileBehavior, Assembly-CSharp
+        m_MethodName: SetIsHoming
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 987869097503625342}
+        m_TargetAssemblyTypeName: ProjectileBehavior, Assembly-CSharp
+        m_MethodName: SetIsPlayerProjectile
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  parryHeal: 1
+  parryType: 1
+  isPlayerProjectile: 0
+  isHoming: 0
+  destroyEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  hitEnemyEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  objectHomingOverride: {fileID: 0}
 --- !u!50 &-5820390315208742911
 Rigidbody2D:
   serializedVersion: 4
@@ -171,3 +238,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageParticles: {fileID: 0}
   maxHealth: 1
+  tempHealth: 0
+  health: 0

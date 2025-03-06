@@ -10,8 +10,8 @@ public class Health : MonoBehaviour
     [SerializeField] int maxHealth = 3;
     DisplayHealth playerHealthDisplay;
     int tempMaxHealth;
-    int tempHealth;
-    int health;
+    [SerializeField] int tempHealth;
+    [SerializeField] int health;
     bool player = false;
     // Start is called before the first frame update
     void Start()
@@ -57,7 +57,7 @@ public class Health : MonoBehaviour
         {
             AddOrRemoveTempHealth(interger + health - maxHealth);
             health += interger;
-            if(health > maxHealth)
+            if(health >= maxHealth)
             {
                 health = maxHealth;
             }
@@ -84,17 +84,14 @@ public class Health : MonoBehaviour
     }
     public void AddOrRemoveTempHealth(int interger)
     {
-        if (tempHealth + interger <= 0)
-        {
-            tempHealth = 0;
-        }
-        else if (tempHealth > tempMaxHealth)
+        tempHealth += interger;
+        if (tempHealth >= tempMaxHealth)
         {
             tempHealth = tempMaxHealth;
         }
-        else
+        if(tempHealth < 0)
         {
-            tempHealth += interger;
+            tempHealth = 0;
         }
         if(player == true)
         {

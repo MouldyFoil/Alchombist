@@ -6,9 +6,11 @@ public class ParryScript : MonoBehaviour
 {
     public Color[] parryTypes;
     [SerializeField] float parryTime = 0.2f;
+    [SerializeField] float hitstunTime = 0.2f;
     SpriteRenderer sprite;
     int currentParryType;
     float parryClock = 0;
+    [SerializeField] GameObject hitStunUI;
     private void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -28,6 +30,18 @@ public class ParryScript : MonoBehaviour
         parryClock = parryTime;
         Color parryColorFinal = parryTypes[currentParryType];
         sprite.color = parryColorFinal;
+    }
+    public void ParrySuccessFX()
+    {
+        StartCoroutine(FX());
+    }
+    private IEnumerator FX()
+    {
+        Time.timeScale = 0;
+        hitStunUI.SetActive(true);
+        yield return new WaitForSecondsRealtime(hitstunTime);
+        Time.timeScale = 1;
+        hitStunUI.SetActive(false);
     }
     public bool ReturnParryActive() { return sprite.enabled; }
     public int ReturnParryType() { return currentParryType; }
