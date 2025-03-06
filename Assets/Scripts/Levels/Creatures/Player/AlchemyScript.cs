@@ -24,11 +24,7 @@ public class AlchemyScript : MonoBehaviour
     IngredientRepository ingredientRepository;
 
     //misc
-    public Color[] parryTypes;
-    [SerializeField] GameObject parryObject;
-    [SerializeField] float parryTime = 0.2f;
-    int currentParryType;
-    float parryClock = 0;
+    ParryScript parryScript;
 
     int buffDamage;
     int[] activeIngredients = new int[6];
@@ -44,19 +40,15 @@ public class AlchemyScript : MonoBehaviour
         ingredientRepository = FindObjectOfType<IngredientRepository>();
         ingredientParticles = ingredientParticlesParent.GetComponentsInChildren<ParticleSystem>();
         soundManager = FindObjectOfType<SFXManager>();
+        parryScript = GetComponentInChildren<ParryScript>();
     }
     void Update()
     {
-        if(Time.deltaTime > 0)
+        if (Time.deltaTime > 0)
         {
             CreateOrCancel();
             DetermineIngredient();
         }
-        if(parryClock > 0)
-        {
-            parryClock -= Time.deltaTime;
-        }
-        parryObject.SetActive(parryClock > 0);
     }
 
     private void DetermineIngredient()
@@ -144,9 +136,9 @@ public class AlchemyScript : MonoBehaviour
                 potionIndex++;
             }
         }
-        else
+        else if(intVersionOfIngredients > 0)
         {
-            ActivateParry(intVersionOfIngredients);
+            parryScript.ActivateParry(intVersionOfIngredients);
         }
         ClearIngredients();
     }
@@ -189,13 +181,6 @@ public class AlchemyScript : MonoBehaviour
         intVersionOfIngredients = 0;
         currentSlot = 0;
         activeIngredientUI.UpdateIngredientUI();
-    }
-    private void ActivateParry(int parryType)
-    {
-        currentParryType = parryType - 1;
-        parryClock = parryTime;
-        Color parryColorFinal = parryTypes[currentParryType];
-        parryObject.GetComponent<SpriteRenderer>().color = parryColorFinal;
     }
     public int ReturnActiveIngredients(int ingredientIndex)
     {

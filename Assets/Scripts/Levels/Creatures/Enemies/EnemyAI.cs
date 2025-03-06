@@ -14,9 +14,13 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float stopZoneMax = 5;
     [SerializeField] float stopZoneOffset = 0.5f;
     [SerializeField] float speed = 20f;
+
+    //variables for failed anti-jittering code
     //[SerializeField] float dodgeSpeed = 10f;
     //[SerializeField] float dodgeCooldown = 5f;
     //[SerializeField] float avoidOtherEnemyDistance = 2;
+
+
     [SerializeField] float distanceOfCanCircleCheck = 2; //find a better name for this
     [SerializeField] float minTimeToSwitchDirection = 1;
     [SerializeField] float maxTimeToSwitchDirection = 4;
@@ -71,6 +75,7 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
+            //more commented failed anti-jittering code
             //movement.ResetVelocity();
             playerRemembered = false;
         }
@@ -103,6 +108,7 @@ public class EnemyAI : MonoBehaviour
         if(circleClockwise == true)
         {
             movement.Circle(speed);
+            // this code is meant to prevent jittering but ended up creating more jittering
             //if (distanceFromPlayer < stopZoneMax - stopZoneOffset)
             //{
             //    movement.MoveDiagonal(speed, speed);
@@ -119,6 +125,7 @@ public class EnemyAI : MonoBehaviour
         else
         {
             movement.Circle(speed);
+            //same with this
             //if (distanceFromPlayer < stopZoneMax - stopZoneOffset)
             //{
             //    movement.MoveDiagonal(speed, -speed);
