@@ -78584,17 +78584,6 @@ Transform:
   m_Father: {fileID: 376450292}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1778677640 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8689072164778244789, guid: dade80ccc3706ff40983af78ef18eb4e, type: 3}
-  m_PrefabInstance: {fileID: 295554542}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9efd3f181bc28304d83a29103bd52cef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1794049891 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1794049891, guid: 039d7e49d17ed5144b7d81bfb8355f04, type: 3}
@@ -78612,14 +78601,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1048078707, guid: 039d7e49d17ed5144b7d81bfb8355f04, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1778677640}
-    - target: {fileID: 1642321595, guid: 039d7e49d17ed5144b7d81bfb8355f04, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1778677640}
     - target: {fileID: 2843510549012287643, guid: 039d7e49d17ed5144b7d81bfb8355f04, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -78708,10 +78689,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 3297986715312032043, guid: 039d7e49d17ed5144b7d81bfb8355f04, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1778677640}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 039d7e49d17ed5144b7d81bfb8355f04, type: 3}
 --- !u!1001 &1822041253

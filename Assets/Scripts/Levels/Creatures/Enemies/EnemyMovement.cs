@@ -8,6 +8,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] GameObject aimGameObject;
+    [SerializeField] float rayOffset = 0.5f;
     Transform aimTransform;
     Rigidbody2D rb;
     AIPath path;
@@ -42,7 +43,8 @@ public class EnemyMovement : MonoBehaviour
     }
     public bool ReturnIsBlocked()
     {
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, target - transform.position);
+        List<RaycastHit2D> hits = Physics2D.RaycastAll(transform.position, aimTransform.right).ToList();
+        hits.AddRange(Physics2D.RaycastAll(transform.position, aimTransform.right).ToList());
         foreach(RaycastHit2D hit in hits)
         {
             if(hit.collider.gameObject.layer == 9)

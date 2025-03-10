@@ -16,6 +16,16 @@ public class PressurePlate : MonoBehaviour
     {
         startEvent.Invoke();
     }
+    private void Update()
+    {
+        foreach(GameObject obj in pressingObjects)
+        {
+            if(obj == null)
+            {
+                pressingObjects.Remove(obj);
+            }
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (pressingObjects.Count <= 0)

@@ -32,23 +32,26 @@ public class DealDamage : MonoBehaviour
     {
         if(hitClock <= 0)
         {
-            hitClock = timeBetweenHits;
             ParryScript parryScript = null;
-            if (collision.GetComponentInChildren<ParryScript>())
+            if (collision.GetComponent<Health>() != null)
             {
-                parryScript = collision.GetComponentInChildren<ParryScript>();
-            }
-            if (parryScript != null && parryScript.ReturnParryActive() && parryScript.ReturnParryType() == parryType)
-            {
-                collision.GetComponent<Health>().AddOrRemoveGeneralHealth(parryHeal);
-                rb.velocity = -rb.velocity;
-                aim.eulerAngles = new Vector3(aim.eulerAngles.x, aim.eulerAngles.y, aim.eulerAngles.z + 180);
-                parryScript.ParrySuccessFX();
-                parryEvent.Invoke();
-            }
-            else if (collision.GetComponent<Health>() != null)
-            {
-                collision.GetComponent<Health>().AddOrRemoveGeneralHealth(-damage);
+                hitClock = timeBetweenHits;
+                if (collision.GetComponentInChildren<ParryScript>())
+                {
+                    parryScript = collision.GetComponentInChildren<ParryScript>();
+                }
+                if (parryScript != null && parryScript.ReturnParryActive() && parryScript.ReturnParryType() == parryType)
+                {
+                    collision.GetComponent<Health>().AddOrRemoveGeneralHealth(parryHeal);
+                    rb.velocity = -rb.velocity;
+                    aim.eulerAngles = new Vector3(aim.eulerAngles.x, aim.eulerAngles.y, aim.eulerAngles.z + 180);
+                    parryScript.ParrySuccessFX();
+                    parryEvent.Invoke();
+                }
+                else
+                {
+                    collision.GetComponent<Health>().AddOrRemoveGeneralHealth(-damage);
+                }
             }
         }
     }
