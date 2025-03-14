@@ -55,7 +55,7 @@ public class EnemyAttackGeneral : MonoBehaviour
         {
             cooldown -= Time.deltaTime;
         }
-        else if(AI == true && AI.ReturnIsInAttackRange() == true && movement.ReturnIsBlocked() == false)
+        else if(AI == true && AI.ReturnIsInAttackRange() == true && AI.ReturnIsBlocked() == false)
         {
             if(charging == false && canAttack == true)
             {

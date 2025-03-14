@@ -9,14 +9,18 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] GameObject aimGameObject;
     [SerializeField] float rayOffset = 0.5f;
-    Transform aimTransform;
+    [SerializeField] LayerMask dontCircleWhenBetween;
+    [HideInInspector]
+    public Transform aimTransform;
     Rigidbody2D rb;
     AIPath path;
-    Vector3 target;
+    [HideInInspector]
+    public Vector3 target;
     Vector3 aimDirection;
     bool aimToggle = true;
     SpriteRenderer aimSprite;
-    [SerializeField] LayerMask dontCircleWhenBetween;
+
+    public bool projectileIncoming;
 
     private void Start()
     {
@@ -40,23 +44,6 @@ public class EnemyMovement : MonoBehaviour
                 AimAtTarget();
             }
         }
-    }
-    public bool ReturnIsBlocked()
-    {
-        List<RaycastHit2D> hits = Physics2D.RaycastAll(transform.position, aimTransform.right).ToList();
-        hits.AddRange(Physics2D.RaycastAll(transform.position, aimTransform.right).ToList());
-        foreach(RaycastHit2D hit in hits)
-        {
-            if(hit.collider.gameObject.layer == 9)
-            {
-                return true;
-            }
-            if(hit.collider.tag == "Player")
-            {
-                return false;
-            }
-        }
-        return true;
     }
     public bool ReturnCanCircleInSpace(float distanceToNotCircleIn)
     {

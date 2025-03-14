@@ -1,36 +1,46 @@
 using Pathfinding;
 using System;
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class EnemyAI : MonoBehaviour
 {
+    [Header("Detection and pathfinding stuffs")]
     [SerializeField] float detectDistance = 10;
     [SerializeField] float chaseDistance = 20;
     [SerializeField] float minPathDistance = 6;
+    [Header("Stopzone stuffs")]
     [SerializeField] float stopZoneMin = 3;
     [SerializeField] float stopZoneMax = 5;
     [SerializeField] float stopZoneOffset = 0.5f;
+    [Header("Circling stuffs")]
+    [SerializeField] bool circleInStopZone;
+    [SerializeField] float distanceOfCanCircleCheck = 2; //find a better name for this
+    [SerializeField] float minTimeToSwitchDirection = 1;
+    [SerializeField] float maxTimeToSwitchDirection = 4;
+
+    [Header("Movement things")]
     [SerializeField] float speed = 20f;
+    [SerializeField] float dodgeSpeed = 30f;
+    [SerializeField] float timeBetweenDodges = 15f;
+    [SerializeField] float durationOfDodge = 1f;
 
     //variables for failed anti-jittering code
     //[SerializeField] float dodgeSpeed = 10f;
     //[SerializeField] float dodgeCooldown = 5f;
     //[SerializeField] float avoidOtherEnemyDistance = 2;
-
-
-    [SerializeField] float distanceOfCanCircleCheck = 2; //find a better name for this
-    [SerializeField] float minTimeToSwitchDirection = 1;
-    [SerializeField] float maxTimeToSwitchDirection = 4;
-    [SerializeField] bool circleInStopZone;
     [SerializeField] bool agressiveEnemy = false;
+    bool cornered; //it would be funny if non-agressive enemies started sweating or something when they were cornered
+    [SerializeField] bool canDodgeAttacks = true;
+    [SerializeField] int[] sightBlockLayers;
+    float distanceFromPlayer = Mathf.Infinity;
     bool playerRemembered = false;
     bool isSwitchingDirection = false;
-    float distanceFromPlayer = Mathf.Infinity;
     bool circleClockwise = true;
     EnemyMovement movement;
+    EnemyAttackGeneral attack;
     FaceTowardsAim stareScript;
     //EnemyAIMovement[] otherEnemies;
     // Start is called before the first frame update
@@ -42,29 +52,27 @@ public class EnemyAI : MonoBehaviour
             stareScript.enabled = false;
         }
         movement = GetComponent<EnemyMovement>();
+        attack = GetComponent<EnemyAttackGeneral>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        CalculateDistance();
+        WeaponOutStuff();
+        MainAIThings();
         if (stareScript)
         {
             stareScript.enabled = playerRemembered;
         }
-        CalculateDistance();
-        if(playerRemembered == false || movement.ReturnIsBlocked() == true)
-        {
-            movement.PutAwayWeapon(false);
-        }
-        else
-        {
-            movement.PutAwayWeapon(true);
-        }
-        if (playerRemembered == false && distanceFromPlayer < detectDistance && movement.ReturnIsBlocked() == false)
+    }
+    private void MainAIThings()
+    {
+        if (playerRemembered == false && distanceFromPlayer < detectDistance && ReturnIsBlocked() == false)
         {
             playerRemembered = true;
         }
-        else if(distanceFromPlayer < minPathDistance && movement.ReturnIsBlocked() == false)
+        else if (distanceFromPlayer < minPathDistance && ReturnIsBlocked() == false)
         {
             HandleCombatMovement();
             movement.TogglePathfinding(false);
@@ -80,6 +88,19 @@ public class EnemyAI : MonoBehaviour
             playerRemembered = false;
         }
     }
+
+    private void WeaponOutStuff()
+    {
+        if (playerRemembered == false || ReturnIsBlocked() == true)
+        {
+            movement.PutAwayWeapon(false);
+        }
+        else
+        {
+            movement.PutAwayWeapon(true);
+        }
+    }
+
     public bool ReturnIsSwitching() { return isSwitchingDirection; }
     private void CalculateDistance()
     {
@@ -124,7 +145,7 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            movement.Circle(speed);
+            movement.Circle(-speed);
             //same with this
             //if (distanceFromPlayer < stopZoneMax - stopZoneOffset)
             //{
@@ -160,6 +181,35 @@ public class EnemyAI : MonoBehaviour
     { 
         if (agressiveEnemy) { return distanceFromPlayer < stopZoneMax; }
         else {return distanceFromPlayer > stopZoneMin && distanceFromPlayer < stopZoneMax;}
+    }
+    public bool ReturnIsBlocked()
+    {
+        List<RaycastHit2D> hits = Physics2D.RaycastAll(transform.position, movement.aimTransform.right).ToList();
+        //hits.AddRange(Physics2D.RaycastAll(transform.position, movement.aimTransform.right).ToList());
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (CheckIfLayerBlocks(hit.collider.gameObject.layer))
+            {
+                return true;
+            }
+            if (hit.collider.tag == "Player")
+            {
+                return false;
+            }
+
+        }
+        return true;
+    }
+    private bool CheckIfLayerBlocks(int layerIn)
+    {
+        foreach (int theLayer in sightBlockLayers)
+        {
+            if (layerIn == theLayer)
+            {
+                return true;
+            }
+        }
+        return false;
     }
     public void SetPlayerRemembered(bool remembered) { playerRemembered = remembered; }
     public bool ReturnPlayerRemembered() { return playerRemembered; }

@@ -5251,12 +5251,17 @@ MonoBehaviour:
   stopZoneMin: 3
   stopZoneMax: 7
   stopZoneOffset: 1
-  speed: 10
+  circleInStopZone: 1
   distanceOfCanCircleCheck: 2
   minTimeToSwitchDirection: 0.5
   maxTimeToSwitchDirection: 2
-  circleInStopZone: 1
+  speed: 10
+  dodgeSpeed: 30
+  timeBetweenDodges: 15
+  durationOfDodge: 1
   agressiveEnemy: 1
+  canDodgeAttacks: 1
+  sightBlockLayers: 09000000
 --- !u!114 &1657985283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5270,9 +5275,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimGameObject: {fileID: 1617886830}
+  rayOffset: 0.5
   dontCircleWhenBetween:
     serializedVersion: 2
     m_Bits: 512
+  aimTransform: {fileID: 0}
+  target: {x: 0, y: 0, z: 0}
+  projectileIncoming: 0
 --- !u!114 &3523683535555510992
 MonoBehaviour:
   m_ObjectHideFlags: 0

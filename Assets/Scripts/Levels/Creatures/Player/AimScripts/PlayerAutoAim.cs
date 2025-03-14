@@ -74,21 +74,24 @@ public class PlayerAutoAim : MonoBehaviour
             {
                 return false;
             }
-            bool ignoreObject = false;
-            foreach(string tag in ignoreTags)
-            {
-                if(hit.collider.gameObject.tag == tag)
-                {
-                    ignoreObject = true;
-                    break;
-                }
-            }
+            bool ignoreObject = CheckIgnoreTag(hit.collider.gameObject.tag);
             if(ignoreObject == false && !hit.collider.gameObject.CompareTag("TargetableByPlayer"))
             {
                 return true;
             }
         }
         return true;
+    }
+    private bool CheckIgnoreTag(string tagIn)
+    {
+        foreach (string tag in ignoreTags)
+        {
+            if (tagIn == tag)
+            {
+                return true;
+            }
+        }
+        return false;
     }
     Transform GetClosestEnemy(List<Transform> enemies)
     {

@@ -5281,6 +5281,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageParticles: {fileID: 7817549900335086630}
   maxHealth: 8
+  tempHealth: 0
+  health: 0
 --- !u!50 &1657985284
 Rigidbody2D:
   serializedVersion: 4
@@ -5320,12 +5322,17 @@ MonoBehaviour:
   stopZoneMin: 4
   stopZoneMax: 7
   stopZoneOffset: 0.5
-  speed: 7
+  circleInStopZone: 1
   distanceOfCanCircleCheck: 2
   minTimeToSwitchDirection: 0.5
   maxTimeToSwitchDirection: 2
-  circleInStopZone: 1
+  speed: 7
+  dodgeSpeed: 30
+  timeBetweenDodges: 15
+  durationOfDodge: 1
   agressiveEnemy: 0
+  canDodgeAttacks: 1
+  sightBlockLayers: 09000000
 --- !u!114 &1657985283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5339,9 +5346,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimGameObject: {fileID: 1617886830}
+  rayOffset: 0.5
   dontCircleWhenBetween:
     serializedVersion: 2
     m_Bits: 512
+  aimTransform: {fileID: 0}
+  target: {x: 0, y: 0, z: 0}
+  projectileIncoming: 0
 --- !u!114 &2421749867600812167
 MonoBehaviour:
   m_ObjectHideFlags: 0
