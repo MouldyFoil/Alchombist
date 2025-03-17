@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d73460b169514040ab3cf8ada03b69c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragSpeed: 3
+  dragSpeed: 10
   statBuffedName: Damage
   buffAmount: 1
   defaultVolume: 0.1

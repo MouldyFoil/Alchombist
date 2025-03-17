@@ -46,7 +46,7 @@ public class PhysicsIngredient : MonoBehaviour
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 propertransform = transform.position;
-        rb.velocity = (mousePos - propertransform) * dragSpeed;
+        rb.velocity += (mousePos - propertransform) * dragSpeed * Time.deltaTime;
     }
 
     private void OnMouseDown()

@@ -8,6 +8,7 @@ public class CouldronLiquid : MonoBehaviour
 {
     [SerializeField] AudioClip ingredientAddedSound;
     [SerializeField] float volume;
+    int numberOfIngredients = 0;
     SFXManager soundManager;
     SpriteRenderer sprite;
     PrepBuffs prepBuffs;
@@ -33,9 +34,15 @@ public class CouldronLiquid : MonoBehaviour
             MoveColor(color);
         }
     }
+    //private void MoveColor(Color color)
+    //{
+    //    Color colorFinal = (color + sprite.color) / 2;
+    //    sprite.color = colorFinal;
+    //}
     private void MoveColor(Color color)
     {
-        Color colorFinal = (color + sprite.color) / 2;
+        Color colorFinal = (color + (sprite.color * numberOfIngredients)) / (numberOfIngredients + 1);
         sprite.color = colorFinal;
+        numberOfIngredients++;
     }
 }
