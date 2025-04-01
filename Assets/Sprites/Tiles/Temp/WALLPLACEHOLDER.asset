@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: WALLPLACEHOLDER
   m_EditorClassIdentifier: 
   m_DefaultSprite: {fileID: -1198315368166415080, guid: 41e99dc18e9343045b712a9d8432f5f8, type: 3}
-  m_DefaultGameObject: {fileID: 627334082193676252, guid: 04960598dbeae0043a10b34e2cf0894a, type: 3}
+  m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules: []
