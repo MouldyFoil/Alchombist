@@ -11,6 +11,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float detectDistance = 10;
     [SerializeField] float chaseDistance = 20;
     [SerializeField] float minPathDistance = 6;
+    [SerializeField] float forgetTime = 2;
+    float forgetTimer;
     [Header("Stopzone stuffs")]
     [SerializeField] float stopZoneMin = 3;
     [SerializeField] float stopZoneMax = 5;
@@ -53,6 +55,7 @@ public class EnemyAI : MonoBehaviour
         }
         movement = GetComponent<EnemyMovement>();
         attack = GetComponent<EnemyAttackGeneral>();
+        forgetTimer = forgetTime;
     }
 
     // Update is called once per frame
@@ -68,7 +71,7 @@ public class EnemyAI : MonoBehaviour
     }
     private void MainAIThings()
     {
-        if (playerRemembered == false && distanceFromPlayer < detectDistance && ReturnIsBlocked() == false)
+        if (!playerRemembered && distanceFromPlayer < detectDistance && ReturnIsBlocked() == false)
         {
             playerRemembered = true;
         }
@@ -77,7 +80,7 @@ public class EnemyAI : MonoBehaviour
             HandleCombatMovement();
             movement.TogglePathfinding(false);
         }
-        else if (playerRemembered == true && distanceFromPlayer < chaseDistance)
+        else if (playerRemembered && distanceFromPlayer < chaseDistance)
         {
             movement.NavigateToPlayer(speed);
         }
@@ -85,9 +88,26 @@ public class EnemyAI : MonoBehaviour
         {
             //more commented failed anti-jittering code
             //movement.ResetVelocity();
-            playerRemembered = false;
+            forgetTimer -= Time.deltaTime;
+            if (forgetTimer <= 0)
+            {
+                playerRemembered = false;
+            }
+        }
+        if (ReturnIsBlocked())
+        {
+            forgetTimer -= Time.deltaTime;
+            if(forgetTimer <= 0)
+            {
+                playerRemembered = false;
+            }
+        }
+        else
+        {
+            forgetTimer = forgetTime;
         }
     }
+    
 
     private void WeaponOutStuff()
     {

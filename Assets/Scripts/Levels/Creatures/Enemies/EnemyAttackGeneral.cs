@@ -17,6 +17,7 @@ public class EnemyAttackGeneral : MonoBehaviour
     [SerializeField] float chargeTimePrime;
     [SerializeField] GameObject attackIndicator;
     [SerializeField] float indicatorTime = 0.5f;
+    [SerializeField] bool attackRangeOverride = false;
     float indicatorClock;
     bool charging;
     bool canAttack = true;
@@ -56,6 +57,16 @@ public class EnemyAttackGeneral : MonoBehaviour
             cooldown -= Time.deltaTime;
         }
         else if(AI == true && AI.ReturnIsInAttackRange() == true && AI.ReturnIsBlocked() == false)
+        {
+            if(charging == false && canAttack == true)
+            {
+                chargeTimePrime = chargeUpTime;
+                charging = true;
+                AI.enabled = false;
+                movement.TogglePathfinding(false);
+            }
+        }
+        else if(attackRangeOverride && AI == true && AI.ReturnPlayerRemembered() && AI.ReturnIsBlocked() == false)
         {
             if(charging == false && canAttack == true)
             {

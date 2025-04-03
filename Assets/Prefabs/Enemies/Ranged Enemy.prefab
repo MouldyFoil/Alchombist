@@ -5400,6 +5400,7 @@ MonoBehaviour:
   chargeTimePrime: 0
   attackIndicator: {fileID: 5218446087355419281}
   indicatorTime: 0.5
+  attackRangeOverride: 1
 --- !u!114 &5067216800787795659
 MonoBehaviour:
   m_ObjectHideFlags: 0
