@@ -5319,6 +5319,7 @@ MonoBehaviour:
   detectDistance: 15
   chaseDistance: 25
   minPathDistance: 8
+  forgetTime: 2
   stopZoneMin: 4
   stopZoneMax: 7
   stopZoneOffset: 0.5
