@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5783700280062619291}
   - component: {fileID: 5783700280062619288}
   - component: {fileID: 2990364064651388511}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BoxPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}

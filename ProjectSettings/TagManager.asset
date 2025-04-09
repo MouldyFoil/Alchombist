@@ -24,9 +24,9 @@ TagManager:
   - PathObstacle
   - PlayerPhysical
   - EnemyPhysical
-  - 
-  - 
-  - 
+  - EventTrigger
+  - PlayerObject
+  - Button
   - 
   - 
   - 

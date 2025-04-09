@@ -8,6 +8,8 @@ public class CollisionEvents : MonoBehaviour
 {
     [SerializeField] UnityEvent collisionEvent;
     [SerializeField] string[] tags;
+    [SerializeField] bool oneTimeCheck = false;
+    bool activated;
     // Update is called once per frame
     void Update()
     {
@@ -15,17 +17,21 @@ public class CollisionEvents : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        bool theThing = false;
-        foreach (string tag in tags)
+        if(!oneTimeCheck || !activated)
         {
-            if (other.tag == tag)
+            bool theThing = false;
+            foreach (string tag in tags)
             {
-                theThing = true;
+                if (other.tag == tag)
+                {
+                    theThing = true;
+                }
             }
-        }
-        if (theThing)
-        {
-            collisionEvent.Invoke();
+            if (theThing)
+            {
+                collisionEvent.Invoke();
+            }
+            activated = true;
         }
     }
 }

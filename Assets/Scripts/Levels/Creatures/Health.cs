@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 
@@ -8,10 +9,11 @@ public class Health : MonoBehaviour
 {
     [SerializeField] ParticleSystem damageParticles;
     [SerializeField] int maxHealth = 3;
+    [SerializeField] UnityEvent deathEvent;
     DisplayHealth playerHealthDisplay;
     int tempMaxHealth;
-    [SerializeField] int tempHealth;
-    [SerializeField] int health;
+    int tempHealth;
+    int health;
     bool player = false;
     // Start is called before the first frame update
     void Start()
@@ -100,6 +102,7 @@ public class Health : MonoBehaviour
     }
     public void Die()
     {
+        deathEvent.Invoke();
         if(player == false)
         {
             Destroy(gameObject);

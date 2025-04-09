@@ -42,7 +42,7 @@ public class PlayerAutoAim : MonoBehaviour
         {
             enemies.Add(enemy.transform);
         }
-        enemies = CleanBlockedEnemies(enemies);
+        enemies = CleanEnemiesList(enemies);
         if (enemies != null && enemies.Count > 0)
         {
             target = GetClosestEnemy(enemies).position;
@@ -53,12 +53,12 @@ public class PlayerAutoAim : MonoBehaviour
         }
         canTarget = Vector3.Distance(target, transform.position) < enemyDetectRadius;
     }
-    private List<Transform> CleanBlockedEnemies(List<Transform> enemies)
+    private List<Transform> CleanEnemiesList(List<Transform> enemies)
     {
         List<Transform> cleanedEnemies = new List<Transform>();
         foreach(Transform enemy in enemies)
         {
-            if (EnemyBlockedCheck(enemy) == false)
+            if (enemy.gameObject.activeSelf && EnemyBlockedCheck(enemy) == false)
             {
                 cleanedEnemies.Add(enemy);
             }
