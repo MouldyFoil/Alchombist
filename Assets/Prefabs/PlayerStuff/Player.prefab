@@ -253,7 +253,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.75
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -360,7 +360,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.45366257, g: 1, b: 0.2216981, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1500,7 +1500,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.6472527, b: 0, a: 1}
+        key0: {r: 1, g: 1, b: 1, a: 0.7254902}
         key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -1558,8 +1558,8 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
-    mode: 0
+    enabled: 1
+    mode: 1
     timeMode: 0
     fps: 30
     frameOverTime:
@@ -1677,7 +1677,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 0}
+    - sprite: {fileID: -8787516158877133225, guid: 2946711e02a6dae4eb1184a2e163b7ec, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4976,7 +4976,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -5366,7 +5366,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.75
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5473,7 +5473,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.666701, b: 0, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -6613,7 +6613,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.6472527, b: 0, a: 1}
+        key0: {r: 1, g: 1, b: 1, a: 0.7254902}
         key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -6671,8 +6671,8 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
-    mode: 0
+    enabled: 1
+    mode: 1
     timeMode: 0
     fps: 30
     frameOverTime:
@@ -6790,7 +6790,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 0}
+    - sprite: {fileID: 4553642694495384455, guid: 2946711e02a6dae4eb1184a2e163b7ec, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -10089,7 +10089,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -10297,7 +10297,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.75
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -10404,7 +10404,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.2235294, g: 0.97671497, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -11544,7 +11544,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.22352943, g: 0.97647065, b: 1, a: 1}
+        key0: {r: 1, g: 1, b: 1, a: 0.7254902}
         key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -11602,8 +11602,8 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
-    mode: 0
+    enabled: 1
+    mode: 1
     timeMode: 0
     fps: 30
     frameOverTime:
@@ -11721,7 +11721,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 0}
+    - sprite: {fileID: -7146766153956865951, guid: 2946711e02a6dae4eb1184a2e163b7ec, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -15020,7 +15020,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -15161,7 +15161,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.75
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -15268,7 +15268,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.63665485, g: 0.21333215, b: 0.9622642, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -16408,7 +16408,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.63529414, g: 0.21176472, b: 0.9607844, a: 1}
+        key0: {r: 1, g: 1, b: 1, a: 0.7254902}
         key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -16466,8 +16466,8 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
-    mode: 0
+    enabled: 1
+    mode: 1
     timeMode: 0
     fps: 30
     frameOverTime:
@@ -16585,7 +16585,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 0}
+    - sprite: {fileID: 932198724772241149, guid: 2946711e02a6dae4eb1184a2e163b7ec, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -19884,7 +19884,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -20036,8 +20036,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageParticles: {fileID: 147849367848251450}
   maxHealth: 4
-  tempHealth: 0
-  health: 0
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &2062490153045063650
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20296,7 +20297,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.75
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -20403,7 +20404,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0, b: 0.10111046, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -21543,7 +21544,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0, b: 0.10196079, a: 1}
+        key0: {r: 1, g: 1, b: 1, a: 0.7254902}
         key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -21601,8 +21602,8 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
-    mode: 0
+    enabled: 1
+    mode: 1
     timeMode: 0
     fps: 30
     frameOverTime:
@@ -21720,7 +21721,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 0}
+    - sprite: {fileID: -4632892974752914292, guid: 2946711e02a6dae4eb1184a2e163b7ec, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -25019,7 +25020,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -25089,8 +25090,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.39943278}
-  m_Size: {x: 1, y: 1.1756027}
+  m_Offset: {x: 0, y: -0.48723412}
+  m_Size: {x: 1, y: 1}
   m_Direction: 0
 --- !u!1 &3083944686863346318
 GameObject:
@@ -25207,7 +25208,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.75
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -25314,7 +25315,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.9607843, g: 0.9548099, b: 0.21176468, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -26454,7 +26455,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.9607844, g: 0.95294124, b: 0.21176472, a: 1}
+        key0: {r: 1, g: 1, b: 1, a: 0.7254902}
         key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -26512,8 +26513,8 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
-    mode: 0
+    enabled: 1
+    mode: 1
     timeMode: 0
     fps: 30
     frameOverTime:
@@ -26631,7 +26632,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 0}
+    - sprite: {fileID: -3382302439054622190, guid: 2946711e02a6dae4eb1184a2e163b7ec, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -29930,7 +29931,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -29982,7 +29983,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3768552348201452865}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.13, z: -0.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1364846491788290615}
@@ -30071,7 +30072,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.25
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -30124,7 +30125,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -30178,7 +30179,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.92549026, g: 0.37647063, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.41867778, g: 0.9433962, b: 0.29814878, a: 1}
@@ -30240,7 +30241,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -30563,7 +30564,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -30703,7 +30704,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 2
+      value: 0.5
       mode: 0
       spread: 0
       speed:
@@ -30760,7 +30761,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 360
+      value: 180
       mode: 0
       spread: 0
       speed:
@@ -30932,7 +30933,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 10
+        scalar: 3
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -31376,8 +31377,8 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
-    mode: 0
+    enabled: 1
+    mode: 1
     timeMode: 0
     fps: 30
     frameOverTime:
@@ -31495,7 +31496,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 0}
+    - sprite: {fileID: 21300000, guid: 68a68f73c47b9044cb62ecf9b2016cd2, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -34774,7 +34775,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
