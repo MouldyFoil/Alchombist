@@ -5903,7 +5903,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Good choice, now dawn me.
+  m_text: Good choice, now don me.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: de233038e2df6bc49b5b4aeb88e8e07c, type: 2}
   m_sharedMaterial: {fileID: -3564678770403484780, guid: de233038e2df6bc49b5b4aeb88e8e07c, type: 2}
@@ -13194,7 +13194,7 @@ MonoBehaviour:
         m_Calls: []
     objectInQuestion: {fileID: 989846626}
     waitBetweenCharacters: 0.1
-    text: You seem to have forgotton
+    text: You seem to have forgotten
     endDelay: 0
     endEvent:
       m_PersistentCalls:
@@ -16807,7 +16807,7 @@ MonoBehaviour:
         m_Calls: []
     objectInQuestion: {fileID: 863210564}
     waitBetweenCharacters: 0.2
-    text: 'dawn '
+    text: 'don '
     endDelay: 0.5
     endEvent:
       m_PersistentCalls:
