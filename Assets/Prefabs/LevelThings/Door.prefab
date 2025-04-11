@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!61 &1595289510484855545
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -123,6 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e41b4f7b397ff5d4990f8fbd745e45c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonsRequired: 2
   exactChange: 0
   openedSprite: {fileID: 436563815456543028, guid: 7e8862180da6bd6489df7bda129c0ad3, type: 3}
+  boundingBoxExtention: 2
