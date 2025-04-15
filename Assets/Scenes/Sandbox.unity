@@ -263,7 +263,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!4 &30388487 stripped
@@ -368,7 +369,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1 &95794059
@@ -974,7 +976,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!4 &171522914 stripped
@@ -1193,7 +1196,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1 &250574459
@@ -1718,7 +1722,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1 &376450291
@@ -1781,7 +1786,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1 &396930343
@@ -1873,6 +1879,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fda592272ba6208488f1afd9d4545ebf, type: 3}
+--- !u!61 &416385932 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4874304929183881272, guid: fda592272ba6208488f1afd9d4545ebf, type: 3}
+  m_PrefabInstance: {fileID: 416385931}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &429169371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1953,7 +1964,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!4 &435710166 stripped
@@ -1994,7 +2006,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1001 &487754558
@@ -2139,7 +2152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!4 &512703806 stripped
@@ -2301,7 +2315,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!4 &553610850 stripped
@@ -2410,7 +2425,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!4 &564882486 stripped
@@ -2441,7 +2457,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1001 &576810409
@@ -2755,7 +2772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1 &738347489 stripped
@@ -2781,7 +2799,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1 &784089765 stripped
@@ -2802,7 +2821,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!4 &784089770 stripped
@@ -3272,7 +3292,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!4 &908175467 stripped
@@ -3618,7 +3639,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!4 &957887194 stripped
@@ -3884,7 +3906,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1001 &1050805506
@@ -4044,7 +4067,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!4 &1089610721 stripped
@@ -7170,7 +7194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1001 &1189130571
@@ -10210,7 +10235,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!4 &1328764918 stripped
@@ -10241,7 +10267,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1 &1341867641 stripped
@@ -10267,7 +10294,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1 &1342618535 stripped
@@ -10293,7 +10321,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!4 &1372457423 stripped
@@ -10396,7 +10425,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!114 &1427776448 stripped
@@ -10433,7 +10463,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1 &1430352572 stripped
@@ -10459,7 +10490,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1 &1442455041 stripped
@@ -10480,7 +10512,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!4 &1442455046 stripped
@@ -10652,7 +10685,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1001 &1464979185
@@ -10893,7 +10927,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1 &1549008645 stripped
@@ -91442,7 +91477,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1 &1734340437
@@ -91501,7 +91537,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1 &1772006573 stripped
@@ -91527,7 +91564,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1 &1772191654 stripped
@@ -91553,7 +91591,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1 &1794049891 stripped
@@ -91584,7 +91623,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1 &1801341950 stripped
@@ -91610,7 +91650,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!4 &1805387815 stripped
@@ -91790,7 +91831,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!4 &1825337994 stripped
@@ -92057,7 +92099,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1001 &1891520626
@@ -92202,7 +92245,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!4 &1963087507 stripped
@@ -92659,7 +92703,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1 &2030700634
@@ -95042,7 +95087,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1 &2100242493 stripped
@@ -95068,7 +95114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1001 &2107970722
@@ -95221,7 +95268,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealID: Truesight
-  extraComponentsToDisable: []
+  extraComponentsToDisable:
+  - {fileID: 416385932}
   originalObject: {fileID: 0}
   hintOrReplacementObjcet: {fileID: 0}
 --- !u!1001 &2130441417
