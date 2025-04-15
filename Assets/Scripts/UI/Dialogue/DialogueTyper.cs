@@ -231,6 +231,7 @@ public class DialogueObject
     public UnityEvent endEvent;
     public AudioClip sound;
     public float soundVolume = 0.15f;
+    public float soundPriority = 128f;
     [HideInInspector]
     public bool startEventOccured = false;
     [HideInInspector]
