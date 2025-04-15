@@ -13,7 +13,7 @@ public class SFXManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void PlayAudioClip(AudioClip audio, Transform spawnTransform, float volume)
+    public void PlayAudioClip(AudioClip audio, Transform spawnTransform, float volume, float priority = 128)
     {
         
         AudioSource audioSource = Instantiate(soundObject, spawnTransform.position, Quaternion.identity);
