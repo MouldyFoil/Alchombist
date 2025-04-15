@@ -24,6 +24,10 @@ public class PotionRepository : MonoBehaviour
         int index = 0;
         foreach (Potion potion in potions)
         {
+            if(index > discoveredList.Count - 1)
+            {
+                return;
+            }
             potion.discovered = discoveredList[index];
             index++;
         }
@@ -76,7 +80,7 @@ public class PotionRepository : MonoBehaviour
 [Serializable]
 public class Potion
 {
-public enum potionTypeEnum { spawn_on_player = 0, spawn_on_aim = 1, spawn_as_child = 2}
+public enum potionTypeEnum { spawn_on_player = 0, spawn_on_aim = 1, spawn_as_child = 2, spawn_on_crosshair = 3}
 
 
     //Name of potion in recipe book

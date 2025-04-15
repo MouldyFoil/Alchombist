@@ -19,6 +19,7 @@ public class AlchemyScript : MonoBehaviour
     [SerializeField] string enterInput;
     //The place where thrown potions spawn
     [SerializeField] Transform throwSpawn;
+    [SerializeField] Transform crosshair;
     //Repository objects
     PotionRepository potionRepository;
     IngredientRepository ingredientRepository;
@@ -148,11 +149,18 @@ public class AlchemyScript : MonoBehaviour
         {
             Instantiate(potionRepository.ReturnPotion(potionIndex).prefab, gameObject.transform.position - new Vector3(0, 0, transform.position.z), gameObject.transform.rotation);
         }
-        if(potionRepository.ReturnPotion(potionIndex).spawnType == Potion.potionTypeEnum.spawn_on_aim)
+        if(potionRepository.ReturnPotion(potionIndex).spawnType == Potion.potionTypeEnum.spawn_on_aim || potionRepository.ReturnPotion(potionIndex).spawnType == Potion.potionTypeEnum.spawn_on_crosshair)
         {
             if(FindObjectOfType<PlayerAutoAim>().ReturnCanTarget() == true || !FindObjectOfType<PlayerAutoAim>().enabled)
             {
-                SpawnAttackPotion(potionIndex);
+                if(potionRepository.ReturnPotion(potionIndex).spawnType == Potion.potionTypeEnum.spawn_on_aim)
+                {
+                    SpawnOnAim(potionIndex);
+                }
+                else
+                {
+                    SpawnOnCrosshair(potionIndex);
+                }
             }
             else
             {
@@ -165,11 +173,15 @@ public class AlchemyScript : MonoBehaviour
         }
     }
 
-    private void SpawnAttackPotion(int potionIndex)
+    private void SpawnOnAim(int potionIndex)
     {
         var thrownPotion = Instantiate(potionRepository.ReturnPotion(potionIndex).prefab, throwSpawn.position, throwSpawn.rotation * Quaternion.Euler(0, 0, -90));
         //thrownPotion.GetComponent<ProjectileBehavior>().SetVelocity(GetComponent<Rigidbody2D>().velocity);
         thrownPotion.GetComponent<ProjectileBehavior>().AddExtraDamage(buffDamage);
+    }
+    private void SpawnOnCrosshair(int potionIndex)
+    {
+        var thrownPotion = Instantiate(potionRepository.ReturnPotion(potionIndex).prefab, crosshair.position, crosshair.rotation * Quaternion.Euler(0, 0, -90));
     }
 
     private void ClearIngredients()

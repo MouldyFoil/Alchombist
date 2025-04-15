@@ -20022,6 +20022,7 @@ MonoBehaviour:
   clearInput: left ctrl
   enterInput: left shift
   throwSpawn: {fileID: 105128094}
+  crosshair: {fileID: 381525089}
 --- !u!114 &2286084510725180714
 MonoBehaviour:
   m_ObjectHideFlags: 0
