@@ -157,9 +157,13 @@ public class AlchemyScript : MonoBehaviour
                 {
                     SpawnOnAim(potionIndex);
                 }
-                else
+                else if(CrosshairPotionBlockedCheck())
                 {
                     SpawnOnCrosshair(potionIndex);
+                }
+                else
+                {
+                    Debug.Log("Crosshair Blocked");
                 }
             }
             else
@@ -172,7 +176,18 @@ public class AlchemyScript : MonoBehaviour
             Instantiate(potionRepository.ReturnPotion(potionIndex).prefab, transform);
         }
     }
-
+    private bool CrosshairPotionBlockedCheck()
+    {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, crosshair.position - transform.position, Vector3.Distance(transform.position, crosshair.position));
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.collider.gameObject.layer == 9)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     private void SpawnOnAim(int potionIndex)
     {
         var thrownPotion = Instantiate(potionRepository.ReturnPotion(potionIndex).prefab, throwSpawn.position, throwSpawn.rotation * Quaternion.Euler(0, 0, -90));
