@@ -86,6 +86,7 @@ public enum potionTypeEnum { spawn_on_player = 0, spawn_on_aim = 1, spawn_as_chi
     //Name of potion in recipe book
     public string name;
     //Descriptions of Potions
+    [TextArea]
     public string description;
     //The gameobject/potion an input sequence instantiates
     public GameObject prefab;

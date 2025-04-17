@@ -226,6 +226,7 @@ public class DialogueObject
     public UnityEvent startEvent;
     public GameObject objectInQuestion;
     public float waitBetweenCharacters = 0.1f;
+    [TextArea]
     public string text;
     public float endDelay;
     public UnityEvent endEvent;
