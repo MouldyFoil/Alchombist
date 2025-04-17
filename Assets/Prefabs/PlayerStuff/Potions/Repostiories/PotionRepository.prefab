@@ -68,12 +68,21 @@ MonoBehaviour:
     spawnType: 1
     discovered: 0
     discoverOnCreate: 0
-  - name: BoxPotion
+  - name: Box Potion
     description: Place down a potion cube. Max 3 potion cubes.
     prefab: {fileID: 5783700280062619292, guid: 389711b21eeb6ed40ba7507221f875a1, type: 3}
     spriteInBook: {fileID: 21300000, guid: 2002acfeb52377b47932f519a2a965a8, type: 3}
     ingredientCombo: 1212
     spawnType: 0
+    discovered: 0
+    discoverOnCreate: 0
+  - name: Potion Of Fire
+    description: Creates a burning circle that sets things on fire. Appears after
+      1 second, lasts 2.
+    prefab: {fileID: 2339230639211983268, guid: 82b399d30a1ceb64e867a3a03f979215, type: 3}
+    spriteInBook: {fileID: 21300000, guid: b78d9b0c42593f445b27d659aabb98ce, type: 3}
+    ingredientCombo: 2112
+    spawnType: 3
     discovered: 0
     discoverOnCreate: 0
   - name: Truesight Potion
@@ -106,14 +115,5 @@ MonoBehaviour:
     spriteInBook: {fileID: 21300000, guid: 048827d14f5617046991bba748f77164, type: 3}
     ingredientCombo: 211
     spawnType: 0
-    discovered: 0
-    discoverOnCreate: 0
-  - name: Potion Of Fire
-    description: Creates a burning circle that sets things on fire. Appears after
-      1 second, lasts 2.
-    prefab: {fileID: 2339230639211983268, guid: 82b399d30a1ceb64e867a3a03f979215, type: 3}
-    spriteInBook: {fileID: 21300000, guid: b78d9b0c42593f445b27d659aabb98ce, type: 3}
-    ingredientCombo: 2112
-    spawnType: 3
     discovered: 0
     discoverOnCreate: 0
