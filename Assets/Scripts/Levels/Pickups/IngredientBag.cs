@@ -7,6 +7,7 @@ public class IngredientBag : MonoBehaviour
 {
     [SerializeField] int ingredientIndex = 0;
     [SerializeField] UnityEvent pickupEvent;
+    [SerializeField] bool destroyIfAlreadyUnlocked = true;
     IngredientRepository ingredientRepository;
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,7 @@ public class IngredientBag : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ingredientRepository.ReturnIngredient(ingredientIndex).unlocked == true)
+        if (ingredientRepository.ReturnIngredient(ingredientIndex).unlocked == true && destroyIfAlreadyUnlocked)
         {
             Destroy(gameObject);
         }

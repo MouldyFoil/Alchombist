@@ -7,6 +7,7 @@ public class PotionScroll : MonoBehaviour
 {
     [SerializeField] string potionName;
     [SerializeField] UnityEvent pickupEvent;
+    [SerializeField] bool destroyIfAlreadyUnlocked = true;
     PotionRepository potionRepository;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class PotionScroll : MonoBehaviour
     {
         foreach (Potion potion in potionRepository.ReturnPotions())
         {
-            if (potion.name == potionName && potion.discovered == true)
+            if (potion.name == potionName && potion.discovered == true && destroyIfAlreadyUnlocked)
             {
                 Destroy(gameObject);
             }
