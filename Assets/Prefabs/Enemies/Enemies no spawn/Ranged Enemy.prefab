@@ -377,6 +377,7 @@ GameObject:
   - component: {fileID: 590030145}
   - component: {fileID: 8337086397023323079}
   - component: {fileID: 6000061843255753601}
+  - component: {fileID: 5786458781900367191}
   m_Layer: 6
   m_Name: Ranged Enemy
   m_TagString: TargetableByPlayer
@@ -419,7 +420,19 @@ MonoBehaviour:
   maxHealth: 8
   deathEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5786458781900367191}
+        m_TargetAssemblyTypeName: EnemyKilledUpdater, Assembly-CSharp
+        m_MethodName: UpdateWasKilled
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!50 &1657985284
 Rigidbody2D:
   serializedVersion: 4
@@ -691,6 +704,19 @@ MonoBehaviour:
     maxRange: 181
     inclusive: 0
   spriteRenderer: {fileID: 8259690887589135984}
+--- !u!114 &5786458781900367191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6248280323844338216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f6bb949e30d3d4b93817394f981ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 0
 --- !u!1001 &5165581927504253515
 PrefabInstance:
   m_ObjectHideFlags: 0
