@@ -1100,7 +1100,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.533334, y: 8.533334}
+    oldSize: {x: 8, y: 8}
     newSize: {x: 8.533334, y: 8.533334}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2335,7 +2335,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.533334, y: 8.533334}
+    oldSize: {x: 8, y: 8}
     newSize: {x: 8.533334, y: 8.533334}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3875,6 +3875,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3846456862670156198, guid: 3e5031fe06b63b04da2330fe5810db9b, type: 3}
+      propertyPath: sceneIsLevel
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5700681457930264968, guid: 3e5031fe06b63b04da2330fe5810db9b, type: 3}
       propertyPath: m_Name
       value: SaveInterface

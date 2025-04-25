@@ -42,4 +42,8 @@ public class SceneManagement : MonoBehaviour
     {
         Application.Quit();
     }
+    public string ReturnCurrentSceneName()
+    {
+        return SceneManager.GetActiveScene().name;
+    }
 }

@@ -43,3 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0088d91c4fb13a949b6cb0da7170ef06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneIsLevel: 1
+  settingIngredientAmounts: 0
+  settingIngredientsUnlocked: 0
+  settingPotionsDiscovered: 0

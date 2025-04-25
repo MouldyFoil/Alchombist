@@ -5,13 +5,18 @@ using UnityEngine;
 
 public class SaveDataInterface : MonoBehaviour
 {
+    [SerializeField] bool unlockLevelOnStart = true;
     SaveData saveData;
     public bool settingIngredientAmounts = false;
     public bool settingIngredientsUnlocked = false;
     public bool settingPotionsDiscovered = false;
-    // Start is called before the first frame update
+    public bool unlockingCurrentLevel = false;
     void Start()
     {
+        if (unlockLevelOnStart)
+        {
+            unlockingCurrentLevel = true;
+        }
         if (FindObjectsOfType<SaveData>().Length == 1)
         {
             saveData = FindObjectOfType<SaveData>();
@@ -53,6 +58,11 @@ public class SaveDataInterface : MonoBehaviour
                 SetPotionsDiscovered();
                 settingPotionsDiscovered = false;
             }
+            if (unlockingCurrentLevel)
+            {
+                UnlockCurentLevel();
+                unlockingCurrentLevel = false;
+            }
         }
     }
 
@@ -67,6 +77,12 @@ public class SaveDataInterface : MonoBehaviour
 
     public void SetPotionsDiscovered() { saveData.SetPotionsDiscovered(); }
 
+    public void UnlockCurentLevel() { saveData.UnlockCurrentLevel(); Debug.Log("AAAAAAAA"); }
+    public void UnlockNextLevel(string sceneName) { saveData.UnlockNextLevel(sceneName); }
+    public List<LevelSaveInfo> ReturnLevelData() { return saveData.ReturnLevelData(); }
+
     public void ResetData() { saveData.ResetIngredientAmountsData(); saveData.ResetUnlockedData(); }
     public void SaveAll() { SaveIngredientAmounts(); SavePotionData(); }
+    public void CommitUnlocksToJSON() { saveData.CommitUnlocksToJSON(); }
+    public UnlockData ReturnAllUnlockData() { return saveData.ReturnUnlockData(); }
 }

@@ -16,7 +16,7 @@ public class EnemyAI : MonoBehaviour
     [Header("Stopzone stuffs")]
     [SerializeField] float stopZoneMin = 3;
     [SerializeField] float stopZoneMax = 5;
-    [SerializeField] float stopZoneOffset = 0.5f;
+    //[SerializeField] float stopZoneOffset = 0.5f;
     [Header("Circling stuffs")]
     [SerializeField] bool circleInStopZone;
     [SerializeField] float distanceOfCanCircleCheck = 2; //find a better name for this
@@ -25,17 +25,13 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Movement things")]
     [SerializeField] float speed = 20f;
-    [SerializeField] float dodgeSpeed = 30f;
+    /*[SerializeField] float dodgeSpeed = 30f;
     [SerializeField] float timeBetweenDodges = 15f;
     [SerializeField] float durationOfDodge = 1f;
+    [SerializeField] bool canDodgeAttacks = true;*/
 
-    //variables for failed anti-jittering code
-    //[SerializeField] float dodgeSpeed = 10f;
-    //[SerializeField] float dodgeCooldown = 5f;
-    //[SerializeField] float avoidOtherEnemyDistance = 2;
     [SerializeField] bool agressiveEnemy = false;
-    bool cornered; //it would be funny if non-agressive enemies started sweating or something when they were cornered
-    [SerializeField] bool canDodgeAttacks = true;
+    //bool cornered; //unimplimented bool: it would be funny if non-agressive enemies started sweating or something when they were cornered
     [SerializeField] int[] sightBlockLayers;
     float distanceFromPlayer = Mathf.Infinity;
     bool playerRemembered = false;

@@ -102,7 +102,7 @@ public class SaveData : MonoBehaviour
     }
     public void SetPotionsDiscovered()
     {
-        if (unlockedData.potionsDiscovered.Count > 0 && FindObjectOfType<PotionRepository>())
+        if (FindObjectOfType<PotionRepository>() && unlockedData.potionsDiscovered.Count > 0)
         {
             if (unlockedData.potionsDiscovered != null)
             {
@@ -125,10 +125,15 @@ public class SaveData : MonoBehaviour
         {
             unlockedData.potionsDiscovered = FindObjectOfType<PotionRepository>().ReturnPotionsDiscoveredList();
         }
-        string potionDataJSON = JsonUtility.ToJson(unlockedData);
-        string filePath = Application.persistentDataPath + "/UnlockedData.json";
-        System.IO.File.WriteAllText(filePath, potionDataJSON);
     }
+
+    public void CommitUnlocksToJSON()
+    {
+        string unlockedDataJSON = JsonUtility.ToJson(unlockedData);
+        string filePath = Application.persistentDataPath + "/UnlockedData.json";
+        System.IO.File.WriteAllText(filePath, unlockedDataJSON);
+    }
+
     public void LoadUnlockedData()
     {
         string filePath = Application.persistentDataPath + "/UnlockedData.json";
@@ -177,12 +182,73 @@ public class SaveData : MonoBehaviour
         Debug.Log(filePath);
         Debug.Log("reset");
     }
+    public void UnlockNextLevel(string nextSceneName)
+    {
+        bool sceneInList = false;
+        int index = 0;
+        foreach (LevelSaveInfo currentData in unlockedData.levelData)
+        {
+            if (currentData.name == nextSceneName)
+            {
+                sceneInList = true;
+                break;
+            }
+            index++;
+        }
+        if (!sceneInList)
+        {
+            LevelSaveInfo newData = new LevelSaveInfo();
+            newData.name = nextSceneName;
+            newData.furthestCheckpoint = 0;
+            unlockedData.levelData.Add(newData);
+        }
+    }
+    public void UnlockCurrentLevel()
+    {
+        LevelSaveInfo newData = FindCurrentLevelData();
+        bool sceneInList = false;
+        int index = 0;
+        foreach(LevelSaveInfo currentData in unlockedData.levelData)
+        {
+            if(currentData.name == newData.name)
+            {
+                sceneInList = true;
+                break;
+            }
+            index++;
+        }
+        if (sceneInList)
+        {
+            //0 is a placeholder until i make the checkpoints save
+            unlockedData.levelData[index].furthestCheckpoint = 0;
+        }
+        else
+        {
+            unlockedData.levelData.Add(newData);
+        }
+        CommitUnlocksToJSON();
+    }
+    private LevelSaveInfo FindCurrentLevelData()
+    {
+        LevelSaveInfo levelData = new LevelSaveInfo();
+        levelData.name = FindObjectOfType<SceneManagement>().ReturnCurrentSceneName();
+        levelData.furthestCheckpoint = 0;
+        return levelData;
+    }
+    public List<LevelSaveInfo> ReturnLevelData()
+    {
+        return unlockedData.levelData;
+    }
+    public UnlockData ReturnUnlockData()
+    {
+        return unlockedData;
+    }
     public void ResetUnlockedData()
     {
         unlockedData = new UnlockData();
-        string potionDataJSON = JsonUtility.ToJson(unlockedData);
+        string unlockedDataJSON = JsonUtility.ToJson(unlockedData);
         string filePath = Application.persistentDataPath + "/UnlockedData.json";
-        System.IO.File.WriteAllText(filePath, potionDataJSON);
+        System.IO.File.WriteAllText(filePath, unlockedDataJSON);
     }
 }
 [System.Serializable]
@@ -195,4 +261,12 @@ public class UnlockData
 {
     public List<bool> ingredientsUnlocked;
     public List<bool> potionsDiscovered;
+    public List<LevelSaveInfo> levelData;
+    public bool madeItPastIntro = false;
+}
+[System.Serializable]
+public class LevelSaveInfo
+{
+    public string name;
+    public int furthestCheckpoint;
 }

@@ -53,6 +53,7 @@ public class CheckpointManager : MonoBehaviour
     {
         enemiesKilledSaved = new List<int>();
         ingredientsCollectedSaved = new List<int>();
+        checkpointPos = new Vector2();
     }
     public void FinalizeTempVars()
     {

@@ -8,11 +8,13 @@ public class MenuHandler : MonoBehaviour
 {
     [SerializeField] GameObject[] menus;
     [SerializeField] UnityEvent escapeButtonFunctionalities;
+    SaveDataInterface saveDataInterface;
     SceneManagement sceneManager;
     bool disableEscape = false;
     private void Start()
     {
         sceneManager = FindObjectOfType<SceneManagement>();
+        saveDataInterface = FindObjectOfType<SaveDataInterface>();
     }
     // Update is called once per frame
     void Update()
@@ -98,11 +100,11 @@ public class MenuHandler : MonoBehaviour
     {
         if(Time.timeScale == 0)
         {
-            Time.timeScale = 1;
+            UnpauseGame();
         }
         else
         {
-            Time.timeScale = 0;
+            PauseGame();
         }
     }
     public void DisableEscapeButton()
@@ -116,5 +118,9 @@ public class MenuHandler : MonoBehaviour
     public void ReloadScene()
     {
         sceneManager.ReloadScene();
+    }
+    public void SaveUnlocks()
+    {
+        saveDataInterface.CommitUnlocksToJSON();
     }
 }
