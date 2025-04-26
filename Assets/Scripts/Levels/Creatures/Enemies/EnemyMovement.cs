@@ -8,7 +8,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] GameObject aimGameObject;
-    [SerializeField] float rayOffset = 0.5f;
+    //[SerializeField] float bonusRayOffset = 0.5f;
     [SerializeField] LayerMask dontCircleWhenBetween;
     [HideInInspector]
     public Transform aimTransform;

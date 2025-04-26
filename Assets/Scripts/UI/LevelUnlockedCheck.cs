@@ -11,7 +11,7 @@ public class LevelUnlockedCheck : MonoBehaviour
     {
         saveData = FindObjectOfType<SaveDataInterface>();
         bool levelUnlocked = false;
-        foreach(LevelSaveInfo data in saveData.ReturnLevelData())
+        foreach(LevelSaveData data in saveData.ReturnLevelData())
         {
             if(data.name == sceneName)
             {

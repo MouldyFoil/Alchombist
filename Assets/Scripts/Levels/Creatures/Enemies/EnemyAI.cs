@@ -33,6 +33,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] bool agressiveEnemy = false;
     //bool cornered; //unimplimented bool: it would be funny if non-agressive enemies started sweating or something when they were cornered
     [SerializeField] int[] sightBlockLayers;
+    [SerializeField] float circleSwitchCooldownOnSightBlock = 1;
     float distanceFromPlayer = Mathf.Infinity;
     bool playerRemembered = false;
     bool isSwitchingDirection = false;
@@ -40,6 +41,7 @@ public class EnemyAI : MonoBehaviour
     EnemyMovement movement;
     EnemyAttackGeneral attack;
     FaceTowardsAim stareScript;
+    float blockedRecentlyTimer = 0;
     //EnemyAIMovement[] otherEnemies;
     // Start is called before the first frame update
     void Start()
@@ -63,6 +65,10 @@ public class EnemyAI : MonoBehaviour
         if (stareScript)
         {
             stareScript.enabled = playerRemembered;
+        }
+        if(blockedRecentlyTimer > 0)
+        {
+            blockedRecentlyTimer -= Time.deltaTime;
         }
     }
     private void MainAIThings()
@@ -92,6 +98,11 @@ public class EnemyAI : MonoBehaviour
         }
         if (ReturnIsBlocked())
         {
+            if (blockedRecentlyTimer <= 0)
+            {
+                circleClockwise = !circleClockwise;
+                blockedRecentlyTimer = circleSwitchCooldownOnSightBlock;
+            }
             forgetTimer -= Time.deltaTime;
             if(forgetTimer <= 0)
             {

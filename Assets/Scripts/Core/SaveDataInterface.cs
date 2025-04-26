@@ -77,9 +77,11 @@ public class SaveDataInterface : MonoBehaviour
 
     public void SetPotionsDiscovered() { saveData.SetPotionsDiscovered(); }
 
-    public void UnlockCurentLevel() { saveData.UnlockCurrentLevel(); Debug.Log("AAAAAAAA"); }
+    public void UnlockCurentLevel() { saveData.UnlockCurrentLevel(); }
     public void UnlockNextLevel(string sceneName) { saveData.UnlockNextLevel(sceneName); }
-    public List<LevelSaveInfo> ReturnLevelData() { return saveData.ReturnLevelData(); }
+    public List<LevelSaveData> ReturnLevelData() { return saveData.ReturnLevelData(); }
+    public LevelSaveData FindLevelDataByName(string sceneName) { return saveData.FindLevelDataByName(sceneName); }
+    public void AddCheckpointUnlocked( CheckpointData data ) { saveData.AddCheckpointUnlocked(FindObjectOfType<SceneManagement>().ReturnCurrentSceneName(), data); }
 
     public void ResetData() { saveData.ResetIngredientAmountsData(); saveData.ResetUnlockedData(); }
     public void SaveAll() { SaveIngredientAmounts(); SavePotionData(); }
