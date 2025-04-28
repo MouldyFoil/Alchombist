@@ -123,4 +123,8 @@ public class MenuHandler : MonoBehaviour
     {
         saveDataInterface.CommitUnlocksToJSON();
     }
+    public void ResetCheckpointStuff()
+    {
+        FindObjectOfType<CheckpointManager>().ResetLevelData();
+    }
 }

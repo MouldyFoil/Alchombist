@@ -305,9 +305,9 @@ GameObject:
   - component: {fileID: 103576421}
   - component: {fileID: 824399979}
   - component: {fileID: 824399980}
-  - component: {fileID: 824399977}
   - component: {fileID: 1684263116733730507}
   - component: {fileID: 8196001953362168712}
+  - component: {fileID: 5006223601870774474}
   m_Layer: 6
   m_Name: Pawn Goblin
   m_TagString: TargetableByPlayer
@@ -330,6 +330,7 @@ Transform:
   - {fileID: 6908437858705195860}
   - {fileID: 3665580234942916326}
   - {fileID: 402556339}
+  - {fileID: 7381876835351479031}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -346,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageParticles: {fileID: 7817549900335086630}
-  maxHealth: 8
+  maxHealth: 6
   deathEvent:
     m_PersistentCalls:
       m_Calls:
@@ -401,18 +402,14 @@ MonoBehaviour:
   forgetTime: 2
   stopZoneMin: 3
   stopZoneMax: 7
-  stopZoneOffset: 1
   circleInStopZone: 1
   distanceOfCanCircleCheck: 2
   minTimeToSwitchDirection: 0.5
   maxTimeToSwitchDirection: 2
   speed: 10
-  dodgeSpeed: 30
-  timeBetweenDodges: 15
-  durationOfDodge: 1
   agressiveEnemy: 1
-  canDodgeAttacks: 1
   sightBlockLayers: 09000000
+  circleSwitchCooldownOnSightBlock: 1
 --- !u!114 &1657985283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +423,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimGameObject: {fileID: 1617886830}
-  rayOffset: 0.5
   dontCircleWhenBetween:
     serializedVersion: 2
     m_Bits: 512
@@ -567,22 +563,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!70 &824399977
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6248280323844338216}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.2626028}
-  m_Size: {x: 1, y: 1.4747944}
-  m_Direction: 0
 --- !u!114 &1684263116733730507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -636,6 +616,79 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0
+--- !u!61 &5006223601870774474
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6248280323844338216}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.25136375}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.5027275}
+  m_EdgeRadius: 0
+--- !u!1 &7207480806069940345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7381876835351479031}
+  - component: {fileID: 2770122722050220607}
+  m_Layer: 11
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7381876835351479031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7207480806069940345}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.363, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6248280323844338218}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &2770122722050220607
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7207480806069940345}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0025014877, y: -0.2682073}
+  m_Size: {x: 0.49139214, y: 0.71650076}
+  m_Direction: 0
 --- !u!1 &8288933983872954249
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,7 +714,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8288933983872954249}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.65, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6248280323844338218}
@@ -718,7 +771,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1001 &2283252646673010542
 PrefabInstance:
   m_ObjectHideFlags: 0

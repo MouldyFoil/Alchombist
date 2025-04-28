@@ -144,7 +144,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &3769345046938843483
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageParticles: {fileID: 3782442583438336259}
-  maxHealth: 8
+  maxHealth: 6
   deathEvent:
     m_PersistentCalls:
       m_Calls:
@@ -472,18 +472,14 @@ MonoBehaviour:
   forgetTime: 2
   stopZoneMin: 4
   stopZoneMax: 7
-  stopZoneOffset: 0.5
   circleInStopZone: 1
   distanceOfCanCircleCheck: 2
   minTimeToSwitchDirection: 0.5
   maxTimeToSwitchDirection: 2
   speed: 7
-  dodgeSpeed: 30
-  timeBetweenDodges: 15
-  durationOfDodge: 1
   agressiveEnemy: 0
-  canDodgeAttacks: 1
   sightBlockLayers: 09000000
+  circleSwitchCooldownOnSightBlock: 1
 --- !u!114 &1657985283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,7 +493,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimGameObject: {fileID: 1617886830}
-  rayOffset: 0.5
   dontCircleWhenBetween:
     serializedVersion: 2
     m_Bits: 512

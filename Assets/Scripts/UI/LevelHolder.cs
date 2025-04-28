@@ -68,11 +68,15 @@ public class LevelHolder : MonoBehaviour
     }
     public void SendCheckpointInfoToManager()
     {
-        if(checkpointIndex >= 0)
+        CheckpointManager manager = FindObjectOfType<CheckpointManager>();
+        if (checkpointIndex >= 0)
         {
-            CheckpointManager manager = FindObjectOfType<CheckpointManager>();
             manager.SetCheckpointName(checkpoints[checkpointIndex].name);
             manager.UseDefaultCheckpointCompletionVars();
+        }
+        else
+        {
+            manager.SetCheckpointName("");
         }
     }
 }
