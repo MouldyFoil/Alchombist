@@ -14,10 +14,12 @@ public class DialogueTyper : MonoBehaviour
     [SerializeField] DialogueObject[] dialogueObjects;
     [SerializeField] bool canSkip;
     [SerializeField] bool externalNextPageActivation;
-    [SerializeField] bool automaticallyFlipPage = false;
+    [SerializeField] bool instantlyFlipPage = false;
     [SerializeField] float removeLineSpeed = 0.1f;
     [Header("Leave sound transform empty if player exists.")]
     [SerializeField] Transform soundTransform;
+    [SerializeField] bool autoContinue = false;
+    [SerializeField] float autoFlipTime = 20;
     Transform playerTransform;
     SFXManager sfx;
     int currentIndex = 0;
@@ -41,7 +43,7 @@ public class DialogueTyper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(nextInput))
+        if (nextInput != "" && Input.GetKeyDown(nextInput))
         {
             if (finishedDialogue == true && externalNextPageActivation == false)
             {
@@ -195,11 +197,20 @@ public class DialogueTyper : MonoBehaviour
         else
         {
             finishedDialogue = true;
-            if (automaticallyFlipPage)
+            if (instantlyFlipPage)
             {
                 OpenNextPage();
             }
         }
+        if (autoContinue)
+        {
+            StartCoroutine(AutoFlip());
+        }
+    }
+    IEnumerator AutoFlip()
+    {
+        yield return new WaitForSeconds(autoFlipTime);
+        OpenNextPage();
     }
     public void OpenNextPage()
     {

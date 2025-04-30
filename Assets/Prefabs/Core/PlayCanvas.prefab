@@ -2792,7 +2792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.3254902}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.20392157}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2972,9 +2972,11 @@ MonoBehaviour:
     endEventOccured: 0
   canSkip: 1
   externalNextPageActivation: 0
-  automaticallyFlipPage: 0
+  instantlyFlipPage: 0
   removeLineSpeed: 0.1
   soundTransform: {fileID: 0}
+  autoContinue: 0
+  autoFlipTime: 20
 --- !u!1 &59742766531328513
 GameObject:
   m_ObjectHideFlags: 0
