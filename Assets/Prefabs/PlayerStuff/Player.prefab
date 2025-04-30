@@ -20085,6 +20085,10 @@ MonoBehaviour:
   - {fileID: 1211771687}
   - {fileID: 8641019845267172481}
   - {fileID: 6218809800617368574}
+  aimNames:
+  - Auto
+  - Move
+  - Mouse
   aimText: {fileID: 0}
 --- !u!114 &1211771687
 MonoBehaviour:

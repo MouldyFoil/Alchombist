@@ -10,6 +10,7 @@ public class PlayerAimMain : MonoBehaviour
     public Transform marker;
     [SerializeField] string input = "g";
     [SerializeField] MonoBehaviour[] aimScripts;
+    [SerializeField] string[] aimNames;
     [SerializeField] TextMeshProUGUI aimText;
     bool allowSwitching = true;
     int currentAimMode = 0;
@@ -18,6 +19,7 @@ public class PlayerAimMain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetKeyDown(input) && allowSwitching)
         {
             NextAimMode();
@@ -74,12 +76,20 @@ public class PlayerAimMain : MonoBehaviour
             }
             index++;
         }
+        UpdateAimText();
     }
     private void AimAtMarker()
     {
         aimDirection = marker.position - transform.position;
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         aimTransform.eulerAngles = new Vector3(0, 0, angle);
+    }
+    private void UpdateAimText()
+    {
+        if (aimText)
+        {
+            aimText.text = aimNames[currentAimMode];
+        }
     }
     public void SetMarkerVisibility(bool status)
     {
