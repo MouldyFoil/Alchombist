@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Checkpoint : MonoBehaviour
 {
     public CheckpointData checkpointData;
     [SerializeField] List<EnemyKilledUpdater> enemiesKilledDefault = new List<EnemyKilledUpdater>();
     [SerializeField] List<GameObject> checksCompletedDefault;
+    [SerializeField] UnityEvent spawnAtCheckpointEvent;
     CheckpointManager checkpointManager;
     SaveDataInterface saveData;
     // Start is called before the first frame update

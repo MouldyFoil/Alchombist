@@ -6,6 +6,7 @@ public class ParryScript : MonoBehaviour
 {
     public Color[] parryTypes;
     [SerializeField] float parryTime = 0.2f;
+    [SerializeField] float parryRefreshTimeOnSuccess = 0.3f;
     [SerializeField] float hitstunTime = 0.2f;
     SpriteRenderer sprite;
     int currentParryType;
@@ -38,7 +39,7 @@ public class ParryScript : MonoBehaviour
     public void ParrySuccessFX()
     {
         StartCoroutine(FX());
-        parryClock = parryTime * 2;
+        parryClock = parryRefreshTimeOnSuccess;
     }
     private IEnumerator FX()
     {
