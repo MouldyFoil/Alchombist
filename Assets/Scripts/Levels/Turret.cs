@@ -11,6 +11,7 @@ public class Turret : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] float activationDistance = 10;
     [SerializeField] float parryIndicatorTime = 0.1f;
+    public bool activateOverride;
     float parryIndicateClock;
     float attackClock;
     GameObject player;
@@ -28,6 +29,11 @@ public class Turret : MonoBehaviour
         IndicateParry();
         distanceFromPlayer = Vector3.Distance(player.transform.position, transform.position);
         if (distanceFromPlayer <= activationDistance && attackClock <= 0)
+        {
+            parryIndicateClock = parryIndicatorTime;
+            Shoot();
+        }
+        else if (activateOverride && attackClock <= 0)
         {
             parryIndicateClock = parryIndicatorTime;
             Shoot();

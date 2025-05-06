@@ -77,8 +77,8 @@ MonoBehaviour:
     discovered: 0
     discoverOnCreate: 0
   - name: Potion Of Fire
-    description: Creates a burning circle that sets things on fire. Appears after
-      1 second, lasts 2.
+    description: Creates a burning circle that sets things on fire. The circle lasts
+      for 2 seconds and there can only be one active.
     prefab: {fileID: 2339230639211983268, guid: 82b399d30a1ceb64e867a3a03f979215, type: 3}
     spriteInBook: {fileID: 21300000, guid: b78d9b0c42593f445b27d659aabb98ce, type: 3}
     ingredientCombo: 2112
