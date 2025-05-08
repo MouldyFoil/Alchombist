@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class Turret : MonoBehaviour
 {
@@ -11,7 +12,11 @@ public class Turret : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] float activationDistance = 10;
     [SerializeField] float parryIndicatorTime = 0.1f;
+    [SerializeField] string[] ignoreTags;
+    [SerializeField] float blockedCheckDistance = 1;
+    [HideInInspector]
     public bool activateOverride;
+    bool blockedByPlayerObject;
     float parryIndicateClock;
     float attackClock;
     GameObject player;
@@ -28,16 +33,20 @@ public class Turret : MonoBehaviour
         HandleAttackCooldown();
         IndicateParry();
         distanceFromPlayer = Vector3.Distance(player.transform.position, transform.position);
-        if (distanceFromPlayer <= activationDistance && attackClock <= 0)
+        if(distanceFromPlayer <= activationDistance && !BlockedByObjectCheck())
         {
-            parryIndicateClock = parryIndicatorTime;
-            Shoot();
+            if (attackClock <= 0)
+            {
+                parryIndicateClock = parryIndicatorTime;
+                Shoot();
+            }
+            else if (activateOverride && attackClock <= 0)
+            {
+                parryIndicateClock = parryIndicatorTime;
+                Shoot();
+            }
         }
-        else if (activateOverride && attackClock <= 0)
-        {
-            parryIndicateClock = parryIndicatorTime;
-            Shoot();
-        }
+        Debug.Log(BlockedByObjectCheck());
     }
 
     private void Shoot()
@@ -60,5 +69,17 @@ public class Turret : MonoBehaviour
         {
             attackClock -= Time.deltaTime;
         }
+    }
+    private bool BlockedByObjectCheck()
+    {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, -transform.right, blockedCheckDistance);
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.collider.CompareTag("PlayerObject"))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

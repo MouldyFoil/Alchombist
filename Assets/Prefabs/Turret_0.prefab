@@ -124,6 +124,9 @@ MonoBehaviour:
   projectile: {fileID: 537828859312606276, guid: ba277b51ddc4a9d4fa2a5f35390c2362, type: 3}
   activationDistance: 10
   parryIndicatorTime: 0.05
+  ignoreTags: []
+  blockedCheckDistance: 1
+  activateOverride: 0
 --- !u!61 &6862209553995217977
 BoxCollider2D:
   m_ObjectHideFlags: 0
