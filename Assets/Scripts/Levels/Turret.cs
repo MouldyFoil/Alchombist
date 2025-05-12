@@ -46,7 +46,6 @@ public class Turret : MonoBehaviour
                 Shoot();
             }
         }
-        Debug.Log(BlockedByObjectCheck());
     }
 
     private void Shoot()

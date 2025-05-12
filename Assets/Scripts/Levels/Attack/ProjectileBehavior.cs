@@ -22,7 +22,6 @@ public class ProjectileBehavior : MonoBehaviour
     [SerializeField] float sideSpeedCorrectionAcceleration = 50f;
     [Header("Piercing projectiles")]
     [SerializeField] string[] persistThroughTags;
-    [SerializeField] bool persistThroughBeings = false;
     [SerializeField] float hitCooldown = 0.5f;
     [Header("Audio")]
     [SerializeField] float volume = 1;

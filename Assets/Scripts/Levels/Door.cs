@@ -11,12 +11,12 @@ public class Door : MonoBehaviour
     [SerializeField] float boundingBoxExtention = 2;
     SpriteRenderer spriteRenderer;
     Sprite closedSprite;
-    Collider2D collider;
+    Collider2D doorCollider;
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         closedSprite = spriteRenderer.sprite;
-        collider = GetComponent<Collider2D>();
+        doorCollider = GetComponent<Collider2D>();
     }
     private void Update()
     {
@@ -38,6 +38,6 @@ public class Door : MonoBehaviour
     {
         AstarPath.active.UpdateGraphs
         (new Bounds(transform.position,
-        new Vector3(collider.bounds.extents.x + boundingBoxExtention, collider.bounds.extents.y + boundingBoxExtention, collider.bounds.extents.z + boundingBoxExtention)));
+        new Vector3(doorCollider.bounds.extents.x + boundingBoxExtention, doorCollider.bounds.extents.y + boundingBoxExtention, doorCollider.bounds.extents.z + boundingBoxExtention)));
     }
 }

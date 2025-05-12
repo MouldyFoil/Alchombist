@@ -53,6 +53,7 @@ public class CheckpointManager : MonoBehaviour
         {
             player = FindObjectOfType<PlayerMovement>().gameObject;
             player.transform.position = currentCheckpoint.transform.position;
+            currentCheckpoint.InvokeSpawnEvent();
         }
         if (currentCheckpoint && useDefault)
         {

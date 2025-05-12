@@ -33,4 +33,5 @@ public class Checkpoint : MonoBehaviour
         }
         return enemyIDList;
     }
+    public void InvokeSpawnEvent() { spawnAtCheckpointEvent.Invoke(); }
 }
