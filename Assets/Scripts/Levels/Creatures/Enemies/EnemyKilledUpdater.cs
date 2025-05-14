@@ -11,17 +11,6 @@ public class EnemyKilledUpdater : MonoBehaviour
     void Start()
     {
         checkpointManager = FindObjectOfType<CheckpointManager>();
-        if(checkpointManager.ReturnSavedEnemiesKilled() != null)
-        {
-            foreach (int index in checkpointManager.ReturnSavedEnemiesKilled())
-            {
-                if (index == ID)
-                {
-                    Destroy(gameObject);
-                    return;
-                }
-            }
-        }
     }
     // Update is called once per frame
     void Update()

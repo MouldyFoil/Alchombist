@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1271253548067218615}
   - component: {fileID: 397934030599792201}
   - component: {fileID: 5428158771248120229}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Checkpoint
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,6 +117,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dafdb4c115455c54eb6d7a35d9c9db7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkpointData:
+    name: 
+    orderInLevel: 0
+  enemiesKilledDefault: []
+  checksCompletedDefault: []
+  spawnAtCheckpointEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &5428158771248120229
 BoxCollider2D:
   m_ObjectHideFlags: 0

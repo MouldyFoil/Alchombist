@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: enemyToSpawn
       value: 
       objectReference: {fileID: 7369861885972575398}
+    - target: {fileID: 8676961417226083221, guid: 01ad5ef5cc30dc043bfd8e4bb88bd7af, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01ad5ef5cc30dc043bfd8e4bb88bd7af, type: 3}
 --- !u!4 &2276103321396732054 stripped
@@ -77,6 +81,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2276103321396732054}
     m_Modifications:
+    - target: {fileID: 1657985282, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
+      propertyPath: detectDistance
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6248280323844338216, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
       propertyPath: m_Name
       value: Pawn Goblin
@@ -128,6 +136,10 @@ PrefabInstance:
     - target: {fileID: 6248280323844338218, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8196001953362168712, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}
+      propertyPath: ID
+      value: 252050
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8a6141f6f811e14a8c0759ac2fbbe20, type: 3}

@@ -12,6 +12,7 @@ TagManager:
   - PlayerAim
   - Parry
   - PlayerObject
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

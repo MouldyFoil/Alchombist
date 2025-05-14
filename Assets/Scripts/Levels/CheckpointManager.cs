@@ -60,6 +60,7 @@ public class CheckpointManager : MonoBehaviour
             enemiesKilledSaved = currentCheckpoint.ReturnDefaultEnemiesKilledIDs();
             useDefault = false;
         }
+        DestroyEnemiesKilled();
         ResetTempData();
     }
     private void FindCurrentCheckpoint()
@@ -69,6 +70,19 @@ public class CheckpointManager : MonoBehaviour
             if (checkpoint.checkpointData.name == currentCheckpointName)
             {
                 currentCheckpoint = checkpoint;
+            }
+        }
+    }
+    private void DestroyEnemiesKilled()
+    {
+        foreach(EnemyKilledUpdater enemy in FindObjectsOfType<EnemyKilledUpdater>())
+        {
+            foreach(int ID in enemiesKilledSaved)
+            {
+                if(ID == enemy.ID)
+                {
+                    Destroy(enemy.gameObject);
+                }
             }
         }
     }

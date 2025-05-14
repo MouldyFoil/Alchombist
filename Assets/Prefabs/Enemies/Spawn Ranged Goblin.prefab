@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8939239993801235420}
     m_Modifications:
+    - target: {fileID: 1657985282, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
+      propertyPath: detectDistance
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786458781900367191, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
+      propertyPath: ID
+      value: 337198
+      objectReference: {fileID: 0}
     - target: {fileID: 6248280323844338216, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
       propertyPath: m_Name
       value: Ranged Enemy
@@ -133,6 +141,10 @@ PrefabInstance:
       propertyPath: enemyToSpawn
       value: 
       objectReference: {fileID: 6581760284479033884}
+    - target: {fileID: 8676961417226083221, guid: 01ad5ef5cc30dc043bfd8e4bb88bd7af, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01ad5ef5cc30dc043bfd8e4bb88bd7af, type: 3}
 --- !u!4 &8939239993801235420 stripped
