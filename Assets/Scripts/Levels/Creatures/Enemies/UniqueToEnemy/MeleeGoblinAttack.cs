@@ -22,7 +22,6 @@ public class MeleeGoblinAttack : MonoBehaviour
 
     public void AttackBehavior()
     {
-        Debug.Log("attacked");
         movement.Dash(dashSpeed);
         sprite.enabled = false;
         movement.ToggleAim(false);
