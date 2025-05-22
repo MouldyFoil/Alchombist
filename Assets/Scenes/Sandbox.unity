@@ -2175,6 +2175,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6248280323844338218, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
   m_PrefabInstance: {fileID: 1050805506}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &606647810 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5042728284090407753, guid: 039d7e49d17ed5144b7d81bfb8355f04, type: 3}
+  m_PrefabInstance: {fileID: 1814467480}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &617944481
 GameObject:
   m_ObjectHideFlags: 0
@@ -94780,6 +94791,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3353473673975107387, guid: d64ff964ae8a4214db057923a8338581, type: 3}
+      propertyPath: aimText
+      value: 
+      objectReference: {fileID: 606647810}
     - target: {fileID: 6532842302896543114, guid: d64ff964ae8a4214db057923a8338581, type: 3}
       propertyPath: hitStunUI
       value: 

@@ -12,9 +12,12 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach(GameObject page in pages)
+        if(pages != null)
         {
-            page.GetComponent<DialogueTyper>().SetNextKey(nextKey);
+            foreach (GameObject page in pages)
+            {
+                page.GetComponent<DialogueTyper>().SetNextKey(nextKey);
+            }
         }
     }
 

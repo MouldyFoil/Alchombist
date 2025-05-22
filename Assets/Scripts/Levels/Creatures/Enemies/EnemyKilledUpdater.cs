@@ -19,7 +19,10 @@ public class EnemyKilledUpdater : MonoBehaviour
     }
     public void UpdateWasKilled()
     {
-        checkpointManager.currentEnemiesKilled.Add(ID);
+        if (checkpointManager)
+        {
+            checkpointManager.currentEnemiesKilled.Add(ID);
+        }
     }
     private void OnValidate()
     {
