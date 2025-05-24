@@ -660,7 +660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minAttackCooldown: 2
-  maxAttackCooldown: 7
+  maxAttackCooldown: 4
   chargeUpTime: 1
   backAwayDuringChargeUp: 1
   backAwaySpeed: 2
@@ -833,7 +833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f6bb949e30d3d4b93817394f981ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 821871
 --- !u!61 &5006223601870774474
 BoxCollider2D:
   m_ObjectHideFlags: 0

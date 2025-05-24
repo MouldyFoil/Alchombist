@@ -125,6 +125,9 @@ public class MenuHandler : MonoBehaviour
     }
     public void ResetCheckpointStuff()
     {
-        FindObjectOfType<CheckpointManager>().ResetLevelData();
+        if (FindObjectOfType<CheckpointManager>())
+        {
+            FindObjectOfType<CheckpointManager>().ResetLevelData();
+        }
     }
 }

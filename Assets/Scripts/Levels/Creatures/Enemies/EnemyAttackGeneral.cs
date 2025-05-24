@@ -28,6 +28,7 @@ public class EnemyAttackGeneral : MonoBehaviour
     {
         AI = GetComponent<EnemyAI>();
         movement = GetComponent<EnemyMovement>();
+        StartCooldown();
     }
 
     // Update is called once per frame

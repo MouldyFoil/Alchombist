@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
     int tempHealth;
     int health;
     bool player = false;
+    bool alreadyDied = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -102,17 +103,21 @@ public class Health : MonoBehaviour
     }
     public void Die()
     {
-        deathEvent.Invoke();
-        if(player == false)
+        if (!alreadyDied)
         {
-            Destroy(gameObject);
-        }
-        else
-        {
-            MenuHandler menuHandler = FindObjectOfType<MenuHandler>();
-            menuHandler.DisableEscapeButton();
-            menuHandler.SwitchMenu("Death");
-            menuHandler.PauseGame();
+            alreadyDied = true;
+            deathEvent.Invoke();
+            if (player == false)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                MenuHandler menuHandler = FindObjectOfType<MenuHandler>();
+                menuHandler.DisableEscapeButton();
+                menuHandler.SwitchMenu("Death");
+                menuHandler.PauseGame();
+            }
         }
     }
 }

@@ -7,16 +7,19 @@ using System;
 
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] pages;
+    [SerializeField] List<GameObject> pages = new List<GameObject>();
     [SerializeField] string nextKey = "space";
     // Start is called before the first frame update
     void Start()
     {
-        if(pages != null)
+        if(pages != null && pages.Count > 0)
         {
             foreach (GameObject page in pages)
             {
-                page.GetComponent<DialogueTyper>().SetNextKey(nextKey);
+                if(page != null)
+                {
+                    page.GetComponent<DialogueTyper>().SetNextKey(nextKey);
+                }
             }
         }
     }

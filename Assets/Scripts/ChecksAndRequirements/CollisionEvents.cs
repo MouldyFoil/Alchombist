@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class CollisionEvents : MonoBehaviour
 {
     [SerializeField] UnityEvent collisionEvent;
+    [Header("Tags array is a whitelist")]
     [SerializeField] string[] tags;
     [SerializeField] bool oneTimeCheck = false;
     bool activated;

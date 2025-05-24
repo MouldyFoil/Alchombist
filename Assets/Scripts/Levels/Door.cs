@@ -9,6 +9,7 @@ public class Door : MonoBehaviour
     [SerializeField] bool exactChange;
     [SerializeField] Sprite openedSprite;
     [SerializeField] float boundingBoxExtention = 2;
+    [SerializeField] bool startOpened = false;
     SpriteRenderer spriteRenderer;
     Sprite closedSprite;
     Collider2D doorCollider;
@@ -17,6 +18,10 @@ public class Door : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         closedSprite = spriteRenderer.sprite;
         doorCollider = GetComponent<Collider2D>();
+        if (startOpened)
+        {
+            OpenDoor();
+        }
     }
     private void Update()
     {
@@ -24,7 +29,15 @@ public class Door : MonoBehaviour
     }
     public void OpenDoor()
     {
-        spriteRenderer.sprite = openedSprite;
+        if (spriteRenderer)
+        {
+            spriteRenderer.sprite = openedSprite;
+        }
+        else
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = openedSprite;
+        }
         GetComponent<Collider2D>().enabled = false;
         UpdatePathFinding();
     }
