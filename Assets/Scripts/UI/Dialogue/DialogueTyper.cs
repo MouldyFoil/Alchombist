@@ -20,6 +20,8 @@ public class DialogueTyper : MonoBehaviour
     [SerializeField] Transform soundTransform;
     [SerializeField] bool autoContinue = false;
     [SerializeField] float autoFlipTime = 20;
+    float flipTimer;
+    bool finishedPage = false;
     Transform playerTransform;
     SFXManager sfx;
     int currentIndex = 0;
@@ -34,6 +36,7 @@ public class DialogueTyper : MonoBehaviour
     }
     private void Awake()
     {
+        flipTimer = autoFlipTime;
         sfx = FindObjectOfType<SFXManager>();
         if (FindObjectOfType<PlayerMovement>())
         {
@@ -52,6 +55,14 @@ public class DialogueTyper : MonoBehaviour
             else if (canSkip == true)
             {
                 SkipDialogue();
+            }
+        }
+        if (finishedPage)
+        {
+            flipTimer -= Time.deltaTime;
+            if(flipTimer <= 0)
+            {
+                OpenNextPage();
             }
         }
     }
@@ -204,13 +215,8 @@ public class DialogueTyper : MonoBehaviour
         }
         if (autoContinue)
         {
-            StartCoroutine(AutoFlip());
+            finishedPage = true;
         }
-    }
-    IEnumerator AutoFlip()
-    {
-        yield return new WaitForSeconds(autoFlipTime);
-        OpenNextPage();
     }
     public void OpenNextPage()
     {

@@ -1453,7 +1453,19 @@ MonoBehaviour:
   nextPage: {fileID: 0}
   flipPageEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1460473086}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   dialogueObjects:
   - startDelay: 0
     startEvent:
@@ -1502,7 +1514,7 @@ MonoBehaviour:
     objectInQuestion: {fileID: 1460473086}
     waitBetweenCharacters: 0.02
     text: '!?!?!??!?!'
-    endDelay: 0.1
+    endDelay: 0
     endEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -1516,8 +1528,8 @@ MonoBehaviour:
   instantlyFlipPage: 0
   removeLineSpeed: 0.1
   soundTransform: {fileID: 0}
-  autoContinue: 0
-  autoFlipTime: 8
+  autoContinue: 1
+  autoFlipTime: 5
 --- !u!4 &199255929
 Transform:
   m_ObjectHideFlags: 0
@@ -3590,7 +3602,7 @@ MonoBehaviour:
         m_CallState: 2
   tags:
   - Player
-  oneTimeCheck: 0
+  oneTimeCheck: 1
 --- !u!61 &513130256
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6198,6 +6210,77 @@ MonoBehaviour:
   undoEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &985288068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6988380368618764141, guid: 91bf78b924a3a904aac82b9f93c4878a, type: 3}
+  m_PrefabInstance: {fileID: 1868718701}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &985288069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985288068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8155c29758ca46f4c8f1fc054044a686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2074376950}
+        m_TargetAssemblyTypeName: Door, Assembly-CSharp
+        m_MethodName: CloseDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1677653743}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2009974875}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1364846492724003102}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: OpenDialoguePage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: NO HEED WARNING
+          m_BoolArgument: 1
+        m_CallState: 2
+  tags:
+  - Player
+  oneTimeCheck: 1
 --- !u!1 &1003717835 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7529179622377545840, guid: c1d49507aba2f5041b7cdf6709f7b21a, type: 3}
@@ -9824,7 +9907,19 @@ MonoBehaviour:
   nextPage: {fileID: 0}
   flipPageEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1460473086}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   dialogueObjects:
   - startDelay: 0
     startEvent:
@@ -9875,8 +9970,8 @@ MonoBehaviour:
   instantlyFlipPage: 0
   removeLineSpeed: 0.1
   soundTransform: {fileID: 0}
-  autoContinue: 0
-  autoFlipTime: 8
+  autoContinue: 1
+  autoFlipTime: 5
 --- !u!4 &1115431419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8454058042846625652, guid: ba2425047aa6b8d429bf9fce5a47dbc8, type: 3}
@@ -96551,7 +96646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7646339936811806040, guid: 91bf78b924a3a904aac82b9f93c4878a, type: 3}
       propertyPath: pressEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7646339936811806040, guid: 91bf78b924a3a904aac82b9f93c4878a, type: 3}
       propertyPath: startEvent.m_PersistentCalls.m_Calls.Array.size
