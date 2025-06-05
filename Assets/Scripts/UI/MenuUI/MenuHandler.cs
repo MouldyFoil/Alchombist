@@ -130,4 +130,8 @@ public class MenuHandler : MonoBehaviour
             FindObjectOfType<CheckpointManager>().ResetLevelData();
         }
     }
+    public void SetNextScene(string name)
+    {
+        sceneManager.SetSavedScene(name);
+    }
 }
