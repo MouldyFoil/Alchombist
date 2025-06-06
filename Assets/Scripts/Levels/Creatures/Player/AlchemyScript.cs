@@ -54,35 +54,37 @@ public class AlchemyScript : MonoBehaviour
 
     private void DetermineIngredient()
     {
+        /*int index = 0;
+        foreach(Ingredient ingredient in ingredientRepository.ReturnIngredients())
+        {
+            if(ingredientRepository.ReturnIngredient(index).unlocked && Input.GetKeyDown(ingredientRepository.ReturnIngredient(index).input))
+            {
+                AddIngredient(index);
+            }
+        }*/
         if (ingredientRepository.ReturnIngredient(1).unlocked && Input.GetKeyDown(ingredientRepository.ReturnIngredient(0).input))
         {
             AddIngredient(0);
-            ingredientParticles[0].Play();
         }
         if (ingredientRepository.ReturnIngredient(1).unlocked && Input.GetKeyDown(ingredientRepository.ReturnIngredient(1).input))
         {
             AddIngredient(1);
-            ingredientParticles[1].Play();
         }
         if (ingredientRepository.ReturnIngredient(2).unlocked && Input.GetKeyDown(ingredientRepository.ReturnIngredient(2).input))
         {
             AddIngredient(2);
-            ingredientParticles[2].Play();
         }
         if (ingredientRepository.ReturnIngredient(3).unlocked && Input.GetKeyDown(ingredientRepository.ReturnIngredient(3).input))
         {
             AddIngredient(3);
-            ingredientParticles[3].Play();
         }
         if (ingredientRepository.ReturnIngredient(4).unlocked && Input.GetKeyDown(ingredientRepository.ReturnIngredient(4).input))
         {
             AddIngredient(4);
-            ingredientParticles[4].Play();
         }
         if (ingredientRepository.ReturnIngredient(5).unlocked && Input.GetKeyDown(ingredientRepository.ReturnIngredient(5).input))
         {
             AddIngredient(5);
-            ingredientParticles[5].Play();
         }
     }
 
@@ -113,6 +115,7 @@ public class AlchemyScript : MonoBehaviour
         currentSlot++;
         soundManager.PlayAudioClip(ingredientSFX[index], transform, volume);
         activeIngredientUI.UpdateIngredientUI();
+        ingredientParticles[index].Play();
     }
     private void MakePotion()
     {
