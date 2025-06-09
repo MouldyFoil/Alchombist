@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SaveNextScene : MonoBehaviour
 {
     public string sceneName;
-    List<string> otherVars = new List<string>();
+    public List<string> otherVars = new List<string>();
     private void Awake()
     {
         DontDestroyOnLoad(this);

@@ -32,6 +32,10 @@ public class SceneManagement : MonoBehaviour
     {
         FindObjectOfType<SaveNextScene>().sceneName = name;
     }
+    public void AddExtraVar(string name)
+    {
+        FindObjectOfType<SaveNextScene>().AddSavedVar(name);
+    }
     public void ReloadScene()
     {
         Scene scene = SceneManager.GetActiveScene();

@@ -9,6 +9,7 @@ public class Checkpoint : MonoBehaviour
     [SerializeField] List<EnemyKilledUpdater> enemiesKilledDefault = new List<EnemyKilledUpdater>();
     [SerializeField] List<GameObject> checksCompletedDefault;
     [SerializeField] UnityEvent spawnAtCheckpointEvent;
+    [SerializeField] ParticleSystem particles;
     CheckpointManager checkpointManager;
     SaveDataInterface saveData;
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class Checkpoint : MonoBehaviour
         checkpointManager.FinalizeTempVars();
         checkpointManager.SetCheckpointName(checkpointData.name);
         saveData.AddCheckpointUnlocked(checkpointData);
+        particles.Play();
     }
     public string ReturnName() { return name; }
     public List<int> ReturnDefaultEnemiesKilledIDs()
