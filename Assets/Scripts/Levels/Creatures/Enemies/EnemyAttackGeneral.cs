@@ -18,6 +18,7 @@ public class EnemyAttackGeneral : MonoBehaviour
     [SerializeField] GameObject attackIndicator;
     [SerializeField] float indicatorTime = 0.5f;
     [SerializeField] bool attackRangeOverride = false;
+    [SerializeField] bool stunOnAttack = true;
     float indicatorClock;
     bool charging;
     bool canAttack = true;
@@ -63,8 +64,7 @@ public class EnemyAttackGeneral : MonoBehaviour
             {
                 chargeTimePrime = chargeUpTime;
                 charging = true;
-                AI.enabled = false;
-                movement.TogglePathfinding(false);
+                Stun();
             }
         }
         else if(attackRangeOverride && AI == true && AI.ReturnPlayerRemembered() && AI.ReturnIsBlocked() == false)
@@ -73,11 +73,20 @@ public class EnemyAttackGeneral : MonoBehaviour
             {
                 chargeTimePrime = chargeUpTime;
                 charging = true;
-                AI.enabled = false;
-                movement.TogglePathfinding(false);
+                Stun();
             }
         }
     }
+
+    private void Stun()
+    {
+        if (stunOnAttack)
+        {
+            AI.enabled = false;
+            movement.TogglePathfinding(false);
+        }
+    }
+
     public void IndicateParry()
     {
         indicatorClock = indicatorTime;
@@ -87,5 +96,6 @@ public class EnemyAttackGeneral : MonoBehaviour
         cooldown = Random.Range(minAttackCooldown, maxAttackCooldown);
         AI.enabled = true;
         canAttack = true;
+        movement.enabled = true;
     }
 }

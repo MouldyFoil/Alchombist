@@ -145,6 +145,10 @@ public class EnemyAI : MonoBehaviour
             {
                 HandleCircling();
             }
+            else
+            {
+                movement.ResetVelocity();
+            }
         }
         if (distanceFromPlayer < stopZoneMin)
         {
