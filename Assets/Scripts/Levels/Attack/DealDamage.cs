@@ -43,7 +43,6 @@ public class DealDamage : MonoBehaviour
                 if (parryScript != null && parryScript.ReturnParryActive() && parryScript.ReturnParryType() == parryType)
                 {
                     collision.GetComponent<Health>().AddOrRemoveGeneralHealth(parryHeal);
-                    rb.velocity = -rb.velocity;
                     aim.eulerAngles = new Vector3(aim.eulerAngles.x, aim.eulerAngles.y, aim.eulerAngles.z + 180);
                     parryScript.ParrySuccessFX();
                     parryEvent.Invoke();
@@ -54,5 +53,15 @@ public class DealDamage : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ReverseVelocity()
+    {
+        rb.velocity = -rb.velocity;
+    }
+
+    public void SetParryType(int type)
+    {
+        parryType = type;
     }
 }

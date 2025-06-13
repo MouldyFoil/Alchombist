@@ -72,7 +72,6 @@ public class PlayerAutoAim : MonoBehaviour
         {
             if (hit.collider.CompareTag("TargetableByPlayer"))
             {
-                Debug.Log(hit);
                 return false;
             }
             bool ignoreObject = CheckIgnoreTag(hit.collider.gameObject.tag);

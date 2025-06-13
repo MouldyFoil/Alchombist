@@ -14,6 +14,7 @@ public class ParryScript : MonoBehaviour
     [SerializeField] GameObject hitStunUI;
     [SerializeField] AudioClip parrySound;
     [SerializeField] float parryVolume = 0.5f;
+    [SerializeField] float hitstunSlow = 0.01f;
     SFXManager sfx;
     private void Start()
     {
@@ -38,12 +39,13 @@ public class ParryScript : MonoBehaviour
     }
     public void ParrySuccessFX()
     {
+        StopCoroutine(FX());
         StartCoroutine(FX());
         parryClock = parryRefreshTimeOnSuccess;
     }
     private IEnumerator FX()
     {
-        Time.timeScale = 0;
+        Time.timeScale = hitstunSlow;
         hitStunUI.SetActive(true);
         if(parrySound != null)
         {

@@ -278,13 +278,13 @@ MonoBehaviour:
   chaseDistance: 35
   minPathDistance: 15
   forgetTime: 2
-  stopZoneMin: 10
-  stopZoneMax: 15
+  stopZoneMin: 8
+  stopZoneMax: 10
   circleInStopZone: 0
   distanceOfCanCircleCheck: 2
   minTimeToSwitchDirection: 0.5
   maxTimeToSwitchDirection: 2
-  speed: 7
+  speed: 5
   agressiveEnemy: 0
   sightBlockLayers: 09000000
   circleSwitchCooldownOnSightBlock: 1
@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f6bb949e30d3d4b93817394f981ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 47003
+  ID: 557422
 --- !u!1 &4974618642438149804
 GameObject:
   m_ObjectHideFlags: 0

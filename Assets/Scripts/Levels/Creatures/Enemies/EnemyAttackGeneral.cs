@@ -53,7 +53,10 @@ public class EnemyAttackGeneral : MonoBehaviour
         {
             indicatorClock -= Time.deltaTime;
         }
-        attackIndicator.SetActive(indicatorClock > 0);
+        if (attackIndicator)
+        {
+            attackIndicator.SetActive(indicatorClock > 0);
+        }
         if (cooldown > 0)
         {
             cooldown -= Time.deltaTime;

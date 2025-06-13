@@ -102,7 +102,7 @@ public class SaveData : MonoBehaviour
     }
     public void SetPotionsDiscovered()
     {
-        if (FindObjectOfType<PotionRepository>() && unlockedData.potionsDiscovered.Count > 0)
+        if (FindObjectOfType<PotionRepository>() && unlockedData.potionsDiscovered.Count > 1)
         {
             if (unlockedData.potionsDiscovered != null)
             {
