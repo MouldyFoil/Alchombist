@@ -20109,6 +20109,7 @@ MonoBehaviour:
   ignoreTags:
   - Player
   - Enemy
+  - EnemyPhysical
   - Pickup
   - PlayerAttack
   - Checkpoint

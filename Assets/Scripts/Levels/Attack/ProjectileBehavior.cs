@@ -118,6 +118,18 @@ public class ProjectileBehavior : MonoBehaviour
     {
         damage += extraDamage;
     }
+    public void AddTime(float amount)
+    {
+        duration += amount;
+    }
+    public void AddSpeed(float increase)
+    {
+        speed += increase;
+    }
+    public void AddAcceleration(float increase)
+    {
+        acceleration += increase;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         ParryScript parryScript = null;
