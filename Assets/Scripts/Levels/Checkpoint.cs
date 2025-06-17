@@ -18,6 +18,13 @@ public class Checkpoint : MonoBehaviour
         checkpointManager = FindObjectOfType<CheckpointManager>();
         saveData = FindObjectOfType<SaveDataInterface>();
     }
+    private void Update()
+    {
+        if(checkpointManager == null)
+        {
+            checkpointManager = FindObjectOfType<CheckpointManager>();
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         checkpointManager.FinalizeTempVars();

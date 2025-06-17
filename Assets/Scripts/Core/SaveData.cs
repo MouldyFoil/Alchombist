@@ -102,16 +102,19 @@ public class SaveData : MonoBehaviour
     }
     public void SetPotionsDiscovered()
     {
-        if (FindObjectOfType<PotionRepository>() && unlockedData.potionsDiscovered.Count > 1)
+        if (FindObjectOfType<PotionRepository>())
         {
-            if (unlockedData.potionsDiscovered != null)
+            if (unlockedData.potionsDiscovered.Count > 1)
             {
-                FindObjectOfType<PotionRepository>().SetDiscoveredStatuses(unlockedData.potionsDiscovered);
-            }
-            else
-            {
-                unlockedData.potionsDiscovered = new List<bool>();
-                PopulatePotionsDiscovered();
+                if (unlockedData.potionsDiscovered != null)
+                {
+                    FindObjectOfType<PotionRepository>().SetDiscoveredStatuses(unlockedData.potionsDiscovered);
+                }
+                else
+                {
+                    unlockedData.potionsDiscovered = new List<bool>();
+                    PopulatePotionsDiscovered();
+                }
             }
         }
     }
