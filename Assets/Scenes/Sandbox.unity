@@ -2354,6 +2354,10 @@ PrefabInstance:
       propertyPath: stunTimeAfterAttacking
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5067216800787795659, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
+      propertyPath: projectiles.Array.data[0]
+      value: 
+      objectReference: {fileID: 4764875515254797268, guid: 45e590b4fb3069e47845c93eed7f0c44, type: 3}
     - target: {fileID: 5128873861517098412, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
       propertyPath: m_Color.b
       value: 0.90588236
@@ -6743,6 +6747,10 @@ PrefabInstance:
       propertyPath: stunTimeAfterAttacking
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5067216800787795659, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
+      propertyPath: projectiles.Array.data[0]
+      value: 
+      objectReference: {fileID: 4764875515254797268, guid: 6a341f21d573a5b41b7248d7adc31d98, type: 3}
     - target: {fileID: 5128873861517098412, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -96377,6 +96385,10 @@ PrefabInstance:
       propertyPath: stunTimeAfterAttacking
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5067216800787795659, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
+      propertyPath: projectiles.Array.data[0]
+      value: 
+      objectReference: {fileID: 4764875515254797268, guid: 6a341f21d573a5b41b7248d7adc31d98, type: 3}
     - target: {fileID: 5128873861517098412, guid: eff33d12487b6674f96030882fcb1d19, type: 3}
       propertyPath: m_Color.b
       value: 0
