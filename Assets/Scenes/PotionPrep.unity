@@ -4518,7 +4518,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   dialogueObjects:
-  - startDelay: 3
+  - startDelay: 2
     startEvent:
       m_PersistentCalls:
         m_Calls:
